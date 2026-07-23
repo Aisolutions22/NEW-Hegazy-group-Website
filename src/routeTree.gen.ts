@@ -27,6 +27,13 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
+import { Route as ProductsWireRodsRouteImport } from './routes/products.wire-rods'
+import { Route as ProductsSheetsCoilsRouteImport } from './routes/products.sheets-coils'
+import { Route as ProductsProfilesBarsRouteImport } from './routes/products.profiles-bars'
+import { Route as ProductsPipesRouteImport } from './routes/products.pipes'
+import { Route as ProductsIngotsRouteImport } from './routes/products.ingots'
+import { Route as ProductsDiscsRouteImport } from './routes/products.discs'
+import { Route as ProductsBilletsRouteImport } from './routes/products.billets'
 import { Route as IndustriesSectorRouteImport } from './routes/industries.$sector'
 
 const TermsRoute = TermsRouteImport.update({
@@ -119,6 +126,41 @@ const ResourcesGuidesRoute = ResourcesGuidesRouteImport.update({
   path: '/guides',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ProductsWireRodsRoute = ProductsWireRodsRouteImport.update({
+  id: '/wire-rods',
+  path: '/wire-rods',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsSheetsCoilsRoute = ProductsSheetsCoilsRouteImport.update({
+  id: '/sheets-coils',
+  path: '/sheets-coils',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsProfilesBarsRoute = ProductsProfilesBarsRouteImport.update({
+  id: '/profiles-bars',
+  path: '/profiles-bars',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsPipesRoute = ProductsPipesRouteImport.update({
+  id: '/pipes',
+  path: '/pipes',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsIngotsRoute = ProductsIngotsRouteImport.update({
+  id: '/ingots',
+  path: '/ingots',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsDiscsRoute = ProductsDiscsRouteImport.update({
+  id: '/discs',
+  path: '/discs',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsBilletsRoute = ProductsBilletsRouteImport.update({
+  id: '/billets',
+  path: '/billets',
+  getParentRoute: () => ProductsRoute,
+} as any)
 const IndustriesSectorRoute = IndustriesSectorRouteImport.update({
   id: '/$sector',
   path: '/$sector',
@@ -136,13 +178,20 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
+  '/products/billets': typeof ProductsBilletsRoute
+  '/products/discs': typeof ProductsDiscsRoute
+  '/products/ingots': typeof ProductsIngotsRoute
+  '/products/pipes': typeof ProductsPipesRoute
+  '/products/profiles-bars': typeof ProductsProfilesBarsRoute
+  '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
+  '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
 }
@@ -157,13 +206,20 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
+  '/products/billets': typeof ProductsBilletsRoute
+  '/products/discs': typeof ProductsDiscsRoute
+  '/products/ingots': typeof ProductsIngotsRoute
+  '/products/pipes': typeof ProductsPipesRoute
+  '/products/profiles-bars': typeof ProductsProfilesBarsRoute
+  '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
+  '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
 }
@@ -179,13 +235,20 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
+  '/products/billets': typeof ProductsBilletsRoute
+  '/products/discs': typeof ProductsDiscsRoute
+  '/products/ingots': typeof ProductsIngotsRoute
+  '/products/pipes': typeof ProductsPipesRoute
+  '/products/profiles-bars': typeof ProductsProfilesBarsRoute
+  '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
+  '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
 }
@@ -209,6 +272,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
+    | '/products/billets'
+    | '/products/discs'
+    | '/products/ingots'
+    | '/products/pipes'
+    | '/products/profiles-bars'
+    | '/products/sheets-coils'
+    | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
   fileRoutesByTo: FileRoutesByTo
@@ -230,6 +300,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
+    | '/products/billets'
+    | '/products/discs'
+    | '/products/ingots'
+    | '/products/pipes'
+    | '/products/profiles-bars'
+    | '/products/sheets-coils'
+    | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
   id:
@@ -251,6 +328,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
+    | '/products/billets'
+    | '/products/discs'
+    | '/products/ingots'
+    | '/products/pipes'
+    | '/products/profiles-bars'
+    | '/products/sheets-coils'
+    | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
   fileRoutesById: FileRoutesById
@@ -266,7 +350,7 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRouteWithChildren
   LocationsRoute: typeof LocationsRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProductsRoute: typeof ProductsRoute
+  ProductsRoute: typeof ProductsRouteWithChildren
   ProjectsRoute: typeof ProjectsRoute
   QuoteRoute: typeof QuoteRoute
   ResourcesRoute: typeof ResourcesRouteWithChildren
@@ -402,6 +486,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesGuidesRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/products/wire-rods': {
+      id: '/products/wire-rods'
+      path: '/wire-rods'
+      fullPath: '/products/wire-rods'
+      preLoaderRoute: typeof ProductsWireRodsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/sheets-coils': {
+      id: '/products/sheets-coils'
+      path: '/sheets-coils'
+      fullPath: '/products/sheets-coils'
+      preLoaderRoute: typeof ProductsSheetsCoilsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/profiles-bars': {
+      id: '/products/profiles-bars'
+      path: '/profiles-bars'
+      fullPath: '/products/profiles-bars'
+      preLoaderRoute: typeof ProductsProfilesBarsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/pipes': {
+      id: '/products/pipes'
+      path: '/pipes'
+      fullPath: '/products/pipes'
+      preLoaderRoute: typeof ProductsPipesRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/ingots': {
+      id: '/products/ingots'
+      path: '/ingots'
+      fullPath: '/products/ingots'
+      preLoaderRoute: typeof ProductsIngotsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/discs': {
+      id: '/products/discs'
+      path: '/discs'
+      fullPath: '/products/discs'
+      preLoaderRoute: typeof ProductsDiscsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/billets': {
+      id: '/products/billets'
+      path: '/billets'
+      fullPath: '/products/billets'
+      preLoaderRoute: typeof ProductsBilletsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/industries/$sector': {
       id: '/industries/$sector'
       path: '/$sector'
@@ -422,6 +555,30 @@ const IndustriesRouteChildren: IndustriesRouteChildren = {
 
 const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
   IndustriesRouteChildren,
+)
+
+interface ProductsRouteChildren {
+  ProductsBilletsRoute: typeof ProductsBilletsRoute
+  ProductsDiscsRoute: typeof ProductsDiscsRoute
+  ProductsIngotsRoute: typeof ProductsIngotsRoute
+  ProductsPipesRoute: typeof ProductsPipesRoute
+  ProductsProfilesBarsRoute: typeof ProductsProfilesBarsRoute
+  ProductsSheetsCoilsRoute: typeof ProductsSheetsCoilsRoute
+  ProductsWireRodsRoute: typeof ProductsWireRodsRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsBilletsRoute: ProductsBilletsRoute,
+  ProductsDiscsRoute: ProductsDiscsRoute,
+  ProductsIngotsRoute: ProductsIngotsRoute,
+  ProductsPipesRoute: ProductsPipesRoute,
+  ProductsProfilesBarsRoute: ProductsProfilesBarsRoute,
+  ProductsSheetsCoilsRoute: ProductsSheetsCoilsRoute,
+  ProductsWireRodsRoute: ProductsWireRodsRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
 )
 
 interface ResourcesRouteChildren {
@@ -449,7 +606,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRouteWithChildren,
   LocationsRoute: LocationsRoute,
   PrivacyRoute: PrivacyRoute,
-  ProductsRoute: ProductsRoute,
+  ProductsRoute: ProductsRouteWithChildren,
   ProjectsRoute: ProjectsRoute,
   QuoteRoute: QuoteRoute,
   ResourcesRoute: ResourcesRouteWithChildren,
