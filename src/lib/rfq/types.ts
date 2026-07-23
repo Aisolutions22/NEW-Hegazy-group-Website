@@ -1,8 +1,8 @@
 /**
- * Client-side RFQ form types + option constants. Kept separate from
- * submit.functions.ts so route/component code can import them without
- * pulling any server-only symbols into the client bundle.
+ * Client-side RFQ form types + option constants.
  */
+import type { Strings } from "@/lib/i18n/strings.en";
+
 export type Unit = "kg" | "tonnes" | "meters" | "pieces";
 export type Timeline = "urgent" | "month" | "quarter" | "planning";
 
@@ -51,14 +51,20 @@ export const INITIAL_RFQ: RfqData = {
 };
 
 /** Product-category options for step 1. `labelKey` maps into `t.products`. */
-export const CATEGORY_KEYS = [
-  { value: "profiles", labelKey: "profiles" as const },
-  { value: "sheets-plates", labelKey: "sheets" as const },
-  { value: "coils-foils", labelKey: "coils" as const },
-  { value: "bars-rods", labelKey: "bars" as const },
+export const CATEGORY_KEYS: Array<{
+  value: string;
+  labelKey: keyof Strings["products"];
+}> = [
+  { value: "pipes", labelKey: "pipes" },
+  { value: "sheets-coils", labelKey: "sheetsCoils" },
+  { value: "discs", labelKey: "discs" },
+  { value: "ingots", labelKey: "ingots" },
+  { value: "billets", labelKey: "billets" },
+  { value: "profiles-bars", labelKey: "profilesBars" },
+  { value: "wire-rods", labelKey: "wireRods" },
 ];
 
-export const FORM_OPTIONS = ["Profile", "Sheet", "Plate", "Coil", "Foil", "Bar", "Rod"];
+export const FORM_OPTIONS = ["Profile", "Sheet", "Plate", "Coil", "Foil", "Bar", "Rod", "Pipe", "Disc", "Ingot", "Billet", "Wire Rod"];
 export const UNIT_OPTIONS: Unit[] = ["kg", "tonnes", "meters", "pieces"];
 export const TIMELINE_OPTIONS: Timeline[] = ["urgent", "month", "quarter", "planning"];
 

@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { PRODUCTS } from "@/lib/catalog/products";
+import { PRODUCT_CATEGORIES, INDUSTRIES } from "@/lib/catalog/categories";
 
 const BASE_URL = "https://hegazy-group.lovable.app";
-const SECTORS = ["construction", "manufacturing", "marine", "automotive"] as const;
-const CATEGORIES = ["profiles", "sheets-plates", "bars-rods", "coils-foils"] as const;
 
 interface SitemapEntry {
   path: string;
@@ -34,18 +32,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/privacy", changefreq: "yearly", priority: "0.2" },
           { path: "/terms", changefreq: "yearly", priority: "0.2" },
           { path: "/cookies", changefreq: "yearly", priority: "0.2" },
-          ...CATEGORIES.map((c) => ({
-            path: `/products/${c}`,
+          ...PRODUCT_CATEGORIES.map((c) => ({
+            path: `/products/${c.slug}`,
             changefreq: "weekly" as const,
             priority: "0.7",
           })),
-          ...PRODUCTS.map((p) => ({
-            path: `/products/${p.category}/${p.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.6",
-          })),
-          ...SECTORS.map((s) => ({
-            path: `/industries/${s}`,
+          ...INDUSTRIES.map((s) => ({
+            path: `/industries/${s.slug}`,
             changefreq: "monthly" as const,
             priority: "0.6",
           })),

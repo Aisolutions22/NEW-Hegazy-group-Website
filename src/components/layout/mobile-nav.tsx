@@ -53,26 +53,21 @@ export function MobileNav() {
                 </AccordionTrigger>
                 <AccordionContent className="px-4 pb-4">
                   <ul className="space-y-3 text-meta">
-                    <li>
-                      <a href="/products/profiles" className="text-steel-600 hover:text-graphite-900">
-                        {t.products.profiles}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/products/sheets-plates" className="text-steel-600 hover:text-graphite-900">
-                        {t.products.sheets}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/products/coils-foils" className="text-steel-600 hover:text-graphite-900">
-                        {t.products.coils}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/products/bars-rods" className="text-steel-600 hover:text-graphite-900">
-                        {t.products.bars}
-                      </a>
-                    </li>
+                    {[
+                      { slug: "pipes", labelKey: "pipes" as const },
+                      { slug: "sheets-coils", labelKey: "sheetsCoils" as const },
+                      { slug: "discs", labelKey: "discs" as const },
+                      { slug: "ingots", labelKey: "ingots" as const },
+                      { slug: "billets", labelKey: "billets" as const },
+                      { slug: "profiles-bars", labelKey: "profilesBars" as const },
+                      { slug: "wire-rods", labelKey: "wireRods" as const },
+                    ].map((c) => (
+                      <li key={c.slug}>
+                        <a href={`/products/${c.slug}`} className="text-steel-600 hover:text-graphite-900">
+                          {t.products[c.labelKey]}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </AccordionContent>
               </AccordionItem>

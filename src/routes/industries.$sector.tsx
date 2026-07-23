@@ -6,38 +6,21 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { FinalCta } from "@/components/home/final-cta";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
 import { useLanguage } from "@/lib/i18n/language-context";
-import {
-  ConstructionMark,
-  ManufacturingMark,
-  MarineMark,
-  AutomotiveMark,
-} from "@/components/icons/industry-icons";
+import { INDUSTRIES, slugToIndustryKey, type IndustryKey } from "@/lib/catalog/categories";
 import { ArrowLeft } from "lucide-react";
-import type { ComponentType, SVGProps } from "react";
-
-const SECTORS = ["construction", "manufacturing", "marine", "automotive"] as const;
-type Sector = (typeof SECTORS)[number];
-
-const ICONS: Record<Sector, ComponentType<SVGProps<SVGSVGElement>>> = {
-  construction: ConstructionMark,
-  manufacturing: ManufacturingMark,
-  marine: MarineMark,
-  automotive: AutomotiveMark,
-};
 
 export const Route = createFileRoute("/industries/$sector")({
   loader: ({ params }) => {
-    if (!(SECTORS as readonly string[]).includes(params.sector)) {
-      throw notFound();
-    }
-    return { sector: params.sector as Sector };
+    const key = slugToIndustryKey(params.sector);
+    if (!key) throw notFound();
+    return { key, slug: params.sector };
   },
   head: ({ params }) => ({
     meta: [
       { title: `${cap(params.sector)} — Industries | Hegazy Group` },
       {
         name: "description",
-        content: `Aluminum supply for the ${params.sector} sector — alloys, forms, and applications.`,
+        content: `Aluminum supply for the ${params.sector.replace(/-/g, " ")} sector — alloys, forms, and applications.`,
       },
     ],
   }),
@@ -47,17 +30,15 @@ export const Route = createFileRoute("/industries/$sector")({
 });
 
 function cap(s: string) {
-  return s.charAt(0).toUpperCase() + s.slice(1);
+  return s.split("-").map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
 }
 
 function SectorPage() {
-  const { sector } = Route.useLoaderData() as { sector: Sector };
+  const { key } = Route.useLoaderData() as { key: IndustryKey; slug: string };
   const { t } = useLanguage();
-  const Icon = ICONS[sector];
-  const data = t.industriesPage[sector];
-  const title = t.industries[sector];
-  const descKey = `${sector}Desc` as const;
-  const desc = t.industries[descKey];
+  const data = t.industriesPage[key];
+  const title = t.industries[key];
+  const desc = t.industries[`${key}Desc` as keyof typeof t.industries];
 
   return (
     <>
@@ -83,9 +64,6 @@ function SectorPage() {
                 <ArrowLeft className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
                 {t.sectorPage.back}
               </Link>
-              <div className="mt-8 flex items-start justify-between text-white">
-                <Icon className="h-12 w-12" />
-              </div>
               <h1 className="mt-6 text-5xl leading-tight text-white">{title}</h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
                 {desc}
@@ -101,7 +79,7 @@ function SectorPage() {
                 {t.industriesPage.applications}
               </div>
               <ul className="divide-y divide-steel-200 border-t border-graphite-900">
-                {data.applications.map((a) => (
+                {data.applications.map((a: string) => (
                   <li key={a} className="py-4 text-meta text-graphite-900">
                     {a}
                   </li>
@@ -114,7 +92,7 @@ function SectorPage() {
                 {t.industriesPage.commonForms}
               </div>
               <ul className="space-y-2 border-t border-graphite-900 pt-4">
-                {data.forms.map((f) => (
+                {data.forms.map((f: string) => (
                   <li key={f} className="text-meta text-graphite-900">
                     {f}
                   </li>
@@ -127,7 +105,7 @@ function SectorPage() {
                 {t.industriesPage.commonAlloys}
               </div>
               <ul className="flex flex-wrap gap-2 border-t border-graphite-900 pt-4">
-                {data.alloys.map((a) => (
+                {data.alloys.map((a: string) => (
                   <li
                     key={a}
                     className="rounded-md border border-steel-200 bg-white px-2 py-1 font-mono text-micro text-graphite-900"
@@ -170,3 +148,18 @@ function SectorNotFound() {
     </>
   );
 }
+
+// Ensure all industries have data present (compile-time exhaustiveness check)
+const _exhaustive: Record<IndustryKey, true> = {
+  metalManufacturing: true,
+  hvacHeatTransfer: true,
+  construction: true,
+  electricalComponents: true,
+  heavyIndustry: true,
+  automotive: true,
+  foodIndustry: true,
+  embossedSheetsInsulation: true,
+  cookwareDiscBuyers: true,
+};
+void _exhaustive;
+void INDUSTRIES;

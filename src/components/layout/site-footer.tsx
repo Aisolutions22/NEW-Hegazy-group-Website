@@ -10,19 +10,19 @@ export function SiteFooter() {
     {
       heading: t.footer.columns.products,
       links: [
-        { label: t.products.profiles, href: "/products/profiles" },
-        { label: t.products.sheets, href: "/products/sheets-plates" },
-        { label: t.products.coils, href: "/products/coils-foils" },
-        { label: t.products.bars, href: "/products/bars-rods" },
+        { label: t.products.pipes, href: "/products/pipes" },
+        { label: t.products.sheetsCoils, href: "/products/sheets-coils" },
+        { label: t.products.profilesBars, href: "/products/profiles-bars" },
+        { label: t.products.billets, href: "/products/billets" },
       ],
     },
     {
       heading: t.footer.columns.industries,
       links: [
+        { label: t.industries.metalManufacturing, href: "/industries/metal-manufacturing" },
         { label: t.industries.construction, href: "/industries/construction" },
-        { label: t.industries.manufacturing, href: "/industries/manufacturing" },
-        { label: t.industries.marine, href: "/industries/marine" },
         { label: t.industries.automotive, href: "/industries/automotive" },
+        { label: t.industries.heavyIndustry, href: "/industries/heavy-industry" },
       ],
     },
     {

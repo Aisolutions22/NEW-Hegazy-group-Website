@@ -27,9 +27,14 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
+import { Route as ProductsWireRodsRouteImport } from './routes/products.wire-rods'
+import { Route as ProductsSheetsCoilsRouteImport } from './routes/products.sheets-coils'
+import { Route as ProductsProfilesBarsRouteImport } from './routes/products.profiles-bars'
+import { Route as ProductsPipesRouteImport } from './routes/products.pipes'
+import { Route as ProductsIngotsRouteImport } from './routes/products.ingots'
+import { Route as ProductsDiscsRouteImport } from './routes/products.discs'
+import { Route as ProductsBilletsRouteImport } from './routes/products.billets'
 import { Route as IndustriesSectorRouteImport } from './routes/industries.$sector'
-import { Route as ProductsCategoryIndexRouteImport } from './routes/products.$category.index'
-import { Route as ProductsCategoryProductRouteImport } from './routes/products.$category.$product'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -121,20 +126,45 @@ const ResourcesGuidesRoute = ResourcesGuidesRouteImport.update({
   path: '/guides',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ProductsWireRodsRoute = ProductsWireRodsRouteImport.update({
+  id: '/wire-rods',
+  path: '/wire-rods',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsSheetsCoilsRoute = ProductsSheetsCoilsRouteImport.update({
+  id: '/sheets-coils',
+  path: '/sheets-coils',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsProfilesBarsRoute = ProductsProfilesBarsRouteImport.update({
+  id: '/profiles-bars',
+  path: '/profiles-bars',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsPipesRoute = ProductsPipesRouteImport.update({
+  id: '/pipes',
+  path: '/pipes',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsIngotsRoute = ProductsIngotsRouteImport.update({
+  id: '/ingots',
+  path: '/ingots',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsDiscsRoute = ProductsDiscsRouteImport.update({
+  id: '/discs',
+  path: '/discs',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsBilletsRoute = ProductsBilletsRouteImport.update({
+  id: '/billets',
+  path: '/billets',
+  getParentRoute: () => ProductsRoute,
+} as any)
 const IndustriesSectorRoute = IndustriesSectorRouteImport.update({
   id: '/$sector',
   path: '/$sector',
   getParentRoute: () => IndustriesRoute,
-} as any)
-const ProductsCategoryIndexRoute = ProductsCategoryIndexRouteImport.update({
-  id: '/$category/',
-  path: '/$category/',
-  getParentRoute: () => ProductsRoute,
-} as any)
-const ProductsCategoryProductRoute = ProductsCategoryProductRouteImport.update({
-  id: '/$category/$product',
-  path: '/$category/$product',
-  getParentRoute: () => ProductsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -155,10 +185,15 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
+  '/products/billets': typeof ProductsBilletsRoute
+  '/products/discs': typeof ProductsDiscsRoute
+  '/products/ingots': typeof ProductsIngotsRoute
+  '/products/pipes': typeof ProductsPipesRoute
+  '/products/profiles-bars': typeof ProductsProfilesBarsRoute
+  '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
+  '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
-  '/products/$category/$product': typeof ProductsCategoryProductRoute
-  '/products/$category/': typeof ProductsCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -178,10 +213,15 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
+  '/products/billets': typeof ProductsBilletsRoute
+  '/products/discs': typeof ProductsDiscsRoute
+  '/products/ingots': typeof ProductsIngotsRoute
+  '/products/pipes': typeof ProductsPipesRoute
+  '/products/profiles-bars': typeof ProductsProfilesBarsRoute
+  '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
+  '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
-  '/products/$category/$product': typeof ProductsCategoryProductRoute
-  '/products/$category': typeof ProductsCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -202,10 +242,15 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
+  '/products/billets': typeof ProductsBilletsRoute
+  '/products/discs': typeof ProductsDiscsRoute
+  '/products/ingots': typeof ProductsIngotsRoute
+  '/products/pipes': typeof ProductsPipesRoute
+  '/products/profiles-bars': typeof ProductsProfilesBarsRoute
+  '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
+  '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
-  '/products/$category/$product': typeof ProductsCategoryProductRoute
-  '/products/$category/': typeof ProductsCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -227,10 +272,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
+    | '/products/billets'
+    | '/products/discs'
+    | '/products/ingots'
+    | '/products/pipes'
+    | '/products/profiles-bars'
+    | '/products/sheets-coils'
+    | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
-    | '/products/$category/$product'
-    | '/products/$category/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -250,10 +300,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
+    | '/products/billets'
+    | '/products/discs'
+    | '/products/ingots'
+    | '/products/pipes'
+    | '/products/profiles-bars'
+    | '/products/sheets-coils'
+    | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
-    | '/products/$category/$product'
-    | '/products/$category'
   id:
     | '__root__'
     | '/'
@@ -273,10 +328,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
+    | '/products/billets'
+    | '/products/discs'
+    | '/products/ingots'
+    | '/products/pipes'
+    | '/products/profiles-bars'
+    | '/products/sheets-coils'
+    | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
-    | '/products/$category/$product'
-    | '/products/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -426,26 +486,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesGuidesRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/products/wire-rods': {
+      id: '/products/wire-rods'
+      path: '/wire-rods'
+      fullPath: '/products/wire-rods'
+      preLoaderRoute: typeof ProductsWireRodsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/sheets-coils': {
+      id: '/products/sheets-coils'
+      path: '/sheets-coils'
+      fullPath: '/products/sheets-coils'
+      preLoaderRoute: typeof ProductsSheetsCoilsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/profiles-bars': {
+      id: '/products/profiles-bars'
+      path: '/profiles-bars'
+      fullPath: '/products/profiles-bars'
+      preLoaderRoute: typeof ProductsProfilesBarsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/pipes': {
+      id: '/products/pipes'
+      path: '/pipes'
+      fullPath: '/products/pipes'
+      preLoaderRoute: typeof ProductsPipesRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/ingots': {
+      id: '/products/ingots'
+      path: '/ingots'
+      fullPath: '/products/ingots'
+      preLoaderRoute: typeof ProductsIngotsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/discs': {
+      id: '/products/discs'
+      path: '/discs'
+      fullPath: '/products/discs'
+      preLoaderRoute: typeof ProductsDiscsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/billets': {
+      id: '/products/billets'
+      path: '/billets'
+      fullPath: '/products/billets'
+      preLoaderRoute: typeof ProductsBilletsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/industries/$sector': {
       id: '/industries/$sector'
       path: '/$sector'
       fullPath: '/industries/$sector'
       preLoaderRoute: typeof IndustriesSectorRouteImport
       parentRoute: typeof IndustriesRoute
-    }
-    '/products/$category/': {
-      id: '/products/$category/'
-      path: '/$category'
-      fullPath: '/products/$category/'
-      preLoaderRoute: typeof ProductsCategoryIndexRouteImport
-      parentRoute: typeof ProductsRoute
-    }
-    '/products/$category/$product': {
-      id: '/products/$category/$product'
-      path: '/$category/$product'
-      fullPath: '/products/$category/$product'
-      preLoaderRoute: typeof ProductsCategoryProductRouteImport
-      parentRoute: typeof ProductsRoute
     }
   }
 }
@@ -463,13 +558,23 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 )
 
 interface ProductsRouteChildren {
-  ProductsCategoryProductRoute: typeof ProductsCategoryProductRoute
-  ProductsCategoryIndexRoute: typeof ProductsCategoryIndexRoute
+  ProductsBilletsRoute: typeof ProductsBilletsRoute
+  ProductsDiscsRoute: typeof ProductsDiscsRoute
+  ProductsIngotsRoute: typeof ProductsIngotsRoute
+  ProductsPipesRoute: typeof ProductsPipesRoute
+  ProductsProfilesBarsRoute: typeof ProductsProfilesBarsRoute
+  ProductsSheetsCoilsRoute: typeof ProductsSheetsCoilsRoute
+  ProductsWireRodsRoute: typeof ProductsWireRodsRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
-  ProductsCategoryProductRoute: ProductsCategoryProductRoute,
-  ProductsCategoryIndexRoute: ProductsCategoryIndexRoute,
+  ProductsBilletsRoute: ProductsBilletsRoute,
+  ProductsDiscsRoute: ProductsDiscsRoute,
+  ProductsIngotsRoute: ProductsIngotsRoute,
+  ProductsPipesRoute: ProductsPipesRoute,
+  ProductsProfilesBarsRoute: ProductsProfilesBarsRoute,
+  ProductsSheetsCoilsRoute: ProductsSheetsCoilsRoute,
+  ProductsWireRodsRoute: ProductsWireRodsRoute,
 }
 
 const ProductsRouteWithChildren = ProductsRoute._addFileChildren(

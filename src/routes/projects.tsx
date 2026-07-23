@@ -10,7 +10,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
 import { cn } from "@/lib/utils";
 
-type Sector = "construction" | "manufacturing" | "marine" | "automotive";
+type Sector = "construction" | "metalManufacturing" | "heavyIndustry" | "automotive";
 
 type Project = {
   id: string;
@@ -18,16 +18,10 @@ type Project = {
   sector: Sector;
 };
 
-/**
- * Four sample-structure cards — one per sector so the filter chips still
- * demonstrate the layout. Real project entries (name, photo, year, location,
- * scope) will replace these once the client releases them. Kept intentionally
- * small so the page reads "here's the format" instead of "wall of empty boxes."
- */
 const SAMPLE_PROJECTS: Project[] = [
   { id: "sample-01", code: "PRJ-CONSTRUCTION", sector: "construction" },
-  { id: "sample-02", code: "PRJ-MANUFACTURING", sector: "manufacturing" },
-  { id: "sample-03", code: "PRJ-MARINE", sector: "marine" },
+  { id: "sample-02", code: "PRJ-METAL-MFG", sector: "metalManufacturing" },
+  { id: "sample-03", code: "PRJ-HEAVY", sector: "heavyIndustry" },
   { id: "sample-04", code: "PRJ-AUTOMOTIVE", sector: "automotive" },
 ];
 
@@ -57,8 +51,8 @@ function ProjectsPage() {
 
   const sectors: Array<{ key: Sector; label: string }> = [
     { key: "construction", label: t.industries.construction },
-    { key: "manufacturing", label: t.industries.manufacturing },
-    { key: "marine", label: t.industries.marine },
+    { key: "metalManufacturing", label: t.industries.metalManufacturing },
+    { key: "heavyIndustry", label: t.industries.heavyIndustry },
     { key: "automotive", label: t.industries.automotive },
   ];
 
