@@ -58,7 +58,7 @@ export const en = {
     eyebrow: "Aluminum Supply & Distribution",
     title: "Reliable aluminum supply for demanding industries.",
     subtitle:
-      "Hegazy Group is a specialist distributor of aluminum profiles, sheets, coils, and bars — sourced from qualified mills and delivered on schedule across the region.",
+      "Hegazy Group is a specialist distributor of aluminum profiles, sheets, coils, and bars — sourced from qualified mills and delivered on schedule across the region",
   },
   trust: {
     heading: "Trusted supply partner",
