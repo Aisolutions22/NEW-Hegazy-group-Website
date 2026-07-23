@@ -8,22 +8,11 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { PRODUCT_CATEGORIES, INDUSTRIES } from "@/lib/catalog/categories";
 import { ArrowRight, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Variant = "solid" | "transparent";
-
-/**
- * Mega menu.
- * Behavior comes from Radix NavigationMenu (shadcn wrapper):
- *  - Trigger buttons expose aria-expanded and control the panel (disclosure, not role=menu).
- *  - Escape closes the open panel and returns focus to its trigger.
- *  - Click outside closes; only one panel open at a time.
- *  - Desktop pointer devices get hover-open as a progressive enhancement;
- *    click/keyboard remain the primary path.
- *  - Panels use a solid opaque surface so the transparent header state
- *    never lets page content bleed through when a menu is open.
- */
 
 function MenuLink({
   title,
@@ -41,9 +30,13 @@ function MenuLink({
           href={href}
           className="block rounded-md p-3 transition-colors hover:bg-steel-100 focus-visible:bg-steel-100"
         >
-          <div className="text-meta font-semibold text-graphite-900">{title}</div>
+          <div className="text-meta font-semibold text-graphite-900">
+            {title}
+          </div>
           {desc ? (
-            <p className="mt-1 text-legal leading-snug text-steel-600">{desc}</p>
+            <p className="mt-1 text-legal leading-snug text-steel-600">
+              {desc}
+            </p>
           ) : null}
         </a>
       </NavigationMenuLink>
@@ -62,8 +55,6 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
   const { t } = useLanguage();
 
-  // Trigger styling adapts to header background; panel content is always
-  // rendered on a solid surface regardless of variant.
   const triggerBase =
     "bg-transparent text-meta font-medium data-[state=open]:bg-transparent";
   const triggerColors =
@@ -76,6 +67,15 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
       ? "text-white/90 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white"
       : "text-graphite-900 hover:bg-steel-100 focus:bg-steel-100";
 
+  // Split products into 2 columns of ~4 each for balanced layout
+  const productsCol1 = PRODUCT_CATEGORIES.slice(0, 4);
+  const productsCol2 = PRODUCT_CATEGORIES.slice(4);
+
+  // Split industries into 3 columns of 3 for the industries panel
+  const industryCol1 = INDUSTRIES.slice(0, 3);
+  const industryCol2 = INDUSTRIES.slice(3, 6);
+  const industryCol3 = INDUSTRIES.slice(6, 9);
+
   return (
     <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList className="gap-1">
@@ -85,43 +85,32 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
             {t.nav.products}
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[780px] grid-cols-4 gap-6 bg-white p-6">
-              <div>
-                <ColumnHeading>{t.products.profiles}</ColumnHeading>
+            <div className="grid w-[820px] grid-cols-4 gap-6 bg-white p-6">
+              <div className="col-span-1">
+                <ColumnHeading>{t.nav.products}</ColumnHeading>
                 <ul className="space-y-1">
-                  <MenuLink
-                    title={t.products.profiles}
-                    desc={t.products.profilesDesc}
-                    href="/products/profiles"
-                  />
+                  {productsCol1.map((c) => (
+                    <MenuLink
+                      key={c.slug}
+                      title={t.products[c.titleKey]}
+                      href={`/products/${c.slug}`}
+                    />
+                  ))}
                 </ul>
               </div>
-              <div>
-                <ColumnHeading>{t.products.flat}</ColumnHeading>
+              <div className="col-span-1">
+                <ColumnHeading>&nbsp;</ColumnHeading>
                 <ul className="space-y-1">
-                  <MenuLink
-                    title={t.products.sheets}
-                    desc={t.products.sheetsDesc}
-                    href="/products/sheets-plates"
-                  />
-                  <MenuLink
-                    title={t.products.coils}
-                    desc={t.products.coilsDesc}
-                    href="/products/coils-foils"
-                  />
+                  {productsCol2.map((c) => (
+                    <MenuLink
+                      key={c.slug}
+                      title={t.products[c.titleKey]}
+                      href={`/products/${c.slug}`}
+                    />
+                  ))}
                 </ul>
               </div>
-              <div>
-                <ColumnHeading>{t.products.long}</ColumnHeading>
-                <ul className="space-y-1">
-                  <MenuLink
-                    title={t.products.bars}
-                    desc={t.products.barsDesc}
-                    href="/products/bars-rods"
-                  />
-                </ul>
-              </div>
-              <div className="rounded-md bg-accent-100 p-4">
+              <div className="col-span-2 rounded-md bg-accent-100 p-4">
                 <div className="mb-2 font-mono text-micro uppercase tracking-widest text-accent-700">
                   {t.products.catalog}
                 </div>
@@ -152,36 +141,22 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
             {t.nav.industries}
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[640px] grid-cols-2 gap-2 bg-white p-6">
-              <ul className="space-y-1">
-                <MenuLink
-                  title={t.industries.construction}
-                  desc={t.industries.constructionDesc}
-                  href="/industries/construction"
-                />
-                <MenuLink
-                  title={t.industries.manufacturing}
-                  desc={t.industries.manufacturingDesc}
-                  href="/industries/manufacturing"
-                />
-              </ul>
-              <ul className="space-y-1">
-                <MenuLink
-                  title={t.industries.marine}
-                  desc={t.industries.marineDesc}
-                  href="/industries/marine"
-                />
-                <MenuLink
-                  title={t.industries.automotive}
-                  desc={t.industries.automotiveDesc}
-                  href="/industries/automotive"
-                />
-              </ul>
+            <div className="grid w-[720px] grid-cols-3 gap-4 bg-white p-6">
+              {[industryCol1, industryCol2, industryCol3].map((col, i) => (
+                <ul key={i} className="space-y-1">
+                  {col.map((ind) => (
+                    <MenuLink
+                      key={ind.slug}
+                      title={t.industries[ind.titleKey]}
+                      href={`/industries/${ind.slug}`}
+                    />
+                  ))}
+                </ul>
+              ))}
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Simple top-level links */}
         {(
           [
             { key: "projects", href: "/projects" },
@@ -195,7 +170,7 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
                 to={i.href as string}
                 className={cn(
                   "inline-flex h-9 items-center rounded-md px-3 text-meta font-medium transition-colors",
-                  linkColors
+                  linkColors,
                 )}
               >
                 {t.nav[i.key]}
