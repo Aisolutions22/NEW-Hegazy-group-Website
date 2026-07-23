@@ -28,8 +28,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
 import { Route as IndustriesSectorRouteImport } from './routes/industries.$sector'
-import { Route as ProductsCategoryIndexRouteImport } from './routes/products.$category.index'
-import { Route as ProductsCategoryProductRouteImport } from './routes/products.$category.$product'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -126,16 +124,6 @@ const IndustriesSectorRoute = IndustriesSectorRouteImport.update({
   path: '/$sector',
   getParentRoute: () => IndustriesRoute,
 } as any)
-const ProductsCategoryIndexRoute = ProductsCategoryIndexRouteImport.update({
-  id: '/$category/',
-  path: '/$category/',
-  getParentRoute: () => ProductsRoute,
-} as any)
-const ProductsCategoryProductRoute = ProductsCategoryProductRouteImport.update({
-  id: '/$category/$product',
-  path: '/$category/$product',
-  getParentRoute: () => ProductsRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -148,7 +136,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRouteWithChildren
+  '/products': typeof ProductsRoute
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
@@ -157,8 +145,6 @@ export interface FileRoutesByFullPath {
   '/industries/$sector': typeof IndustriesSectorRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
-  '/products/$category/$product': typeof ProductsCategoryProductRoute
-  '/products/$category/': typeof ProductsCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -171,7 +157,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRouteWithChildren
+  '/products': typeof ProductsRoute
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
@@ -180,8 +166,6 @@ export interface FileRoutesByTo {
   '/industries/$sector': typeof IndustriesSectorRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
-  '/products/$category/$product': typeof ProductsCategoryProductRoute
-  '/products/$category': typeof ProductsCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -195,7 +179,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRouteWithChildren
+  '/products': typeof ProductsRoute
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
@@ -204,8 +188,6 @@ export interface FileRoutesById {
   '/industries/$sector': typeof IndustriesSectorRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
-  '/products/$category/$product': typeof ProductsCategoryProductRoute
-  '/products/$category/': typeof ProductsCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -229,8 +211,6 @@ export interface FileRouteTypes {
     | '/industries/$sector'
     | '/resources/guides'
     | '/resources/specs'
-    | '/products/$category/$product'
-    | '/products/$category/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -252,8 +232,6 @@ export interface FileRouteTypes {
     | '/industries/$sector'
     | '/resources/guides'
     | '/resources/specs'
-    | '/products/$category/$product'
-    | '/products/$category'
   id:
     | '__root__'
     | '/'
@@ -275,8 +253,6 @@ export interface FileRouteTypes {
     | '/industries/$sector'
     | '/resources/guides'
     | '/resources/specs'
-    | '/products/$category/$product'
-    | '/products/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -290,7 +266,7 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRouteWithChildren
   LocationsRoute: typeof LocationsRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProductsRoute: typeof ProductsRouteWithChildren
+  ProductsRoute: typeof ProductsRoute
   ProjectsRoute: typeof ProjectsRoute
   QuoteRoute: typeof QuoteRoute
   ResourcesRoute: typeof ResourcesRouteWithChildren
@@ -433,20 +409,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesSectorRouteImport
       parentRoute: typeof IndustriesRoute
     }
-    '/products/$category/': {
-      id: '/products/$category/'
-      path: '/$category'
-      fullPath: '/products/$category/'
-      preLoaderRoute: typeof ProductsCategoryIndexRouteImport
-      parentRoute: typeof ProductsRoute
-    }
-    '/products/$category/$product': {
-      id: '/products/$category/$product'
-      path: '/$category/$product'
-      fullPath: '/products/$category/$product'
-      preLoaderRoute: typeof ProductsCategoryProductRouteImport
-      parentRoute: typeof ProductsRoute
-    }
   }
 }
 
@@ -460,20 +422,6 @@ const IndustriesRouteChildren: IndustriesRouteChildren = {
 
 const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
   IndustriesRouteChildren,
-)
-
-interface ProductsRouteChildren {
-  ProductsCategoryProductRoute: typeof ProductsCategoryProductRoute
-  ProductsCategoryIndexRoute: typeof ProductsCategoryIndexRoute
-}
-
-const ProductsRouteChildren: ProductsRouteChildren = {
-  ProductsCategoryProductRoute: ProductsCategoryProductRoute,
-  ProductsCategoryIndexRoute: ProductsCategoryIndexRoute,
-}
-
-const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
-  ProductsRouteChildren,
 )
 
 interface ResourcesRouteChildren {
@@ -501,7 +449,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRouteWithChildren,
   LocationsRoute: LocationsRoute,
   PrivacyRoute: PrivacyRoute,
-  ProductsRoute: ProductsRouteWithChildren,
+  ProductsRoute: ProductsRoute,
   ProjectsRoute: ProjectsRoute,
   QuoteRoute: QuoteRoute,
   ResourcesRoute: ResourcesRouteWithChildren,
