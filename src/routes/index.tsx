@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { HomeHero, heroLcpPreloadHref } from "@/components/home/hero";
+import { StatsBar } from "@/components/home/stats-bar";
 import { ProductCategoryGrid } from "@/components/home/product-grid";
 import { IndustriesGrid } from "@/components/home/industries-grid";
 import { WhyHegazy } from "@/components/home/why-hegazy";
+import { StandardsCompliance } from "@/components/home/standards";
 import { FinalCta } from "@/components/home/final-cta";
 // TrustStrip (stats + certifications) intentionally omitted from the homepage
 // until real numbers and certificate assets are supplied. Rendering the
@@ -50,9 +52,11 @@ function Index() {
       <SiteHeader variant="transparent" />
       <main id="main-content">
         <HomeHero />
+        <StatsBar />
         <ProductCategoryGrid />
         <IndustriesGrid />
         <WhyHegazy />
+        <StandardsCompliance />
         <FinalCta />
       </main>
       <SiteFooter />

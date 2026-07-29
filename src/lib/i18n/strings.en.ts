@@ -12,7 +12,7 @@ export const en = {
   langLabel: "Language",
   search: "Search",
   requestQuote: "Request a Quote",
-  exploreProducts: "Explore Products",
+  exploreProducts: "View Products",
   menu: "Menu",
   closeMenu: "Close menu",
   openMenu: "Open menu",
@@ -70,9 +70,9 @@ export const en = {
   },
   hero: {
     eyebrow: "Aluminum Supply & Distribution",
-    title: "Reliable aluminum supply for demanding industries.",
+    title: "Your Trusted Aluminum Partner",
     subtitle:
-      "Hegazy Group is a specialist distributor of aluminum profiles, sheets, coils, and bars — sourced from qualified mills and delivered on schedule across the region",
+      "Premium quality aluminum products sourced from qualified mills — reliable supply for industrial, commercial, and consumer applications across Egypt and the region.",
   },
   trust: {
     heading: "Trusted supply partner",
@@ -81,6 +81,15 @@ export const en = {
     stat3Label: "Industries served",
     placeholder: "[CLIENT-INPUT-REQUIRED]",
     cert: "Certification",
+  },
+  stats: {
+    heading: "By the numbers",
+    items: [
+      { value: "15+", label: "Years of Experience" },
+      { value: "200+", label: "Clients Served" },
+      { value: "8", label: "Product Lines" },
+      { value: "100%", label: "Quality Certified" },
+    ],
   },
   categories: {
     heading: "Product Categories",
@@ -98,20 +107,51 @@ export const en = {
       "A distributor built around reliability, technical service, and regional logistics.",
     items: [
       {
-        title: "Distribution scale",
-        body: "Consolidated purchasing from qualified mills, so specifications are met without compromise.",
+        title: "Certified Quality",
+        body: "Certified factory quality with full documentation and traceability, conforming to ASTM, EN, ISO, and Aluminum Association (AA) standards.",
       },
       {
-        title: "Inventory availability",
-        body: "Deep stock across common alloys, tempers, and formats — ready to move on short notice.",
+        title: "Competitive Pricing",
+        body: "Consolidated purchasing power passed on as competitive pricing for importers and local buyers alike.",
       },
       {
-        title: "Technical support",
+        title: "Reliable Supply Chain",
+        body: "Deep stock across common alloys, tempers, and formats, with consistent lead times you can plan production around.",
+      },
+      {
+        title: "Technical Support",
         body: "Application-level guidance on alloy selection, tolerances, finishes, and downstream fabrication.",
       },
       {
-        title: "Regional logistics",
+        title: "Regional Logistics",
         body: "Multi-hub fulfillment and export documentation aligned to project schedules.",
+      },
+    ],
+  },
+  standards: {
+    eyebrow: "Quality Assurance",
+    heading: "International Standards Compliance",
+    body: "All products conform to globally recognized standards, ensuring material consistency, traceability, and acceptance across international markets.",
+    items: [
+      {
+        acronym: "ASTM",
+        name: "American Society for Testing and Materials",
+        body: "Material specs, mechanical properties, temper designations",
+      },
+      {
+        acronym: "EN",
+        name: "European Norm (EN / EN AW)",
+        body: "Alloy designation, chemical composition, product tolerances",
+      },
+      {
+        acronym: "ISO",
+        name: "International Organization for Standardization",
+        body: "Quality management, dimensional standards",
+      },
+      {
+        acronym: "AA",
+        name: "Aluminum Association Designations",
+        body: "Alloy registration, temper system, US standard practices",
       },
     ],
   },
