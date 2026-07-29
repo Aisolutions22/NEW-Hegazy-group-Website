@@ -12,7 +12,7 @@ export const en = {
   langLabel: "Language",
   search: "Search",
   requestQuote: "Request a Quote",
-  exploreProducts: "Explore Products",
+  exploreProducts: "View Products",
   menu: "Menu",
   closeMenu: "Close menu",
   openMenu: "Open menu",
