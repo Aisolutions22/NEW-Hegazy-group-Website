@@ -161,7 +161,7 @@ export const en = {
     or: "or contact us directly",
   },
   footer: {
-    tagline: "Aluminum supply and distribution for construction, industry, marine, and transport.",
+    tagline: "Aluminum supply and distribution for construction, manufacturing, transport, and industry.",
     columns: {
       products: "Products",
       industries: "Industries",

@@ -133,7 +133,7 @@ export const ar: Strings = {
     or: "أو تواصل معنا مباشرة",
   },
   footer: {
-    tagline: "توريد وتوزيع الألومنيوم للبناء والصناعة والقطاع البحري والنقل.",
+    tagline: "Aluminum supply and distribution for construction, manufacturing, transport, and industry.",
     columns: {
       products: "المنتجات",
       industries: "القطاعات",

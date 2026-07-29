@@ -1,6 +1,8 @@
 import { useLanguage } from "@/lib/i18n/language-context";
 import { Section } from "@/components/layout/section";
+import { PRODUCT_CATEGORIES } from "@/lib/catalog/categories";
 import hegazyLogo from "@/assets/hegazy-logo.png";
+
 
 export function SiteFooter() {
   const { t } = useLanguage();
@@ -9,13 +11,12 @@ export function SiteFooter() {
   const cols: Array<{ heading: string; links: Array<{ label: string; href: string }> }> = [
     {
       heading: t.footer.columns.products,
-      links: [
-        { label: t.products.pipes, href: "/products/pipes" },
-        { label: t.products.sheetsCoils, href: "/products/sheets-coils" },
-        { label: t.products.profilesBars, href: "/products/profiles-bars" },
-        { label: t.products.billets, href: "/products/billets" },
-      ],
+      links: PRODUCT_CATEGORIES.map((c) => ({
+        label: t.products[c.titleKey],
+        href: `/products/${c.slug}`,
+      })),
     },
+
     {
       heading: t.footer.columns.industries,
       links: [
