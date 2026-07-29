@@ -52,9 +52,11 @@ function Index() {
       <SiteHeader variant="transparent" />
       <main id="main-content">
         <HomeHero />
+        <StatsBar />
         <ProductCategoryGrid />
         <IndustriesGrid />
         <WhyHegazy />
+        <StandardsCompliance />
         <FinalCta />
       </main>
       <SiteFooter />
