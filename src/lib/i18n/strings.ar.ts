@@ -16,7 +16,7 @@ export const ar: Strings = {
   langLabel: "اللغة",
   search: "بحث",
   requestQuote: "اطلب عرض سعر",
-  exploreProducts: "استكشف المنتجات",
+  exploreProducts: "View Products",
   menu: "القائمة",
   closeMenu: "إغلاق القائمة",
   openMenu: "فتح القائمة",
