@@ -73,10 +73,10 @@ export const ar: Strings = {
     cookwareDiscBuyersDesc: "Circles and discs for cookware, utensil, and lighting manufacturers.",
   },
   hero: {
-    eyebrow: "توريد وتوزيع الألومنيوم",
-    title: "توريد ألومنيوم موثوق للقطاعات الصعبة.",
+    eyebrow: "Aluminum Supply & Distribution",
+    title: "Your Trusted Aluminum Partner",
     subtitle:
-      "مجموعة حجازي موزّع متخصص لقطاعات الألومنيوم والألواح واللفائف والقضبان — من مصانع مؤهلة وتسليم في الموعد على مستوى المنطقة",
+      "Premium quality aluminum products sourced from qualified mills — reliable supply for industrial, commercial, and consumer applications across Egypt and the region.",
   },
   trust: {
     heading: "شريك توريد موثوق",
@@ -85,6 +85,15 @@ export const ar: Strings = {
     stat3Label: "قطاعات مخدومة",
     placeholder: "[بيانات العميل مطلوبة]",
     cert: "شهادة",
+  },
+  stats: {
+    heading: "By the numbers",
+    items: [
+      { value: "15+", label: "Years of Experience" },
+      { value: "200+", label: "Clients Served" },
+      { value: "8", label: "Product Lines" },
+      { value: "100%", label: "Quality Certified" },
+    ],
   },
   categories: {
     heading: "فئات المنتجات",
@@ -100,10 +109,22 @@ export const ar: Strings = {
     heading: "لماذا مجموعة حجازي",
     subheading: "موزّع مبني على الموثوقية والدعم الفني واللوجستيات الإقليمية.",
     items: [
-      { title: "حجم التوزيع", body: "مشتريات موحّدة من مصانع مؤهلة، بما يضمن الالتزام بالمواصفات." },
-      { title: "توفر المخزون", body: "مخزون عميق من السبائك والأصلاب والأشكال الشائعة — جاهز للتحرك بسرعة." },
-      { title: "دعم فني", body: "إرشاد تطبيقي حول اختيار السبيكة والتفاوتات والتشطيبات والتصنيع التالي." },
-      { title: "لوجستيات إقليمية", body: "تنفيذ متعدد المراكز ومستندات تصدير متوافقة مع مواعيد المشاريع." },
+      { title: "Certified Quality", body: "Certified factory quality with full documentation and traceability, conforming to ASTM, EN, ISO, and Aluminum Association (AA) standards." },
+      { title: "Competitive Pricing", body: "Consolidated purchasing power passed on as competitive pricing for importers and local buyers alike." },
+      { title: "Reliable Supply Chain", body: "Deep stock across common alloys, tempers, and formats, with consistent lead times you can plan production around." },
+      { title: "Technical Support", body: "Application-level guidance on alloy selection, tolerances, finishes, and downstream fabrication." },
+      { title: "Regional Logistics", body: "Multi-hub fulfillment and export documentation aligned to project schedules." },
+    ],
+  },
+  standards: {
+    eyebrow: "Quality Assurance",
+    heading: "International Standards Compliance",
+    body: "All products conform to globally recognized standards, ensuring material consistency, traceability, and acceptance across international markets.",
+    items: [
+      { acronym: "ASTM", name: "American Society for Testing and Materials", body: "Material specs, mechanical properties, temper designations" },
+      { acronym: "EN", name: "European Norm (EN / EN AW)", body: "Alloy designation, chemical composition, product tolerances" },
+      { acronym: "ISO", name: "International Organization for Standardization", body: "Quality management, dimensional standards" },
+      { acronym: "AA", name: "Aluminum Association Designations", body: "Alloy registration, temper system, US standard practices" },
     ],
   },
   finalCta: {
