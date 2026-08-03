@@ -101,7 +101,6 @@ function AboutPage() {
           </Grid>
         </Section>
 
-
         <FinalCta />
       </main>
       <MobileStickyQuoteBar />
