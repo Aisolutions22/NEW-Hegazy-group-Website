@@ -96,23 +96,6 @@ export function SiteFooter() {
           ))}
         </div>
 
-        {/* Certifications */}
-        <div className="mt-14 border-t border-white/10 pt-8">
-          <h3 className="mb-4 font-mono text-micro uppercase tracking-widest text-white/60">
-            {t.footer.certifications}
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                aria-label={`${t.trust.cert} placeholder ${i}`}
-                className="flex h-14 w-24 items-center justify-center rounded-md border border-white/15 bg-white/5 font-mono text-micro uppercase tracking-widest text-white/50"
-              >
-                Cert {i}
-              </div>
-            ))}
-          </div>
-        </div>
       </Section>
 
       {/* Bottom bar */}
