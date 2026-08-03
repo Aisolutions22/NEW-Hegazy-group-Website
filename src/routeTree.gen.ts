@@ -25,6 +25,8 @@ import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
 import { Route as ProductsWireRodsRouteImport } from './routes/products.wire-rods'
@@ -116,6 +118,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 const ResourcesSpecsRoute = ResourcesSpecsRouteImport.update({
   id: '/specs',
   path: '/specs',
@@ -194,6 +206,8 @@ export interface FileRoutesByFullPath {
   '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -203,10 +217,8 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
-  '/industries': typeof IndustriesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
@@ -222,6 +234,8 @@ export interface FileRoutesByTo {
   '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -251,6 +265,8 @@ export interface FileRoutesById {
   '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -281,6 +297,8 @@ export interface FileRouteTypes {
     | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
+    | '/industries/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -290,10 +308,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/faq'
-    | '/industries'
     | '/locations'
     | '/privacy'
-    | '/products'
     | '/projects'
     | '/quote'
     | '/resources'
@@ -309,6 +325,8 @@ export interface FileRouteTypes {
     | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
+    | '/industries'
+    | '/products'
   id:
     | '__root__'
     | '/'
@@ -337,6 +355,8 @@ export interface FileRouteTypes {
     | '/products/wire-rods'
     | '/resources/guides'
     | '/resources/specs'
+    | '/industries/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -472,6 +492,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
     '/resources/specs': {
       id: '/resources/specs'
       path: '/specs'
@@ -547,10 +581,12 @@ declare module '@tanstack/react-router' {
 
 interface IndustriesRouteChildren {
   IndustriesSectorRoute: typeof IndustriesSectorRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
 }
 
 const IndustriesRouteChildren: IndustriesRouteChildren = {
   IndustriesSectorRoute: IndustriesSectorRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
 }
 
 const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
@@ -565,6 +601,7 @@ interface ProductsRouteChildren {
   ProductsProfilesBarsRoute: typeof ProductsProfilesBarsRoute
   ProductsSheetsCoilsRoute: typeof ProductsSheetsCoilsRoute
   ProductsWireRodsRoute: typeof ProductsWireRodsRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
@@ -575,6 +612,7 @@ const ProductsRouteChildren: ProductsRouteChildren = {
   ProductsProfilesBarsRoute: ProductsProfilesBarsRoute,
   ProductsSheetsCoilsRoute: ProductsSheetsCoilsRoute,
   ProductsWireRodsRoute: ProductsWireRodsRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 
 const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
