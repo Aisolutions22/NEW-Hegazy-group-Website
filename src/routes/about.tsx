@@ -101,35 +101,6 @@ function AboutPage() {
           </Grid>
         </Section>
 
-        {/* Certifications */}
-        <Section aria-label={t.footer.certifications}>
-          <div className="mb-8 font-mono text-micro uppercase tracking-caps text-steel-400">
-            {t.footer.certifications}
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div
-                key={i}
-                aria-label={`${t.trust.cert} placeholder ${i}`}
-                className="flex h-16 w-28 items-center justify-center rounded-md border border-steel-200 bg-offwhite-50 font-mono text-micro uppercase tracking-caps text-steel-600"
-              >
-                Cert {i}
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Leadership */}
-        <Section className="bg-offwhite-50 border-t border-steel-200" aria-label={t.about.leadershipHeading}>
-          <Grid>
-            <div className="col-span-4 sm:col-span-8 lg:col-span-8">
-              <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
-                {t.about.leadershipHeading}
-              </div>
-              <p className="text-lg leading-relaxed text-steel-600">{t.about.leadershipBody}</p>
-            </div>
-          </Grid>
-        </Section>
 
         <FinalCta />
       </main>
