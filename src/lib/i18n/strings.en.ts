@@ -413,6 +413,7 @@ export const en = {
   },
   productDetail: {
     pipes: {
+      title: "Aluminum Pipes",
       intro:
         "High-quality aluminum pipes designed for industrial, construction, and specialized manufacturing applications. Available in multiple alloys and tempers to meet exact requirements.",
       innerDiameter: "Inner Diameter",
@@ -422,6 +423,7 @@ export const en = {
       temper: "Temper",
     },
     sheetsCoils: {
+      title: "Sheets & Coils",
       intro:
         "Hot rolled and cold rolled aluminum products from certified factories. Available as plates, sheets, coils, embossed, and tread plates — covering the full range of industrial, construction, and decorative applications.",
       hotRolled: "Hot Rolled Products",
@@ -445,6 +447,7 @@ export const en = {
       subCoils: "Aluminum Coils",
     },
     discs: {
+      title: "Aluminum Discs",
       intro:
         "Premium aluminum circles ideal for cookware, rice cookers, lamps, and traffic signs. Custom specifications available for diameter, thickness, and alloy to fit any application.",
       thickness: "Thickness",
@@ -454,6 +457,7 @@ export const en = {
       surface: "Surface",
     },
     ingots: {
+      title: "Primary Aluminum Ingots",
       intro:
         "Primary aluminum ingots and T-bars from certified cast houses. Available in high-purity grades and foundry alloys, bundled for efficient handling and transport.",
       ingotsGrades: "Ingots 99.7% & 99.8%",
@@ -463,6 +467,7 @@ export const en = {
       packaging: "Packaging",
     },
     billets: {
+      title: "Aluminum Billets",
       intro:
         "Air Slip cast billets, produced with advanced casting technology for superior surface quality and consistent metallurgical structure. Suitable for extrusion and forging applications.",
       diameters: "Diameters",
@@ -473,6 +478,7 @@ export const en = {
       alloys: "Alloys",
     },
     profilesBars: {
+      title: "Profiles & Bars",
       intro:
         "6xxx and 7xxx series profiles and bars. Ideal for construction (windows, doors, curtain walls), transport (automotive, rail, marine), industrial machinery, and consumer applications.",
       alloys: "Alloys",
@@ -482,6 +488,7 @@ export const en = {
       surface: "Surface",
     },
     wireRods: {
+      title: "Aluminum Wire Rods",
       intro:
         "Electrical and industrial grade wire rods. High-conductivity 1xxx series alloy in 9mm and 9.5mm diameters, supplied in coils for cable and conductor manufacturing.",
       rodDiameter: "Rod Diameter",
