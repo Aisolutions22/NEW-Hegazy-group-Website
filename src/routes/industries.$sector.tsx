@@ -117,7 +117,27 @@ function SectorPage() {
               </ul>
             </div>
           </Grid>
+
+          <div className="mt-16">
+            <div className="mb-4 font-mono text-micro uppercase tracking-caps text-steel-400">
+              {t.industriesPage.relevantProducts}
+            </div>
+            <ul className="flex flex-wrap gap-2 border-t border-graphite-900 pt-6">
+              {INDUSTRY_PRODUCTS[key].map((p) => (
+                <li key={p.to}>
+                  <Link
+                    to={p.to}
+                    className="inline-flex items-center gap-2 rounded-md border border-steel-200 bg-white px-3 py-2 text-meta text-graphite-900 transition-colors hover:border-graphite-900"
+                  >
+                    {p.label}
+                    <ArrowRight className="h-3.5 w-3.5 text-steel-400 rtl:rotate-180" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Section>
+
 
         <FinalCta />
       </main>
