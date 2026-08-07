@@ -16,7 +16,7 @@ export const ar: Strings = {
   langLabel: "اللغة",
   search: "بحث",
   requestQuote: "اطلب عرض سعر",
-  exploreProducts: "View Products",
+  exploreProducts: "تصفح المنتجات",
   menu: "القائمة",
   closeMenu: "إغلاق القائمة",
   openMenu: "فتح القائمة",
@@ -73,10 +73,10 @@ export const ar: Strings = {
     cookwareDiscBuyersDesc: "Circles and discs for cookware, utensil, and lighting manufacturers.",
   },
   hero: {
-    eyebrow: "Aluminum Supply & Distribution",
-    title: "Your Trusted Aluminum Partner",
+    eyebrow: "توريد وتوزيع الألومنيوم",
+    title: "شريكك الموثوق في توريد الألومنيوم",
     subtitle:
-      "Premium quality aluminum products sourced from qualified mills — reliable supply for industrial, commercial, and consumer applications across Egypt and the region.",
+      "منتجات ألومنيوم عالية الجودة من مصانع معتمدة — توريد موثوق للتطبيقات الصناعية والتجارية والاستهلاكية في مصر والمنطقة.",
   },
   trust: {
     heading: "شريك توريد موثوق",
@@ -87,12 +87,12 @@ export const ar: Strings = {
     cert: "شهادة",
   },
   stats: {
-    heading: "By the numbers",
+    heading: "بالأرقام",
     items: [
-      { value: "15+", label: "Years of Experience" },
-      { value: "200+", label: "Clients Served" },
-      { value: "8", label: "Product Lines" },
-      { value: "100%", label: "Quality Certified" },
+      { value: "+15", label: "سنة خبرة" },
+      { value: "+200", label: "عميل" },
+      { value: "8", label: "خطوط منتجات" },
+      { value: "100%", label: "جودة معتمدة" },
     ],
   },
   categories: {
