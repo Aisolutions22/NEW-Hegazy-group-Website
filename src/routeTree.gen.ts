@@ -30,6 +30,7 @@ import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
+import { Route as ResourcesCatalogRouteImport } from './routes/resources.catalog'
 import { Route as ProductsWireRodsRouteImport } from './routes/products.wire-rods'
 import { Route as ProductsSheetsCoilsRouteImport } from './routes/products.sheets-coils'
 import { Route as ProductsProfilesBarsRouteImport } from './routes/products.profiles-bars'
@@ -144,6 +145,11 @@ const ResourcesGuidesRoute = ResourcesGuidesRouteImport.update({
   path: '/guides',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ResourcesCatalogRoute = ResourcesCatalogRouteImport.update({
+  id: '/catalog',
+  path: '/catalog',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const ProductsWireRodsRoute = ProductsWireRodsRouteImport.update({
   id: '/wire-rods',
   path: '/wire-rods',
@@ -210,6 +216,7 @@ export interface FileRoutesByFullPath {
   '/products/profiles-bars': typeof ProductsProfilesBarsRoute
   '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
   '/products/wire-rods': typeof ProductsWireRodsRoute
+  '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -238,6 +245,7 @@ export interface FileRoutesByTo {
   '/products/profiles-bars': typeof ProductsProfilesBarsRoute
   '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
   '/products/wire-rods': typeof ProductsWireRodsRoute
+  '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
   '/industries': typeof IndustriesIndexRoute
@@ -270,6 +278,7 @@ export interface FileRoutesById {
   '/products/profiles-bars': typeof ProductsProfilesBarsRoute
   '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
   '/products/wire-rods': typeof ProductsWireRodsRoute
+  '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -303,6 +312,7 @@ export interface FileRouteTypes {
     | '/products/profiles-bars'
     | '/products/sheets-coils'
     | '/products/wire-rods'
+    | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
     | '/industries/'
@@ -331,6 +341,7 @@ export interface FileRouteTypes {
     | '/products/profiles-bars'
     | '/products/sheets-coils'
     | '/products/wire-rods'
+    | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
     | '/industries'
@@ -362,6 +373,7 @@ export interface FileRouteTypes {
     | '/products/profiles-bars'
     | '/products/sheets-coils'
     | '/products/wire-rods'
+    | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
     | '/industries/'
@@ -537,6 +549,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesGuidesRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/resources/catalog': {
+      id: '/resources/catalog'
+      path: '/catalog'
+      fullPath: '/resources/catalog'
+      preLoaderRoute: typeof ResourcesCatalogRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/products/wire-rods': {
       id: '/products/wire-rods'
       path: '/wire-rods'
@@ -637,12 +656,14 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 )
 
 interface ResourcesRouteChildren {
+  ResourcesCatalogRoute: typeof ResourcesCatalogRoute
   ResourcesGuidesRoute: typeof ResourcesGuidesRoute
   ResourcesSpecsRoute: typeof ResourcesSpecsRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesCatalogRoute: ResourcesCatalogRoute,
   ResourcesGuidesRoute: ResourcesGuidesRoute,
   ResourcesSpecsRoute: ResourcesSpecsRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
