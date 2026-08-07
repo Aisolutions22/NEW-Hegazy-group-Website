@@ -25,10 +25,13 @@ import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as ResourcesTechnicalSpecsRouteImport } from './routes/resources.technical-specs'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
+import { Route as ResourcesCatalogRouteImport } from './routes/resources.catalog'
 import { Route as ProductsWireRodsRouteImport } from './routes/products.wire-rods'
 import { Route as ProductsSheetsCoilsRouteImport } from './routes/products.sheets-coils'
 import { Route as ProductsProfilesBarsRouteImport } from './routes/products.profiles-bars'
@@ -118,6 +121,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -128,6 +136,11 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => IndustriesRoute,
 } as any)
+const ResourcesTechnicalSpecsRoute = ResourcesTechnicalSpecsRouteImport.update({
+  id: '/technical-specs',
+  path: '/technical-specs',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const ResourcesSpecsRoute = ResourcesSpecsRouteImport.update({
   id: '/specs',
   path: '/specs',
@@ -136,6 +149,11 @@ const ResourcesSpecsRoute = ResourcesSpecsRouteImport.update({
 const ResourcesGuidesRoute = ResourcesGuidesRouteImport.update({
   id: '/guides',
   path: '/guides',
+  getParentRoute: () => ResourcesRoute,
+} as any)
+const ResourcesCatalogRoute = ResourcesCatalogRouteImport.update({
+  id: '/catalog',
+  path: '/catalog',
   getParentRoute: () => ResourcesRoute,
 } as any)
 const ProductsWireRodsRoute = ProductsWireRodsRouteImport.update({
@@ -204,10 +222,13 @@ export interface FileRoutesByFullPath {
   '/products/profiles-bars': typeof ProductsProfilesBarsRoute
   '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
   '/products/wire-rods': typeof ProductsWireRodsRoute
+  '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -221,7 +242,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
-  '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
@@ -232,10 +252,13 @@ export interface FileRoutesByTo {
   '/products/profiles-bars': typeof ProductsProfilesBarsRoute
   '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
   '/products/wire-rods': typeof ProductsWireRodsRoute
+  '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
+  '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -263,10 +286,13 @@ export interface FileRoutesById {
   '/products/profiles-bars': typeof ProductsProfilesBarsRoute
   '/products/sheets-coils': typeof ProductsSheetsCoilsRoute
   '/products/wire-rods': typeof ProductsWireRodsRoute
+  '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -295,10 +321,13 @@ export interface FileRouteTypes {
     | '/products/profiles-bars'
     | '/products/sheets-coils'
     | '/products/wire-rods'
+    | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
+    | '/resources/technical-specs'
     | '/industries/'
     | '/products/'
+    | '/resources/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -312,7 +341,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/projects'
     | '/quote'
-    | '/resources'
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
@@ -323,10 +351,13 @@ export interface FileRouteTypes {
     | '/products/profiles-bars'
     | '/products/sheets-coils'
     | '/products/wire-rods'
+    | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
+    | '/resources/technical-specs'
     | '/industries'
     | '/products'
+    | '/resources'
   id:
     | '__root__'
     | '/'
@@ -353,10 +384,13 @@ export interface FileRouteTypes {
     | '/products/profiles-bars'
     | '/products/sheets-coils'
     | '/products/wire-rods'
+    | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
+    | '/resources/technical-specs'
     | '/industries/'
     | '/products/'
+    | '/resources/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -492,6 +526,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/': {
+      id: '/resources/'
+      path: '/'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/products/': {
       id: '/products/'
       path: '/'
@@ -506,6 +547,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof IndustriesRoute
     }
+    '/resources/technical-specs': {
+      id: '/resources/technical-specs'
+      path: '/technical-specs'
+      fullPath: '/resources/technical-specs'
+      preLoaderRoute: typeof ResourcesTechnicalSpecsRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/resources/specs': {
       id: '/resources/specs'
       path: '/specs'
@@ -518,6 +566,13 @@ declare module '@tanstack/react-router' {
       path: '/guides'
       fullPath: '/resources/guides'
       preLoaderRoute: typeof ResourcesGuidesRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/resources/catalog': {
+      id: '/resources/catalog'
+      path: '/catalog'
+      fullPath: '/resources/catalog'
+      preLoaderRoute: typeof ResourcesCatalogRouteImport
       parentRoute: typeof ResourcesRoute
     }
     '/products/wire-rods': {
@@ -620,13 +675,19 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 )
 
 interface ResourcesRouteChildren {
+  ResourcesCatalogRoute: typeof ResourcesCatalogRoute
   ResourcesGuidesRoute: typeof ResourcesGuidesRoute
   ResourcesSpecsRoute: typeof ResourcesSpecsRoute
+  ResourcesTechnicalSpecsRoute: typeof ResourcesTechnicalSpecsRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesCatalogRoute: ResourcesCatalogRoute,
   ResourcesGuidesRoute: ResourcesGuidesRoute,
   ResourcesSpecsRoute: ResourcesSpecsRoute,
+  ResourcesTechnicalSpecsRoute: ResourcesTechnicalSpecsRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
 }
 
 const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
