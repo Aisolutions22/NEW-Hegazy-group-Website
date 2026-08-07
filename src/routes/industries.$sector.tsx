@@ -130,7 +130,7 @@ function SectorPage() {
                     to={p.to}
                     className="inline-flex items-center gap-2 rounded-md border border-steel-200 bg-white px-3 py-2 text-meta text-graphite-900 transition-colors hover:border-graphite-900"
                   >
-                    {p.label}
+                    {t.products[p.key as keyof typeof t.products]}
                     <ArrowRight className="h-3.5 w-3.5 text-steel-400 rtl:rotate-180" aria-hidden="true" />
                   </Link>
                 </li>
