@@ -25,6 +25,7 @@ import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
@@ -118,6 +119,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -208,6 +214,7 @@ export interface FileRoutesByFullPath {
   '/resources/specs': typeof ResourcesSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -221,7 +228,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/quote': typeof QuoteRoute
-  '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/industries/$sector': typeof IndustriesSectorRoute
@@ -236,6 +242,7 @@ export interface FileRoutesByTo {
   '/resources/specs': typeof ResourcesSpecsRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
+  '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -267,6 +274,7 @@ export interface FileRoutesById {
   '/resources/specs': typeof ResourcesSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -299,6 +307,7 @@ export interface FileRouteTypes {
     | '/resources/specs'
     | '/industries/'
     | '/products/'
+    | '/resources/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -312,7 +321,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/projects'
     | '/quote'
-    | '/resources'
     | '/sitemap.xml'
     | '/terms'
     | '/industries/$sector'
@@ -327,6 +335,7 @@ export interface FileRouteTypes {
     | '/resources/specs'
     | '/industries'
     | '/products'
+    | '/resources'
   id:
     | '__root__'
     | '/'
@@ -357,6 +366,7 @@ export interface FileRouteTypes {
     | '/resources/specs'
     | '/industries/'
     | '/products/'
+    | '/resources/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -492,6 +502,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/': {
+      id: '/resources/'
+      path: '/'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/products/': {
       id: '/products/'
       path: '/'
@@ -622,11 +639,13 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 interface ResourcesRouteChildren {
   ResourcesGuidesRoute: typeof ResourcesGuidesRoute
   ResourcesSpecsRoute: typeof ResourcesSpecsRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesGuidesRoute: ResourcesGuidesRoute,
   ResourcesSpecsRoute: ResourcesSpecsRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
 }
 
 const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
