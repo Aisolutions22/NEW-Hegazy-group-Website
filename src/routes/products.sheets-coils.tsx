@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { RelatedIndustries } from "@/components/products/related-industries";
 import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/category-page-layout";
 import { SpecMatrix } from "@/components/products/spec-table";
 import { useLanguage } from "@/lib/i18n/language-context";
@@ -68,6 +69,7 @@ function Page() {
           </div>
         </div>
       </div>
+      <RelatedIndustries slug="sheets-coils" />
     </CategoryPageLayout>
   );
 }
