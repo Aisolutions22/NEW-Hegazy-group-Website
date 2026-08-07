@@ -15,9 +15,9 @@ export function RelatedIndustries({ slug }: { slug: ProductSlug }) {
       </div>
       <ul className="flex flex-wrap gap-2">
         {items.map((item) => (
-          <li key={item.to}>
+          <li key={item.sector}>
             <Link
-              to={item.to}
+              to="/industries/$sector" params={{ sector: item.sector }}
               className="inline-flex items-center gap-2 rounded-md border border-steel-200 bg-white px-3 py-2 text-meta text-graphite-900 transition-colors hover:border-graphite-900"
             >
               {item.label}

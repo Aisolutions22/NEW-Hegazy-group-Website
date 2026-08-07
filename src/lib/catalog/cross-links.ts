@@ -44,31 +44,31 @@ export type ProductSlug =
 
 export const PRODUCT_INDUSTRIES = {
   pipes: [
-    { label: "Heavy Industry", to: "/industries/heavy-industry" },
-    { label: "Metal Manufacturing", to: "/industries/metal-manufacturing" },
-    { label: "Construction & Architectural", to: "/industries/construction" },
+    { label: "Heavy Industry", sector: "heavy-industry" },
+    { label: "Metal Manufacturing", sector: "metal-manufacturing" },
+    { label: "Construction & Architectural", sector: "construction" },
   ],
   "sheets-coils": [
-    { label: "HVAC & Heat Transfer", to: "/industries/hvac-heat-transfer" },
-    { label: "Construction & Architectural", to: "/industries/construction" },
-    { label: "Food Industry", to: "/industries/food-industry" },
-    { label: "Embossed Sheets & Insulation", to: "/industries/embossed-sheets-insulation" },
-    { label: "Automotive & Transport", to: "/industries/automotive" },
+    { label: "HVAC & Heat Transfer", sector: "hvac-heat-transfer" },
+    { label: "Construction & Architectural", sector: "construction" },
+    { label: "Food Industry", sector: "food-industry" },
+    { label: "Embossed Sheets & Insulation", sector: "embossed-sheets-insulation" },
+    { label: "Automotive & Transport", sector: "automotive" },
   ],
   discs: [
-    { label: "Cookware & Disc Buyers", to: "/industries/cookware-disc-buyers" },
-    { label: "Food Industry", to: "/industries/food-industry" },
+    { label: "Cookware & Disc Buyers", sector: "cookware-disc-buyers" },
+    { label: "Food Industry", sector: "food-industry" },
   ],
-  ingots: [{ label: "Metal Manufacturing", to: "/industries/metal-manufacturing" }],
+  ingots: [{ label: "Metal Manufacturing", sector: "metal-manufacturing" }],
   billets: [
-    { label: "Metal Manufacturing", to: "/industries/metal-manufacturing" },
-    { label: "Heavy Industry", to: "/industries/heavy-industry" },
+    { label: "Metal Manufacturing", sector: "metal-manufacturing" },
+    { label: "Heavy Industry", sector: "heavy-industry" },
   ],
   "profiles-bars": [
-    { label: "Construction & Architectural", to: "/industries/construction" },
-    { label: "Automotive & Transport", to: "/industries/automotive" },
-    { label: "Heavy Industry", to: "/industries/heavy-industry" },
-    { label: "Metal Manufacturing", to: "/industries/metal-manufacturing" },
+    { label: "Construction & Architectural", sector: "construction" },
+    { label: "Automotive & Transport", sector: "automotive" },
+    { label: "Heavy Industry", sector: "heavy-industry" },
+    { label: "Metal Manufacturing", sector: "metal-manufacturing" },
   ],
-  "wire-rods": [{ label: "Electrical Components", to: "/industries/electrical-components" }],
-} as const satisfies Record<ProductSlug, ReadonlyArray<{ label: string; to: string }>>;
+  "wire-rods": [{ label: "Electrical Components", sector: "electrical-components" }],
+} as const satisfies Record<ProductSlug, ReadonlyArray<{ label: string; sector: string }>>;
