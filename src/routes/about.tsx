@@ -1,11 +1,29 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Section, Grid } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { FinalCta } from "@/components/home/final-cta";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+const PRODUCT_LINKS = [
+  { label: "aluminum pipes", href: "/products/pipes" },
+  { label: "sheets & coils", href: "/products/sheets-coils" },
+  { label: "discs", href: "/products/discs" },
+  { label: "ingots", href: "/products/ingots" },
+  { label: "billets", href: "/products/billets" },
+  { label: "profiles & bars", href: "/products/profiles-bars" },
+  { label: "wire rods", href: "/products/wire-rods" },
+] as const;
+
+const INDUSTRY_LINKS = [
+  { label: "metal manufacturing", href: "/industries/metal-manufacturing" },
+  { label: "construction", href: "/industries/construction" },
+  { label: "automotive", href: "/industries/automotive" },
+  { label: "electrical", href: "/industries/electrical-components" },
+] as const;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -14,18 +32,113 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Hegazy Group is a specialist distributor of aluminum profiles, sheets, coils, and bars — sourced from qualified mills and delivered on schedule across the region.",
+          "Hegazy Group is a specialist distributor of aluminum products — pipes, sheets, coils, discs, ingots, billets, profiles, bars, and wire rods — across Egypt and the region.",
       },
       { property: "og:title", content: "About — Hegazy Group" },
       {
         property: "og:description",
         content:
-          "A specialist aluminum distributor: sourcing, stocking, technical service, and regional logistics.",
+          "A specialist aluminum distributor: sourcing, stocking, technical support, and regional logistics for construction, manufacturing, transport, and industry.",
       },
     ],
   }),
   component: AboutPage,
 });
+
+function InlineProductLink({ label, href }: { label: string; href: string }) {
+  return (
+    <Link
+      to={href}
+      className="border-b border-steel-400 text-graphite-900 transition-colors hover:border-graphite-900 hover:text-steel-600"
+    >
+      {label}
+    </Link>
+  );
+}
+
+function MainTextParagraphs() {
+  const { t } = useLanguage();
+  const mt = t.about.mainText;
+  return (
+    <div className="max-w-[65ch] text-lg leading-relaxed text-steel-600">
+      <p>
+        {mt.p1.split(/\b(aluminum pipes|sheets & coils|discs|ingots|billets|profiles & bars|wire rods)\b/).map((part, i) => {
+          const match = PRODUCT_LINKS.find((p) => p.label === part);
+          if (match) return <InlineProductLink key={i} {...match} />;
+          return <span key={i}>{part}</span>;
+        })}
+      </p>
+      <p className="mt-6">{mt.p2}</p>
+      <p className="mt-6">
+        {mt.p3.split(/\b(metal manufacturing|construction|automotive|electrical)\b/).map((part, i) => {
+          const match = INDUSTRY_LINKS.find((ind) => ind.label === part);
+          if (match) return <InlineProductLink key={i} {...match} />;
+          return <span key={i}>{part}</span>;
+        })}
+      </p>
+    </div>
+  );
+}
+
+function WhyWorkWithUs() {
+  const { t } = useLanguage();
+  return (
+    <Section className="bg-offwhite-50 border-y border-steel-200" aria-label={t.about.whyHeading}>
+      <div className="mb-10 max-w-2xl">
+        <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
+          {t.about.whyHeading}
+        </div>
+        <h2 className="text-3xl leading-tight text-graphite-900">{t.about.whyHeading}</h2>
+      </div>
+      <ul className="grid grid-cols-1 gap-0 divide-y divide-steel-200 border-t border-graphite-900 sm:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-y-0">
+        {t.about.why.map((item, i) => (
+          <li
+            key={item.title}
+            className="flex flex-col gap-3 py-6 sm:px-4 lg:py-0 lg:px-6 lg:first:pl-0 lg:last:pr-0"
+          >
+            <div className="text-caption font-mono text-steel-400">0{i + 1}</div>
+            <div>
+              <h3 className="text-lg font-semibold text-graphite-900">{item.title}</h3>
+              <p className="mt-1 text-meta leading-relaxed text-steel-600">{item.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  );
+}
+
+function AboutCta() {
+  const { t } = useLanguage();
+  return (
+    <section className="w-full bg-graphite-900 text-white" style={{ paddingBlock: "var(--section-py)" }}>
+      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-8">
+        <div className="max-w-2xl">
+          <h2 className="text-4xl leading-tight text-white">{t.about.cta.title}</h2>
+          <p className="mt-4 text-base leading-relaxed text-white/70">{t.about.cta.body}</p>
+        </div>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <Button asChild size="lg" variant="secondary" className="bg-white text-graphite-900 hover:bg-white/90">
+            <Link to="/quote" className="inline-flex items-center justify-center gap-2">
+              {t.about.cta.quote}
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
+          >
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2">
+              {t.about.cta.contact}
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function AboutPage() {
   const { t } = useLanguage();
@@ -49,59 +162,13 @@ function AboutPage() {
           </Grid>
         </Section>
 
-        {/* Company profile + facts */}
-        <Section aria-label={t.about.profileHeading}>
-          <Grid>
-            <div className="col-span-4 sm:col-span-8 lg:col-span-7">
-              <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
-                {t.about.profileHeading}
-              </div>
-              <p className="text-lg leading-relaxed text-steel-600">
-                {t.about.profileBody}
-              </p>
-            </div>
-            <aside className="col-span-4 sm:col-span-8 lg:col-span-4 lg:col-start-9">
-              <div className="rounded-md border border-steel-200 bg-offwhite-50 p-6">
-                <div className="mb-4 font-mono text-micro uppercase tracking-caps text-steel-400">
-                  {t.about.factsHeading}
-                </div>
-                <dl className="divide-y divide-steel-200">
-                  {t.about.facts.map((f) => (
-                    <div key={f.label} className="flex items-baseline justify-between gap-4 py-3">
-                      <dt className="text-small text-steel-600">{f.label}</dt>
-                      <dd className="text-legal text-graphite-900" data-spec>
-                        {f.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </aside>
-          </Grid>
+        {/* Main text */}
+        <Section aria-label={t.about.eyebrow}>
+          <MainTextParagraphs />
         </Section>
 
-        {/* Capabilities */}
-        <Section className="bg-white border-y border-steel-200" aria-label={t.about.capabilitiesHeading}>
-          <div className="mb-12 max-w-2xl">
-            <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
-              {t.about.capabilitiesHeading}
-            </div>
-            <h2 className="text-3xl leading-tight">{t.about.title}</h2>
-          </div>
-          <Grid>
-            {t.about.capabilities.map((c, i) => (
-              <div key={c.title} className="col-span-4 sm:col-span-4 lg:col-span-3 border-t border-graphite-900 pt-6">
-                <div className="text-caption text-steel-400" data-spec>
-                  0{i + 1}
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-graphite-900">{c.title}</h3>
-                <p className="mt-3 text-meta leading-relaxed text-steel-600">{c.body}</p>
-              </div>
-            ))}
-          </Grid>
-        </Section>
-
-        <FinalCta />
+        <WhyWorkWithUs />
+        <AboutCta />
       </main>
       <MobileStickyQuoteBar />
       <SiteFooter />
