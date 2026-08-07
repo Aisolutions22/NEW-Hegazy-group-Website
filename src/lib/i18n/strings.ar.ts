@@ -217,6 +217,7 @@ export const ar: Strings = {
     commonForms: "الأشكال الشائعة",
     commonAlloys: "السبائك الشائعة",
     viewIndustry: "تفاصيل القطاع",
+    relevantProducts: "Relevant products",
     metalManufacturing: {
       applications: ["Extrusion feedstock for architectural and industrial profiles", "Machining stock", "General fabrication", "Foundry operations"],
       forms: ["Billets", "Ingots", "Profiles & Bars"],
