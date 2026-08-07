@@ -6,32 +6,32 @@ import type { IndustryKey } from "./categories";
  */
 export const INDUSTRY_PRODUCTS = {
   metalManufacturing: [
-    { label: "Aluminum Billets", to: "/products/billets" },
-    { label: "Aluminum Ingots", to: "/products/ingots" },
-    { label: "Profiles & Bars", to: "/products/profiles-bars" },
+    { label: "Aluminum Billets", key: "billets", to: "/products/billets" },
+    { label: "Aluminum Ingots", key: "ingots", to: "/products/ingots" },
+    { label: "Profiles & Bars", key: "profilesBars", to: "/products/profiles-bars" },
   ],
-  hvacHeatTransfer: [{ label: "Sheets & Coils", to: "/products/sheets-coils" }],
+  hvacHeatTransfer: [{ label: "Sheets & Coils", key: "sheetsCoils", to: "/products/sheets-coils" }],
   construction: [
-    { label: "Sheets & Coils", to: "/products/sheets-coils" },
-    { label: "Profiles & Bars", to: "/products/profiles-bars" },
+    { label: "Sheets & Coils", key: "sheetsCoils", to: "/products/sheets-coils" },
+    { label: "Profiles & Bars", key: "profilesBars", to: "/products/profiles-bars" },
   ],
-  electricalComponents: [{ label: "Aluminum Wire Rods", to: "/products/wire-rods" }],
+  electricalComponents: [{ label: "Aluminum Wire Rods", key: "wireRods", to: "/products/wire-rods" }],
   heavyIndustry: [
-    { label: "Aluminum Pipes", to: "/products/pipes" },
-    { label: "Aluminum Billets", to: "/products/billets" },
-    { label: "Profiles & Bars", to: "/products/profiles-bars" },
+    { label: "Aluminum Pipes", key: "pipes", to: "/products/pipes" },
+    { label: "Aluminum Billets", key: "billets", to: "/products/billets" },
+    { label: "Profiles & Bars", key: "profilesBars", to: "/products/profiles-bars" },
   ],
   automotive: [
-    { label: "Profiles & Bars", to: "/products/profiles-bars" },
-    { label: "Sheets & Coils", to: "/products/sheets-coils" },
+    { label: "Profiles & Bars", key: "profilesBars", to: "/products/profiles-bars" },
+    { label: "Sheets & Coils", key: "sheetsCoils", to: "/products/sheets-coils" },
   ],
   foodIndustry: [
-    { label: "Sheets & Coils", to: "/products/sheets-coils" },
-    { label: "Aluminum Discs", to: "/products/discs" },
+    { label: "Sheets & Coils", key: "sheetsCoils", to: "/products/sheets-coils" },
+    { label: "Aluminum Discs", key: "discs", to: "/products/discs" },
   ],
-  embossedSheetsInsulation: [{ label: "Sheets & Coils", to: "/products/sheets-coils" }],
-  cookwareDiscBuyers: [{ label: "Aluminum Discs", to: "/products/discs" }],
-} as const satisfies Record<IndustryKey, ReadonlyArray<{ label: string; to: string }>>;
+  embossedSheetsInsulation: [{ label: "Sheets & Coils", key: "sheetsCoils", to: "/products/sheets-coils" }],
+  cookwareDiscBuyers: [{ label: "Aluminum Discs", key: "discs", to: "/products/discs" }],
+} as const satisfies Record<IndustryKey, ReadonlyArray<{ label: string; key: string; to: string }>>;
 
 export type ProductSlug =
   | "pipes"
