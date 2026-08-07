@@ -7,7 +7,8 @@ import { FinalCta } from "@/components/home/final-cta";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { INDUSTRIES, slugToIndustryKey, type IndustryKey } from "@/lib/catalog/categories";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { INDUSTRY_PRODUCTS } from "@/lib/catalog/cross-links";
 
 export const Route = createFileRoute("/industries/$sector")({
   loader: ({ params }) => {
