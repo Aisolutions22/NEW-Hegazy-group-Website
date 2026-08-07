@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/category-page-layout";
+import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
 import { useLanguage } from "@/lib/i18n/language-context";
 
@@ -33,6 +34,7 @@ function Page() {
         />
         <GalleryPlaceholder />
       </div>
+      <RelatedIndustries slug="discs" />
     </CategoryPageLayout>
   );
 }
