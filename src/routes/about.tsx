@@ -59,20 +59,18 @@ function InlineProductLink({ label, href }: { label: string; href: string }) {
 function MainTextParagraphs() {
   const { t } = useLanguage();
   const mt = t.about.mainText;
+  const productRegex = /(aluminum pipes|sheets & coils|discs|ingots|billets|profiles & bars|wire rods)/;
+  const industryRegex = /(metal manufacturing|construction|automotive|electrical)/;
   return (
     <div className="max-w-[65ch] text-lg leading-relaxed text-steel-600">
-      <p>
-        {mt.p1.split(/\b(aluminum pipes|sheets & coils|discs|ingots|billets|profiles & bars|wire rods)\b/).map((part, i) => {
-          const match = PRODUCT_LINKS.find((p) => p.label === part);
-          if (match) return <InlineProductLink key={i} {...match} />;
-          return <span key={i}>{part}</span>;
-        })}
-      </p>
+      <p>{mt.p1}</p>
       <p className="mt-6">{mt.p2}</p>
       <p className="mt-6">
-        {mt.p3.split(/\b(metal manufacturing|construction|automotive|electrical)\b/).map((part, i) => {
-          const match = INDUSTRY_LINKS.find((ind) => ind.label === part);
-          if (match) return <InlineProductLink key={i} {...match} />;
+        {mt.p3.split(new RegExp(`${productRegex.source}|${industryRegex.source}`)).map((part, i) => {
+          const productMatch = PRODUCT_LINKS.find((p) => p.label === part);
+          const industryMatch = INDUSTRY_LINKS.find((ind) => ind.label === part);
+          if (productMatch) return <InlineProductLink key={i} {...productMatch} />;
+          if (industryMatch) return <InlineProductLink key={i} {...industryMatch} />;
           return <span key={i}>{part}</span>;
         })}
       </p>
