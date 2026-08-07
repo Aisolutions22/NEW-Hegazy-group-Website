@@ -14,24 +14,21 @@ export const Route = createFileRoute("/products/wire-rods")({
   component: Page,
 });
 
-const INTRO =
-  "Electrical and industrial grade wire rods. High-conductivity 1xxx series alloy in 9mm and 9.5mm diameters, supplied in coils for cable and conductor manufacturing.";
-
 function Page() {
   const { t } = useLanguage();
   return (
-    <CategoryPageLayout title={t.products.wireRods} intro={INTRO}>
+    <CategoryPageLayout title={t.productDetail.wireRods.title} intro={t.productDetail.wireRods.intro}>
       <div className="grid gap-12 lg:grid-cols-2">
         <SpecTable
-          caption="Specifications"
+          caption={t.categoryPage.specifications}
           rows={[
-            { label: "Rod Diameter", value: "9.0 mm (+0.3) / 9.5 mm (+0.5)" },
-            { label: "Coil Outer Dia.", value: "1,250 / 1,350 mm max" },
-            { label: "Coil Inner Dia.", value: "750 / 540 mm (+50 mm)" },
-            { label: "Coil Height", value: "900 / 850 mm" },
-            { label: "Coil Weight", value: "1,500 / 2,000 kg approx." },
-            { label: "Alloy", value: "1xxx series" },
-            { label: "Temper", value: "H12, H14" },
+            { label: t.productDetail.wireRods.rodDiameter, value: "9.0 mm (+0.3) / 9.5 mm (+0.5)" },
+            { label: t.productDetail.wireRods.coilOuter, value: "1,250 / 1,350 mm max" },
+            { label: t.productDetail.wireRods.coilInner, value: "750 / 540 mm (+50 mm)" },
+            { label: t.productDetail.wireRods.coilHeight, value: "900 / 850 mm" },
+            { label: t.productDetail.wireRods.coilWeight, value: "1,500 / 2,000 kg approx." },
+            { label: t.productDetail.wireRods.alloy, value: "1xxx series" },
+            { label: t.productDetail.wireRods.temper, value: "H12, H14" },
           ]}
         />
         <GalleryPlaceholder />

@@ -14,23 +14,20 @@ export const Route = createFileRoute("/products/billets")({
   component: Page,
 });
 
-const INTRO =
-  "Air Slip cast billets, produced with advanced casting technology for superior surface quality and consistent metallurgical structure. Suitable for extrusion and forging applications.";
-
 function Page() {
   const { t } = useLanguage();
   return (
-    <CategoryPageLayout title={t.products.billets} intro={INTRO}>
+    <CategoryPageLayout title={t.productDetail.billets.title} intro={t.productDetail.billets.intro}>
       <div className="grid gap-12 lg:grid-cols-2">
         <SpecTable
-          caption="Specifications"
+          caption={t.categoryPage.specifications}
           rows={[
-            { label: "Diameters", value: "127, 178, 203, 228, 254 mm" },
-            { label: "Tolerance", value: "+1 mm" },
-            { label: "Max Length", value: "6 metres (+10 mm)" },
-            { label: "Curvature", value: "2 mm / metre" },
-            { label: "Casting", value: "Air Slip" },
-            { label: "Alloys", value: "6063, 6061, 6062" },
+            { label: t.productDetail.billets.diameters, value: "127, 178, 203, 228, 254 mm" },
+            { label: t.productDetail.billets.tolerance, value: "+1 mm" },
+            { label: t.productDetail.billets.maxLength, value: "6 metres (+10 mm)" },
+            { label: t.productDetail.billets.curvature, value: "2 mm / metre" },
+            { label: t.productDetail.billets.casting, value: "Air Slip" },
+            { label: t.productDetail.billets.alloys, value: "6063, 6061, 6062" },
           ]}
         />
         <GalleryPlaceholder />
