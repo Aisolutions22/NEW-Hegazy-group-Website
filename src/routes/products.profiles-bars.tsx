@@ -14,22 +14,19 @@ export const Route = createFileRoute("/products/profiles-bars")({
   component: Page,
 });
 
-const INTRO =
-  "6xxx and 7xxx series profiles and bars. Ideal for construction (windows, doors, curtain walls), transport (automotive, rail, marine), industrial machinery, and consumer applications.";
-
 function Page() {
   const { t } = useLanguage();
   return (
-    <CategoryPageLayout title={t.products.profilesBars} intro={INTRO}>
+    <CategoryPageLayout title={t.productDetail.profilesBars.title} intro={t.productDetail.profilesBars.intro}>
       <div className="grid gap-12 lg:grid-cols-2">
         <SpecTable
-          caption="Specifications"
+          caption={t.categoryPage.specifications}
           rows={[
-            { label: "Alloys", value: "6060, 6061, 6063, 7xxx" },
-            { label: "Temper", value: "T5, T6" },
-            { label: "Profile Types", value: "Extrusion, flat, round, square" },
-            { label: "Applications", value: "Construction, transport, industrial" },
-            { label: "Surface", value: "Mill, anodized, powder coated" },
+            { label: t.productDetail.profilesBars.alloys, value: "6060, 6061, 6063, 7xxx" },
+            { label: t.productDetail.profilesBars.temper, value: "T5, T6" },
+            { label: t.productDetail.profilesBars.profileTypes, value: "Extrusion, flat, round, square" },
+            { label: t.productDetail.profilesBars.applications, value: "Construction, transport, industrial" },
+            { label: t.productDetail.profilesBars.surface, value: "Mill, anodized, powder coated" },
           ]}
         />
         <GalleryPlaceholder />

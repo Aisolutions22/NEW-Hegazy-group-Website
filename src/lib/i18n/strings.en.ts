@@ -409,7 +409,98 @@ export const en = {
     specifications: "Specifications",
     featuredHeading: "Featured Sub-categories",
     galleryPending: "Product photography pending",
+    relatedIndustries: "Related industries",
   },
+  productDetail: {
+    pipes: {
+      title: "Aluminum Pipes",
+      intro:
+        "High-quality aluminum pipes designed for industrial, construction, and specialized manufacturing applications. Available in multiple alloys and tempers to meet exact requirements.",
+      innerDiameter: "Inner Diameter",
+      outerDiameter: "Outer Diameter",
+      wallThickness: "Wall Thickness",
+      alloys: "Alloys",
+      temper: "Temper",
+    },
+    sheetsCoils: {
+      title: "Sheets & Coils",
+      intro:
+        "Hot rolled and cold rolled aluminum products from certified factories. Available as plates, sheets, coils, embossed, and tread plates — covering the full range of industrial, construction, and decorative applications.",
+      hotRolled: "Hot Rolled Products",
+      coldRolled: "Cold Rolled Products",
+      colType: "Product Type",
+      colThickness: "Thickness (mm)",
+      colWidth: "Width (mm)",
+      colLength: "Length (mm)",
+      colTemper: "Temper",
+      rowPlates: "Plates",
+      rowSheets: "Sheets",
+      rowCoils: "Coils",
+      rowTreadPlates: "Tread Plates",
+      rowEmbossed: "Embossed",
+      rowDiscs: "Discs",
+      rowSquares: "Squares",
+      summary:
+        "Alloys: 1xxx, 3xxx, 4xxx, 5xxx, 8xxx  |  Max Width: up to 1,650 mm  |  Max Length: up to 6,000 mm",
+      subMill: "Mill Finished Sheets",
+      subEmbossed: "Embossed Sheets",
+      subCoils: "Aluminum Coils",
+    },
+    discs: {
+      title: "Aluminum Discs",
+      intro:
+        "Premium aluminum circles ideal for cookware, rice cookers, lamps, and traffic signs. Custom specifications available for diameter, thickness, and alloy to fit any application.",
+      thickness: "Thickness",
+      diameterRange: "Diameter Range",
+      alloys: "Alloys",
+      temper: "Temper",
+      surface: "Surface",
+    },
+    ingots: {
+      title: "Primary Aluminum Ingots",
+      intro:
+        "Primary aluminum ingots and T-bars from certified cast houses. Available in high-purity grades and foundry alloys, bundled for efficient handling and transport.",
+      ingotsGrades: "Ingots 99.7% & 99.8%",
+      foundryIngots: "Foundry Ingots",
+      tBars: "T-Bars",
+      alloys: "Alloys",
+      packaging: "Packaging",
+    },
+    billets: {
+      title: "Aluminum Billets",
+      intro:
+        "Air Slip cast billets, produced with advanced casting technology for superior surface quality and consistent metallurgical structure. Suitable for extrusion and forging applications.",
+      diameters: "Diameters",
+      tolerance: "Tolerance",
+      maxLength: "Max Length",
+      curvature: "Curvature",
+      casting: "Casting",
+      alloys: "Alloys",
+    },
+    profilesBars: {
+      title: "Profiles & Bars",
+      intro:
+        "6xxx and 7xxx series profiles and bars. Ideal for construction (windows, doors, curtain walls), transport (automotive, rail, marine), industrial machinery, and consumer applications.",
+      alloys: "Alloys",
+      temper: "Temper",
+      profileTypes: "Profile Types",
+      applications: "Applications",
+      surface: "Surface",
+    },
+    wireRods: {
+      title: "Aluminum Wire Rods",
+      intro:
+        "Electrical and industrial grade wire rods. High-conductivity 1xxx series alloy in 9mm and 9.5mm diameters, supplied in coils for cable and conductor manufacturing.",
+      rodDiameter: "Rod Diameter",
+      coilOuter: "Coil Outer Dia.",
+      coilInner: "Coil Inner Dia.",
+      coilHeight: "Coil Height",
+      coilWeight: "Coil Weight",
+      alloy: "Alloy",
+      temper: "Temper",
+    },
+  },
+
   sectorPage: {
     back: "All industries",
     notFound: "Sector not found.",

@@ -14,22 +14,19 @@ export const Route = createFileRoute("/products/discs")({
   component: Page,
 });
 
-const INTRO =
-  "Premium aluminum circles ideal for cookware, rice cookers, lamps, and traffic signs. Custom specifications available for diameter, thickness, and alloy to fit any application.";
-
 function Page() {
   const { t } = useLanguage();
   return (
-    <CategoryPageLayout title={t.products.discs} intro={INTRO}>
+    <CategoryPageLayout title={t.productDetail.discs.title} intro={t.productDetail.discs.intro}>
       <div className="grid gap-12 lg:grid-cols-2">
         <SpecTable
-          caption="Specifications"
+          caption={t.categoryPage.specifications}
           rows={[
-            { label: "Thickness", value: "0.8 – 3.5 mm" },
-            { label: "Diameter Range", value: "170 – 540 mm" },
-            { label: "Alloys", value: "1xxx, 3xxx, 5xxx" },
-            { label: "Temper", value: "O, H1x, H2x" },
-            { label: "Surface", value: "Mill, Polished, Anodized" },
+            { label: t.productDetail.discs.thickness, value: "0.8 – 3.5 mm" },
+            { label: t.productDetail.discs.diameterRange, value: "170 – 540 mm" },
+            { label: t.productDetail.discs.alloys, value: "1xxx, 3xxx, 5xxx" },
+            { label: t.productDetail.discs.temper, value: "O, H1x, H2x" },
+            { label: t.productDetail.discs.surface, value: "Mill, Polished, Anodized" },
           ]}
         />
         <GalleryPlaceholder />

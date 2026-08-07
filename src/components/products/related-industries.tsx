@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/language-context";
 import { PRODUCT_INDUSTRIES, type ProductSlug } from "@/lib/catalog/cross-links";
 
 /**
@@ -7,11 +8,12 @@ import { PRODUCT_INDUSTRIES, type ProductSlug } from "@/lib/catalog/cross-links"
  * same compact pill/link styling as the industry pages' relevant-products list.
  */
 export function RelatedIndustries({ slug }: { slug: ProductSlug }) {
+  const { t } = useLanguage();
   const items = PRODUCT_INDUSTRIES[slug];
   return (
     <section className="mt-12 border-t border-graphite-900 pt-6">
       <div className="mb-4 font-mono text-micro uppercase tracking-caps text-steel-400">
-        Related industries
+        {t.categoryPage.relatedIndustries}
       </div>
       <ul className="flex flex-wrap gap-2">
         {items.map((item) => (
