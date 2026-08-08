@@ -26,14 +26,14 @@ const PROJECTS: Project[] = [
       { key: "sheetsCoils", to: "/products/sheets-coils" },
       { key: "profilesBars", to: "/products/profiles-bars" },
     ],
-    alloys: "5xxx, 6xxx series",
+    alloys: "5xxx, 6xxx",
   },
   {
     id: "hvac-coil-stock",
     industryKey: "hvacHeatTransfer",
     industryTo: "/industries/hvac-heat-transfer",
     products: [{ key: "sheetsCoils", to: "/products/sheets-coils" }],
-    alloys: "1xxx, 3xxx, 8xxx series",
+    alloys: "1xxx, 3xxx, 8xxx",
   },
   {
     id: "cookware-discs",
