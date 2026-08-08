@@ -18,12 +18,7 @@ export function SiteHeader({ variant = "solid" }: Props) {
   const scroll = useScrollDirection();
 
   const isTransparent = variant === "transparent" && scroll.atTop;
-  // Compress the main bar only when scrolling down AND past the top.
-  const collapsed = !scroll.atTop && scroll.direction === "down";
 
-
-
-  return (
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-[background-color,border-color,color] duration-200 ease-out",
