@@ -5,25 +5,28 @@ import { Section, Grid } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { FinalCta } from "@/components/home/final-cta";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
-import type { ResourceCard } from "@/lib/resources/content";
+import { getResourceCard, type ResourceKey } from "@/lib/resources/content";
+import { useLanguage } from "@/lib/i18n/language-context";
 
 /**
  * Detail page for a single resource entry. Real PDFs are pending from the
  * client, so the download slot renders a notice instead of a dead file link.
  */
-export function ResourceDetailPage({ card }: { card: ResourceCard }) {
+export function ResourceDetailPage({ resourceKey }: { resourceKey: ResourceKey }) {
+  const { t } = useLanguage();
+  const card = getResourceCard(t, resourceKey);
   return (
     <>
       <SiteHeader variant="solid" />
       <main id="main-content">
         <Breadcrumbs
-          items={[{ label: "Resources", href: "/resources" }, { label: card.title }]}
+          items={[{ label: t.nav.resources, href: "/resources" }, { label: card.title }]}
         />
         <Section as="header" className="bg-graphite-900 text-white" aria-label={card.title}>
           <Grid>
             <div className="col-span-4 sm:col-span-8 lg:col-span-9">
               <div className="mb-4 font-mono text-micro uppercase tracking-caps text-white/60">
-                Resources
+                {t.resourcesPage.eyebrow}
               </div>
               <h1 className="text-5xl leading-tight text-white">{card.title}</h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
@@ -64,10 +67,10 @@ export function ResourceDetailPage({ card }: { card: ResourceCard }) {
 
               <div className="mt-10 rounded-md border border-steel-200 bg-offwhite-50 p-6">
                 <div className="font-mono text-micro uppercase tracking-caps text-steel-400">
-                  Download
+                  {t.resourcesLibrary.download}
                 </div>
                 <p className="mt-2 text-meta leading-relaxed text-steel-600">
-                  PDF download coming soon.
+                  {t.resourcesLibrary.downloadPending}
                   {card.meta ? ` ${card.meta}` : ""}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
@@ -75,13 +78,13 @@ export function ResourceDetailPage({ card }: { card: ResourceCard }) {
                     to="/quote"
                     className="inline-flex h-11 items-center justify-center rounded-md bg-graphite-900 px-5 text-meta font-medium text-white hover:bg-graphite-800"
                   >
-                    Request a Quote
+                    {t.resourcesLibrary.quote}
                   </Link>
                   <Link
                     to="/contact"
                     className="inline-flex h-11 items-center justify-center rounded-md border border-steel-200 bg-white px-5 text-meta font-medium text-graphite-900 hover:border-graphite-900"
                   >
-                    Contact Us
+                    {t.resourcesLibrary.contact}
                   </Link>
                 </div>
               </div>

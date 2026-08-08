@@ -1,8 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ResourceDetailPage } from "@/components/resources/resource-detail";
-import { RESOURCE_CARDS } from "@/lib/resources/content";
-
-const card = RESOURCE_CARDS.find((c) => c.key === "specs")!;
 
 export const Route = createFileRoute("/resources/technical-specs")({
   head: () => ({
@@ -23,5 +20,5 @@ export const Route = createFileRoute("/resources/technical-specs")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <ResourceDetailPage card={card} />,
+  component: () => <ResourceDetailPage resourceKey="specs" />,
 });

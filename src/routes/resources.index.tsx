@@ -5,7 +5,8 @@ import { Section, Grid } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { FinalCta } from "@/components/home/final-cta";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
-import { RESOURCE_CARDS, RESOURCES_INTRO } from "@/lib/resources/content";
+import { getResourceCards } from "@/lib/resources/content";
+import { useLanguage } from "@/lib/i18n/language-context";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/resources/")({
@@ -37,37 +38,38 @@ export const Route = createFileRoute("/resources/")({
 });
 
 function ResourcesPage() {
+  const { t } = useLanguage();
+  const cards = getResourceCards(t);
   return (
     <>
       <SiteHeader variant="solid" />
       <main id="main-content">
-        <Breadcrumbs items={[{ label: "Resources" }]} />
-        <Section as="header" className="bg-graphite-900 text-white" aria-label="Resources">
+        <Breadcrumbs items={[{ label: t.nav.resources }]} />
+        <Section as="header" className="bg-graphite-900 text-white" aria-label={t.resourcesPage.eyebrow}>
           <Grid>
             <div className="col-span-4 sm:col-span-8 lg:col-span-9">
               <div className="mb-4 font-mono text-micro uppercase tracking-caps text-white/60">
-                Resources
+                {t.resourcesPage.eyebrow}
               </div>
-              <h1 className="text-5xl leading-tight text-white">Resources</h1>
+              <h1 className="text-5xl leading-tight text-white">{t.resourcesPage.title}</h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-                Technical information, catalogs, and guides to support material
-                selection and specification.
+                {t.resourcesPage.lead}
               </p>
             </div>
           </Grid>
         </Section>
 
-        <Section aria-label="Resource library">
+        <Section aria-label={t.resourcesPage.eyebrow}>
           <Grid>
             <div className="col-span-4 sm:col-span-8 lg:col-span-8">
               <p className="max-w-[65ch] text-lg leading-relaxed text-steel-600">
-                {RESOURCES_INTRO}
+                {t.resourcesLibrary.intro}
               </p>
             </div>
           </Grid>
 
           <Grid className="mt-12">
-            {RESOURCE_CARDS.map((c, i) => (
+            {cards.map((c, i) => (
               <div
                 key={c.key}
                 className="group col-span-4 sm:col-span-4 lg:col-span-3 flex flex-col rounded-md border border-steel-200 bg-white p-8 transition-colors hover:border-graphite-900"
