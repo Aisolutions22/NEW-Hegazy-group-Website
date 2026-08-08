@@ -23,9 +23,9 @@ export const Route = createFileRoute("/products/")({
         content:
           "Full aluminum catalog: pipes, sheets & coils, discs, ingots, billets, profiles & bars, wire rods.",
       },
-          { property: "og:url", content: "https://hegazy-group.lovable.app/products/" },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products" },
     ],
-    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/" }],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products" }],
   }),
   component: ProductsPage,
 });
