@@ -326,6 +326,196 @@ export const en = {
     guides: { title: "Selection guides", body: "Application-driven guidance on alloy, temper, and finish selection.", cta: "Read guides", href: "/resources/guides" },
     faq: { title: "FAQ", body: "Common questions on lead times, minimums, documentation, and export.", cta: "View FAQ", href: "/faq" },
   },
+  resourcesLibrary: {
+    intro:
+      "Access technical data, product catalogs, selection guides, and FAQs to support your aluminum sourcing and fabrication needs. All documents are provided for reference; for project-specific requirements, please contact our technical team.",
+    download: "Download",
+    downloadPending: "PDF download coming soon.",
+    quote: "Request a Quote",
+    contact: "Contact Us",
+    cards: {
+      catalog: {
+        title: "Catalog",
+        body: "Download our product catalog with available alloys, formats, and typical specifications.",
+        listHeading: "What's Included",
+        meta: "Format: PDF (downloadable)",
+        cta: "View Catalog",
+        groups: [
+          {
+            label: "",
+            items: [
+              "Full product range: pipes, sheets & coils, discs, ingots, billets, profiles & bars, wire rods.",
+              "Common alloys and tempers by product family.",
+              "Typical dimensions, tolerances, and finish options.",
+              "Overview of applicable standards (ASTM, EN, ISO, AA).",
+            ],
+          },
+        ],
+      },
+      specs: {
+        title: "Technical Specs",
+        body: "Detailed specifications for aluminum products, including chemical composition, mechanical properties, and tolerances.",
+        listHeading: "What's Included",
+        meta: "Format: Web pages + downloadable PDFs per product family.",
+        cta: "View Specs",
+        groups: [
+          {
+            label: "",
+            items: [
+              "Chemical composition ranges for common alloys (1xxx, 3xxx, 5xxx, 6xxx, 7xxx, 8xxx series).",
+              "Mechanical properties: tensile strength, yield strength, elongation, hardness by temper.",
+              "Dimensional tolerances for sheets, plates, coils, pipes, profiles, and bars.",
+              "Temper designations and heat treatment conditions.",
+              "Cross-reference between ASTM, EN, ISO, and AA designations.",
+            ],
+          },
+        ],
+      },
+      guides: {
+        title: "Selection Guides",
+        body: "Practical guides for alloy selection, form choice, and application matching.",
+        listHeading: "What's Included",
+        meta: "Format: Web pages + downloadable PDFs.",
+        cta: "View Guides",
+        groups: [
+          {
+            label: "Alloy Selection Guide",
+            items: [
+              "How to choose between 1xxx, 3xxx, 5xxx, 6xxx, 7xxx series based on application.",
+              "Formability vs. strength vs. corrosion resistance trade-offs.",
+            ],
+          },
+          {
+            label: "Form Selection Guide",
+            items: [
+              "When to use sheets, coils, plates, pipes, profiles, billets, ingots, discs, or wire rods.",
+              "Typical fabrication routes: extrusion, rolling, forging, casting, drawing.",
+            ],
+          },
+          {
+            label: "Application Matching",
+            items: [
+              "Recommended alloys and forms for construction, HVAC, automotive, electrical, food industry, and general manufacturing.",
+              "Example specifications by industry.",
+            ],
+          },
+        ],
+      },
+      faq: {
+        title: "FAQ",
+        body: "Common questions about aluminum supply, standards, lead times, and documentation.",
+        listHeading: "Sample Questions",
+        meta: "",
+        cta: "View FAQ",
+        groups: [
+          {
+            label: "General",
+            items: [
+              "What aluminum alloys do you supply?",
+              "Which standards do your products conform to?",
+              "Can you provide mill test certificates and traceability documents?",
+            ],
+          },
+          {
+            label: "Products & Specifications",
+            items: [
+              "What is the difference between 1050, 1100, 3003, and 5052?",
+              "What tempers are available for sheets and profiles?",
+              "Can you supply custom sizes or cut-to-length?",
+            ],
+          },
+          {
+            label: "Lead Times & Logistics",
+            items: [
+              "What are typical lead times for standard and non-standard items?",
+              "Do you support partial shipments and consolidated loads?",
+              "Which regions do you serve?",
+            ],
+          },
+          {
+            label: "Quality & Documentation",
+            items: [
+              "What quality certifications do you hold?",
+              "How do you handle non-conformance or claims?",
+              "Can you support third-party inspection?",
+            ],
+          },
+        ],
+      },
+    },
+  },
+  projectsList: {
+    title: "Projects",
+    subhead: "Selected supply references and applications across industries.",
+    intro:
+      "This section highlights representative applications and supply references for Hegazy Group aluminum products. We support industrial, architectural, and manufacturing projects across Egypt and the region with reliable aluminum supply, technical guidance, and consistent quality.",
+    note: "Detailed case studies with project names and client references are available upon request. For specific project inquiries, please contact our sales team.",
+    ctaTitle: "Have a project in mind?",
+    ctaBody:
+      "Share your specifications and requirements — our team will confirm availability and provide a written quotation.",
+    ctaButton: "Request a Quote",
+    fields: {
+      products: "Products supplied",
+      alloys: "Alloys",
+      application: "Application",
+      scope: "Scope",
+      keyPoints: "Key points",
+    },
+    details: {
+      facadeCladding: {
+        application: "Curtain wall panels, cladding sheets, and structural profiles for commercial buildings.",
+        scope: "Continuous supply of coated and mill-finish aluminum sheets and extruded profiles for facade fabrication.",
+        keyPoints: [
+          "Consistent surface quality for architectural finishes.",
+          "Dimensional tolerances aligned with system requirements.",
+          "Coordinated delivery schedules to match installation timelines.",
+        ],
+      },
+      hvacCoilStock: {
+        application: "Heat exchanger fins and HVAC coil stock for air conditioning and refrigeration units.",
+        scope: "Supply of precision-rolled aluminum coil stock in specified tempers for coil forming and fin stamping.",
+        keyPoints: [
+          "Uniform thickness and flatness for efficient heat transfer.",
+          "Surface quality suitable for high-speed forming.",
+          "Traceability and mill certificates for quality assurance.",
+        ],
+      },
+      cookwareDiscs: {
+        application: "Blanks for cookware, rice cooker bodies, utensils, and lighting reflectors.",
+        scope: "Regular supply of aluminum circles in standard diameters and tempers for deep drawing and spinning.",
+        keyPoints: [
+          "Optimized for deep-draw performance with minimal edge cracking.",
+          "Consistent mechanical properties batch-to-batch.",
+          "Packaging and handling to preserve surface quality.",
+        ],
+      },
+      conductorRod: {
+        application: "Busbars, power cables, and conductors for electrical distribution.",
+        scope: "Supply of high-conductivity aluminum rod for wire drawing and stranding.",
+        keyPoints: [
+          "High electrical conductivity and consistent chemistry.",
+          "Suitable for continuous casting and rolling processes.",
+          "Supported by mill test reports and traceability documentation.",
+        ],
+      },
+      billetExtrusion: {
+        application: "Extrusion of architectural and industrial profiles.",
+        scope: "Supply of air slip cast billets optimized for extrusion and surface quality.",
+        keyPoints: [
+          "Homogeneous structure for stable extrusion.",
+          "Low defect rates and good surface finish on extruded profiles.",
+          "Flexible sizing to match press capabilities and profile complexity.",
+        ],
+      },
+    },
+    items: {
+      facadeCladding: "Facade & Cladding Supply",
+      hvacCoilStock: "HVAC Coil Stock Supply",
+      cookwareDiscs: "Cookware Disc Supply",
+      conductorRod: "Electrical Conductor Rod Supply",
+      billetExtrusion: "Billet Supply for Extrusion Lines",
+    },
+  },
   contactPage: {
     eyebrow: "Contact",
     title: "Talk to the Hegazy Group team.",
