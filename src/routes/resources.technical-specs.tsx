@@ -18,7 +18,9 @@ export const Route = createFileRoute("/resources/technical-specs")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/resources/technical-specs" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/resources/technical-specs" }],
   }),
   component: () => <ResourceDetailPage resourceKey="specs" />,
 });

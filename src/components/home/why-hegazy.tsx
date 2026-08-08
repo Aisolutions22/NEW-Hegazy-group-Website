@@ -6,9 +6,9 @@ export function WhyHegazy() {
   return (
     <Section aria-label={t.why.heading}>
       <div className="mb-12 max-w-2xl">
-        <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
+        <h2 className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
           {t.why.heading}
-        </div>
+        </h2>
         <h2 className="text-3xl leading-tight">
           {t.why.subheading}
         </h2>

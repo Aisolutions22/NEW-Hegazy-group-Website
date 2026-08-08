@@ -32,7 +32,9 @@ export const Route = createFileRoute("/resources/")({
         content:
           "Catalog, technical specifications, selection guides, and FAQ for aluminum sourcing and fabrication.",
       },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/resources" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/resources" }],
   }),
   component: ResourcesPage,
 });

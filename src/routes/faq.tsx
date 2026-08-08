@@ -3,6 +3,7 @@ import { stubRouteOptions } from "@/lib/routes/stub-route";
 
 export const Route = createFileRoute("/faq")(
   stubRouteOptions({
+    path: "/faq",
     metaTitle: "FAQ — Hegazy Group",
     metaDescription:
       "Frequently asked questions on aluminum supply, lead times, and documentation.",

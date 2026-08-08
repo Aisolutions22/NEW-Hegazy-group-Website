@@ -2,9 +2,13 @@ import { PageStub } from "@/components/layout/page-stub";
 import { useLanguage } from "@/lib/i18n/language-context";
 import type { Strings } from "@/lib/i18n/strings";
 
+const SITE_URL = "https://hegazy-group.lovable.app";
+
 type StubCopy = { eyebrow: string; title: string; body?: string };
 
 type StubOptions = {
+  /** Route path, used for self-referencing canonical / og:url. */
+  path: string;
   metaTitle: string;
   metaDescription: string;
   /** Adds `<meta name="robots" content="noindex">` — used for legal pages. */
@@ -34,8 +38,10 @@ export function stubRouteOptions(config: StubOptions) {
         { property: "og:description", content: config.metaDescription },
         { name: "twitter:title", content: config.metaTitle },
         { name: "twitter:description", content: config.metaDescription },
+        { property: "og:url", content: `${SITE_URL}${config.path}` },
         ...(config.noindex ? [{ name: "robots", content: "noindex" }] : []),
       ],
+      links: [{ rel: "canonical", href: `${SITE_URL}${config.path}` }],
     }),
     component: function StubRouteComponent() {
       const { t } = useLanguage();

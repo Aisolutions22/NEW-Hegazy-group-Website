@@ -33,7 +33,9 @@ export const Route = createFileRoute("/quote")({
         content:
           "Aluminum supply RFQ — alloys, tempers, dimensions, and finishes.",
       },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/quote" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/quote" }],
   }),
   component: QuotePage,
 });

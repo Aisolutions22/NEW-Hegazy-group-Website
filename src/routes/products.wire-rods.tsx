@@ -9,6 +9,14 @@ export const Route = createFileRoute("/products/wire-rods")({
     meta: [
       { title: "Aluminum Wire Rods — Hegazy Group" },
       { name: "description", content: "Aluminum wire rods for electrical conductor and mechanical wire drawing." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/wire-rods" },
+    ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/wire-rods" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "Product", "name": "Aluminum Wire Rods", "description": "High-conductivity aluminum wire rod for drawing, stranding and electrical conductors.", "url": "https://hegazy-group.lovable.app/products/wire-rods", "category": "Aluminum products", "brand": {"@type": "Brand", "name": "Hegazy Group"}, "material": "Aluminum", "additionalProperty": [{"@type": "PropertyValue", "name": "Alloys", "value": "1350, 1050, 1070"}]}),
+      },
     ],
   }),
   component: Page,

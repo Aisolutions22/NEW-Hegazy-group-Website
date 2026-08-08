@@ -24,7 +24,9 @@ export const Route = createFileRoute("/industries/")({
         content:
           "Sector-matched alloys, forms, and finishes for contractors, fabricators, and OEMs.",
       },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/industries" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/industries" }],
   }),
   component: IndustriesPage,
 });

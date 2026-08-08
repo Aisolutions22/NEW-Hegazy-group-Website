@@ -22,6 +22,14 @@ export const Route = createFileRoute("/contact")({
         content:
           "Procurement, technical support, and location contacts for Hegazy Group.",
       },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/contact" },
+    ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Hegazy Group", "url": "https://hegazy-group.lovable.app/contact", "description": "Aluminum supply and distribution for construction, manufacturing, transport, and industry.", "areaServed": [{"@type": "Country", "name": "Egypt"}, {"@type": "Place", "name": "Middle East"}], "knowsLanguage": ["en", "ar"]}),
+      },
     ],
   }),
   component: ContactPage,

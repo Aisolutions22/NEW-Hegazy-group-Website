@@ -93,7 +93,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Hegazy Group is a specialist distributor of aluminum profiles, sheets, coils, and bars — sourced from qualified mills and delivered on schedule.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://hegazy-group.lovable.app/" },
       { property: "og:site_name", content: "Hegazy Group" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Hegazy Group — Aluminum Supply & Distribution" },

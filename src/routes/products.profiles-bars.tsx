@@ -9,6 +9,14 @@ export const Route = createFileRoute("/products/profiles-bars")({
     meta: [
       { title: "Aluminum Profiles & Bars — Hegazy Group" },
       { name: "description", content: "Extruded aluminum profiles, round bars, square bars, and hex rods." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/profiles-bars" },
+    ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/profiles-bars" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "Product", "name": "Aluminum Profiles & Bars", "description": "Extruded aluminum profiles, flat, round and square bars in mill, anodized and powder-coated finishes.", "url": "https://hegazy-group.lovable.app/products/profiles-bars", "category": "Aluminum products", "brand": {"@type": "Brand", "name": "Hegazy Group"}, "material": "Aluminum", "additionalProperty": [{"@type": "PropertyValue", "name": "Alloys", "value": "6060, 6061, 6063, 6082"}]}),
+      },
     ],
   }),
   component: Page,

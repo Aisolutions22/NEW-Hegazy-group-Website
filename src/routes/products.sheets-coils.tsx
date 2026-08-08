@@ -9,6 +9,14 @@ export const Route = createFileRoute("/products/sheets-coils")({
     meta: [
       { title: "Aluminum Sheets & Coils — Hegazy Group" },
       { name: "description", content: "Aluminum sheets and coils in mill, coated, and embossed finishes." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/sheets-coils" },
+    ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/sheets-coils" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "Product", "name": "Aluminum Sheets & Coils", "description": "Mill-finish and finished aluminum sheets, plates and coils, including embossed and tread patterns, for construction, HVAC and industry.", "url": "https://hegazy-group.lovable.app/products/sheets-coils", "category": "Aluminum products", "brand": {"@type": "Brand", "name": "Hegazy Group"}, "material": "Aluminum", "additionalProperty": [{"@type": "PropertyValue", "name": "Alloys", "value": "1xxx, 3xxx, 5xxx, 8xxx"}]}),
+      },
     ],
   }),
   component: Page,
