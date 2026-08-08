@@ -32,7 +32,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Hegazy Group is a specialist distributor of aluminum products — pipes, sheets, coils, discs, ingots, billets, profiles, bars, and wire rods — across Egypt and the region.",
+          "Hegazy Group distributes aluminum pipes, sheets, coils, discs, ingots, billets, profiles, bars, and wire rods across Egypt and the region.",
       },
       { property: "og:title", content: "About — Hegazy Group" },
       {

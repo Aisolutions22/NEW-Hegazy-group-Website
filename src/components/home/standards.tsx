@@ -6,9 +6,9 @@ export function StandardsCompliance() {
   return (
     <Section as="section" className="bg-offwhite-50" aria-label={t.standards.heading}>
       <div className="mb-12 max-w-2xl">
-        <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
+        <h2 className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
           {t.standards.eyebrow}
-        </div>
+        </h2>
         <h2 className="text-3xl leading-tight text-graphite-900">
           {t.standards.heading}
         </h2>

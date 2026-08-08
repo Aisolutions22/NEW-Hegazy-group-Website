@@ -12,9 +12,9 @@ export function IndustriesGrid() {
       aria-label={t.industriesSection.heading}
     >
       <div className="mb-12 max-w-2xl">
-        <div className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
+        <h2 className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
           {t.industriesSection.heading}
-        </div>
+        </h2>
         <p className="text-lg leading-relaxed text-steel-600">
           {t.industriesSection.subheading}
         </p>
