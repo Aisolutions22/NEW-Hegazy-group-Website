@@ -18,10 +18,6 @@ export function SiteHeader({ variant = "solid" }: Props) {
   const scroll = useScrollDirection();
 
   const isTransparent = variant === "transparent" && scroll.atTop;
-  // Compress the main bar only when scrolling down AND past the top.
-  const collapsed = !scroll.atTop && scroll.direction === "down";
-
-
 
   return (
     <header
@@ -34,11 +30,9 @@ export function SiteHeader({ variant = "solid" }: Props) {
     >
       <UtilityBar />
 
-
       <div
         className={cn(
-          "mx-auto flex w-full max-w-[1280px] items-center gap-6 px-6 transition-[height] duration-200 ease-out md:px-8",
-          collapsed ? "h-14" : "h-20"
+          "mx-auto flex h-16 w-full max-w-[1280px] items-center gap-6 px-6 md:px-8"
         )}
       >
         {/* Logo — full uploaded lockup (mark + wordmark). Rendered uncropped
