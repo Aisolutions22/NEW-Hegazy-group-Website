@@ -22,7 +22,7 @@ export function RelatedIndustries({ slug }: { slug: ProductSlug }) {
               to="/industries/$sector" params={{ sector: item.sector }}
               className="inline-flex items-center gap-2 rounded-md border border-steel-200 bg-white px-3 py-2 text-meta text-graphite-900 transition-colors hover:border-graphite-900"
             >
-              {item.label}
+              {t.industries[item.key as keyof typeof t.industries]}
               <ArrowRight className="h-3.5 w-3.5 text-steel-400 rtl:rotate-180" aria-hidden="true" />
             </Link>
           </li>
