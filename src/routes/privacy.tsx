@@ -3,6 +3,7 @@ import { stubRouteOptions } from "@/lib/routes/stub-route";
 
 export const Route = createFileRoute("/privacy")(
   stubRouteOptions({
+    path: "/privacy",
     metaTitle: "Privacy — Hegazy Group",
     metaDescription: "Privacy policy.",
     noindex: true,

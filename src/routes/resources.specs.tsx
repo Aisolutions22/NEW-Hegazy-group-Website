@@ -3,6 +3,7 @@ import { stubRouteOptions } from "@/lib/routes/stub-route";
 
 export const Route = createFileRoute("/resources/specs")(
   stubRouteOptions({
+    path: "/resources/specs",
     metaTitle: "Technical Specifications — Hegazy Group",
     metaDescription:
       "Mechanical properties, tolerances, and standards references by alloy family.",

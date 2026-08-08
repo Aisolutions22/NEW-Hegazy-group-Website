@@ -3,6 +3,7 @@ import { stubRouteOptions } from "@/lib/routes/stub-route";
 
 export const Route = createFileRoute("/cookies")(
   stubRouteOptions({
+    path: "/cookies",
     metaTitle: "Cookies — Hegazy Group",
     metaDescription: "Cookie policy.",
     noindex: true,

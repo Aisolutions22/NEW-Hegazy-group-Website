@@ -3,6 +3,7 @@ import { stubRouteOptions } from "@/lib/routes/stub-route";
 
 export const Route = createFileRoute("/locations")(
   stubRouteOptions({
+    path: "/locations",
     metaTitle: "Locations — Hegazy Group",
     metaDescription: "Head office and regional fulfillment hubs.",
     copy: (t) => ({

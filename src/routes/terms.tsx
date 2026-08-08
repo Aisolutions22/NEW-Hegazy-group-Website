@@ -3,6 +3,7 @@ import { stubRouteOptions } from "@/lib/routes/stub-route";
 
 export const Route = createFileRoute("/terms")(
   stubRouteOptions({
+    path: "/terms",
     metaTitle: "Terms — Hegazy Group",
     metaDescription: "Terms of use.",
     noindex: true,
