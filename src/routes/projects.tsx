@@ -15,9 +15,6 @@ type Project = {
   industryTo: string;
   products: { key: string; to: string }[];
   alloys: string;
-  application: string;
-  scope: string;
-  keyPoints: string[];
 };
 
 const PROJECTS: Project[] = [
@@ -30,15 +27,6 @@ const PROJECTS: Project[] = [
       { key: "profilesBars", to: "/products/profiles-bars" },
     ],
     alloys: "5xxx, 6xxx series",
-    application:
-      "Curtain wall panels, cladding sheets, and structural profiles for commercial buildings.",
-    scope:
-      "Continuous supply of coated and mill-finish aluminum sheets and extruded profiles for facade fabrication.",
-    keyPoints: [
-      "Consistent surface quality for architectural finishes.",
-      "Dimensional tolerances aligned with system requirements.",
-      "Coordinated delivery schedules to match installation timelines.",
-    ],
   },
   {
     id: "hvac-coil-stock",
@@ -46,15 +34,6 @@ const PROJECTS: Project[] = [
     industryTo: "/industries/hvac-heat-transfer",
     products: [{ key: "sheetsCoils", to: "/products/sheets-coils" }],
     alloys: "1xxx, 3xxx, 8xxx series",
-    application:
-      "Heat exchanger fins and HVAC coil stock for air conditioning and refrigeration units.",
-    scope:
-      "Supply of precision-rolled aluminum coil stock in specified tempers for coil forming and fin stamping.",
-    keyPoints: [
-      "Uniform thickness and flatness for efficient heat transfer.",
-      "Surface quality suitable for high-speed forming.",
-      "Traceability and mill certificates for quality assurance.",
-    ],
   },
   {
     id: "cookware-discs",
@@ -62,15 +41,6 @@ const PROJECTS: Project[] = [
     industryTo: "/industries/cookware-disc-buyers",
     products: [{ key: "discs", to: "/products/discs" }],
     alloys: "1050, 1100, 3003, 5052",
-    application:
-      "Blanks for cookware, rice cooker bodies, utensils, and lighting reflectors.",
-    scope:
-      "Regular supply of aluminum circles in standard diameters and tempers for deep drawing and spinning.",
-    keyPoints: [
-      "Optimized for deep-draw performance with minimal edge cracking.",
-      "Consistent mechanical properties batch-to-batch.",
-      "Packaging and handling to preserve surface quality.",
-    ],
   },
   {
     id: "conductor-rod",
@@ -78,13 +48,6 @@ const PROJECTS: Project[] = [
     industryTo: "/industries/electrical-components",
     products: [{ key: "wireRods", to: "/products/wire-rods" }],
     alloys: "1350, 1050, 1070",
-    application: "Busbars, power cables, and conductors for electrical distribution.",
-    scope: "Supply of high-conductivity aluminum rod for wire drawing and stranding.",
-    keyPoints: [
-      "High electrical conductivity and consistent chemistry.",
-      "Suitable for continuous casting and rolling processes.",
-      "Supported by mill test reports and traceability documentation.",
-    ],
   },
   {
     id: "billet-extrusion",
@@ -92,13 +55,6 @@ const PROJECTS: Project[] = [
     industryTo: "/industries/metal-manufacturing",
     products: [{ key: "billets", to: "/products/billets" }],
     alloys: "6060, 6061, 6063, 6082",
-    application: "Extrusion of architectural and industrial profiles.",
-    scope: "Supply of air slip cast billets optimized for extrusion and surface quality.",
-    keyPoints: [
-      "Homogeneous structure for stable extrusion.",
-      "Low defect rates and good surface finish on extruded profiles.",
-      "Flexible sizing to match press capabilities and profile complexity.",
-    ],
   },
 ];
 
@@ -210,6 +166,7 @@ function ProjectsPage() {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { t } = useLanguage();
+  const d = t.projectsList.details[PROJECT_TITLE_KEYS[project.id]];
   return (
     <article className="rounded-md border border-steel-200 bg-white p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -249,11 +206,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
           <div className="flex flex-col gap-1 py-3">
             <dt className="text-caption text-steel-400">{t.projectsList.fields.application}</dt>
-            <dd className="text-meta leading-relaxed text-graphite-800">{project.application}</dd>
+            <dd className="text-meta leading-relaxed text-graphite-800">{d.application}</dd>
           </div>
           <div className="flex flex-col gap-1 py-3">
             <dt className="text-caption text-steel-400">{t.projectsList.fields.scope}</dt>
-            <dd className="text-meta leading-relaxed text-graphite-800">{project.scope}</dd>
+            <dd className="text-meta leading-relaxed text-graphite-800">{d.scope}</dd>
           </div>
         </dl>
 
@@ -262,7 +219,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {t.projectsList.fields.keyPoints}
           </div>
           <ul className="mt-4 space-y-3">
-            {project.keyPoints.map((point) => (
+            {d.keyPoints.map((point) => (
               <li key={point} className="flex gap-3 text-meta leading-relaxed text-steel-600">
                 <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-graphite-900" />
                 {point}

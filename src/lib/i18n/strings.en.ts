@@ -461,6 +461,53 @@ export const en = {
       scope: "Scope",
       keyPoints: "Key points",
     },
+    details: {
+      facadeCladding: {
+        application: "Curtain wall panels, cladding sheets, and structural profiles for commercial buildings.",
+        scope: "Continuous supply of coated and mill-finish aluminum sheets and extruded profiles for facade fabrication.",
+        keyPoints: [
+          "Consistent surface quality for architectural finishes.",
+          "Dimensional tolerances aligned with system requirements.",
+          "Coordinated delivery schedules to match installation timelines.",
+        ],
+      },
+      hvacCoilStock: {
+        application: "Heat exchanger fins and HVAC coil stock for air conditioning and refrigeration units.",
+        scope: "Supply of precision-rolled aluminum coil stock in specified tempers for coil forming and fin stamping.",
+        keyPoints: [
+          "Uniform thickness and flatness for efficient heat transfer.",
+          "Surface quality suitable for high-speed forming.",
+          "Traceability and mill certificates for quality assurance.",
+        ],
+      },
+      cookwareDiscs: {
+        application: "Blanks for cookware, rice cooker bodies, utensils, and lighting reflectors.",
+        scope: "Regular supply of aluminum circles in standard diameters and tempers for deep drawing and spinning.",
+        keyPoints: [
+          "Optimized for deep-draw performance with minimal edge cracking.",
+          "Consistent mechanical properties batch-to-batch.",
+          "Packaging and handling to preserve surface quality.",
+        ],
+      },
+      conductorRod: {
+        application: "Busbars, power cables, and conductors for electrical distribution.",
+        scope: "Supply of high-conductivity aluminum rod for wire drawing and stranding.",
+        keyPoints: [
+          "High electrical conductivity and consistent chemistry.",
+          "Suitable for continuous casting and rolling processes.",
+          "Supported by mill test reports and traceability documentation.",
+        ],
+      },
+      billetExtrusion: {
+        application: "Extrusion of architectural and industrial profiles.",
+        scope: "Supply of air slip cast billets optimized for extrusion and surface quality.",
+        keyPoints: [
+          "Homogeneous structure for stable extrusion.",
+          "Low defect rates and good surface finish on extruded profiles.",
+          "Flexible sizing to match press capabilities and profile complexity.",
+        ],
+      },
+    },
     items: {
       facadeCladding: "Facade & Cladding Supply",
       hvacCoilStock: "HVAC Coil Stock Supply",
