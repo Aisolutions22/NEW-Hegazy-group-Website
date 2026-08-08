@@ -40,7 +40,9 @@ export const Route = createFileRoute("/about")({
         content:
           "A specialist aluminum distributor: sourcing, stocking, technical support, and regional logistics for construction, manufacturing, transport, and industry.",
       },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/about" }],
   }),
   component: AboutPage,
 });

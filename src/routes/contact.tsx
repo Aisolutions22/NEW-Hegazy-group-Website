@@ -22,7 +22,9 @@ export const Route = createFileRoute("/contact")({
         content:
           "Procurement, technical support, and location contacts for Hegazy Group.",
       },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/contact" }],
   }),
   component: ContactPage,
 });

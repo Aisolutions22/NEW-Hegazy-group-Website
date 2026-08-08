@@ -9,7 +9,9 @@ export const Route = createFileRoute("/products/billets")({
     meta: [
       { title: "Aluminum Billets — Hegazy Group" },
       { name: "description", content: "Extrusion billets in 6xxx and 6063 series for profile manufacturers." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/billets" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/billets" }],
   }),
   component: Page,
 });

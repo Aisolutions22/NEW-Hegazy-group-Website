@@ -83,7 +83,9 @@ export const Route = createFileRoute("/projects")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/projects" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/projects" }],
   }),
   component: ProjectsPage,
 });

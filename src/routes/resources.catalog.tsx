@@ -18,7 +18,9 @@ export const Route = createFileRoute("/resources/catalog")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/resources/catalog" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/resources/catalog" }],
   }),
   component: () => <ResourceDetailPage resourceKey="catalog" />,
 });

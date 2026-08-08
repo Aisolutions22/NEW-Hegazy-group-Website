@@ -9,7 +9,9 @@ export const Route = createFileRoute("/products/discs")({
     meta: [
       { title: "Aluminum Discs — Hegazy Group" },
       { name: "description", content: "Aluminum discs for cookware, lighting, and deep-draw applications." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/discs" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/discs" }],
   }),
   component: Page,
 });

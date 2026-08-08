@@ -9,7 +9,9 @@ export const Route = createFileRoute("/products/pipes")({
     meta: [
       { title: "Aluminum Pipes — Hegazy Group" },
       { name: "description", content: "Aluminum pipes for HVAC, heat transfer, and industrial applications." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/pipes" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/pipes" }],
   }),
   component: PipesPage,
 });

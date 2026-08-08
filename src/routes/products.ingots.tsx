@@ -9,7 +9,9 @@ export const Route = createFileRoute("/products/ingots")({
     meta: [
       { title: "Aluminum Ingots — Hegazy Group" },
       { name: "description", content: "Primary and secondary aluminum ingots for foundries and remelt operations." },
+          { property: "og:url", content: "https://hegazy-group.lovable.app/products/ingots" },
     ],
+    links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/ingots" }],
   }),
   component: Page,
 });
