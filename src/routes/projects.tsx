@@ -7,14 +7,13 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
-
-type LinkRef = { label: string; to: string };
+import type { IndustryKey } from "@/lib/catalog/categories";
 
 type Project = {
-  id: string;
-  title: string;
-  industry: LinkRef;
-  products: LinkRef[];
+  id: keyof typeof PROJECT_TITLE_KEYS;
+  industryKey: IndustryKey;
+  industryTo: string;
+  products: { key: string; to: string }[];
   alloys: string;
   application: string;
   scope: string;
@@ -24,11 +23,11 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     id: "facade-cladding",
-    title: "Facade & Cladding Supply",
-    industry: { label: "Construction & Architectural", to: "/industries/construction" },
+    industryKey: "construction",
+    industryTo: "/industries/construction",
     products: [
-      { label: "Sheets & Coils", to: "/products/sheets-coils" },
-      { label: "Profiles & Bars", to: "/products/profiles-bars" },
+      { key: "sheetsCoils", to: "/products/sheets-coils" },
+      { key: "profilesBars", to: "/products/profiles-bars" },
     ],
     alloys: "5xxx, 6xxx series",
     application:
@@ -43,9 +42,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "hvac-coil-stock",
-    title: "HVAC Coil Stock Supply",
-    industry: { label: "HVAC & Heat Transfer", to: "/industries/hvac-heat-transfer" },
-    products: [{ label: "Sheets & Coils", to: "/products/sheets-coils" }],
+    industryKey: "hvacHeatTransfer",
+    industryTo: "/industries/hvac-heat-transfer",
+    products: [{ key: "sheetsCoils", to: "/products/sheets-coils" }],
     alloys: "1xxx, 3xxx, 8xxx series",
     application:
       "Heat exchanger fins and HVAC coil stock for air conditioning and refrigeration units.",
@@ -59,9 +58,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "cookware-discs",
-    title: "Cookware Disc Supply",
-    industry: { label: "Cookware & Disc Buyers", to: "/industries/cookware-disc-buyers" },
-    products: [{ label: "Aluminum Discs", to: "/products/discs" }],
+    industryKey: "cookwareDiscBuyers",
+    industryTo: "/industries/cookware-disc-buyers",
+    products: [{ key: "discs", to: "/products/discs" }],
     alloys: "1050, 1100, 3003, 5052",
     application:
       "Blanks for cookware, rice cooker bodies, utensils, and lighting reflectors.",
@@ -75,9 +74,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "conductor-rod",
-    title: "Electrical Conductor Rod Supply",
-    industry: { label: "Electrical Components", to: "/industries/electrical-components" },
-    products: [{ label: "Aluminum Wire Rods", to: "/products/wire-rods" }],
+    industryKey: "electricalComponents",
+    industryTo: "/industries/electrical-components",
+    products: [{ key: "wireRods", to: "/products/wire-rods" }],
     alloys: "1350, 1050, 1070",
     application: "Busbars, power cables, and conductors for electrical distribution.",
     scope: "Supply of high-conductivity aluminum rod for wire drawing and stranding.",
@@ -89,9 +88,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "billet-extrusion",
-    title: "Billet Supply for Extrusion Lines",
-    industry: { label: "Metal Manufacturing", to: "/industries/metal-manufacturing" },
-    products: [{ label: "Aluminum Billets", to: "/products/billets" }],
+    industryKey: "metalManufacturing",
+    industryTo: "/industries/metal-manufacturing",
+    products: [{ key: "billets", to: "/products/billets" }],
     alloys: "6060, 6061, 6063, 6082",
     application: "Extrusion of architectural and industrial profiles.",
     scope: "Supply of air slip cast billets optimized for extrusion and surface quality.",
@@ -103,12 +102,13 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const TITLE = "Projects";
-const SUBHEAD = "Selected supply references and applications across industries.";
-const INTRO =
-  "This section highlights representative applications and supply references for Hegazy Group aluminum products. We support industrial, architectural, and manufacturing projects across Egypt and the region with reliable aluminum supply, technical guidance, and consistent quality.";
-const NOTE =
-  "Detailed case studies with project names and client references are available upon request. For specific project inquiries, please contact our sales team.";
+const PROJECT_TITLE_KEYS = {
+  "facade-cladding": "facadeCladding",
+  "hvac-coil-stock": "hvacCoilStock",
+  "cookware-discs": "cookwareDiscs",
+  "conductor-rod": "conductorRod",
+  "billet-extrusion": "billetExtrusion",
+} as const;
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -141,24 +141,24 @@ function ProjectsPage() {
       <main id="main-content">
         <Breadcrumbs items={[{ label: t.nav.projects }]} />
 
-        <Section as="header" className="bg-graphite-900 text-white" aria-label={TITLE}>
+        <Section as="header" className="bg-graphite-900 text-white" aria-label={t.projectsList.title}>
           <Grid>
             <div className="col-span-4 sm:col-span-8 lg:col-span-9">
               <div className="mb-4 font-mono text-micro uppercase tracking-caps text-white/60">
                 {t.projectsPage.eyebrow}
               </div>
-              <h1 className="text-5xl leading-tight text-white">{TITLE}</h1>
+              <h1 className="text-5xl leading-tight text-white">{t.projectsList.title}</h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-                {SUBHEAD}
+                {t.projectsList.subhead}
               </p>
             </div>
           </Grid>
         </Section>
 
-        <Section aria-label={TITLE}>
+        <Section aria-label={t.projectsList.title}>
           <Grid>
             <p className="col-span-4 sm:col-span-8 lg:col-span-8 text-base leading-relaxed text-steel-600">
-              {INTRO}
+              {t.projectsList.intro}
             </p>
           </Grid>
 
@@ -169,7 +169,7 @@ function ProjectsPage() {
           </div>
 
           <p className="mt-12 max-w-3xl text-meta leading-relaxed text-steel-600">
-            {NOTE}
+            {t.projectsList.note}
           </p>
         </Section>
 
@@ -180,11 +180,10 @@ function ProjectsPage() {
           <div className="mx-auto w-full max-w-[1280px] px-6 md:px-8">
             <div className="max-w-2xl">
               <h2 className="text-4xl leading-tight text-white">
-                Have a project in mind?
+                {t.projectsList.ctaTitle}
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">
-                Share your specifications and requirements — our team will confirm
-                availability and provide a written quotation.
+{t.projectsList.ctaBody}
               </p>
             </div>
             <div className="mt-10">
@@ -195,7 +194,7 @@ function ProjectsPage() {
                 className="bg-white text-graphite-900 hover:bg-white/90"
               >
                 <Link to="/quote" className="inline-flex items-center justify-center gap-2">
-                  Request a Quote
+                  {t.projectsList.ctaButton}
                   <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
                 </Link>
               </Button>
@@ -210,31 +209,32 @@ function ProjectsPage() {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const { t } = useLanguage();
   return (
     <article className="rounded-md border border-steel-200 bg-white p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
-          to={project.industry.to}
+          to={project.industryTo}
           className="inline-flex items-center rounded-sm bg-graphite-900/5 px-2 py-1 font-mono text-micro uppercase tracking-caps text-graphite-800 hover:bg-graphite-900/10"
         >
-          {project.industry.label}
+          {t.industries[project.industryKey]}
         </Link>
         <span className="font-mono text-micro text-steel-400" data-spec>
           {String(index).padStart(2, "0")}
         </span>
       </div>
 
-      <h2 className="mt-4 text-xl font-semibold text-graphite-900">{project.title}</h2>
+      <h2 className="mt-4 text-xl font-semibold text-graphite-900">{t.projectsList.items[PROJECT_TITLE_KEYS[project.id]]}</h2>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">
         <dl className="divide-y divide-steel-200 border-t border-steel-200">
           <div className="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-            <dt className="text-caption text-steel-400">Products supplied</dt>
+            <dt className="text-caption text-steel-400">{t.projectsList.fields.products}</dt>
             <dd className="flex flex-wrap gap-x-2 gap-y-1">
               {project.products.map((prod, i) => (
                 <span key={prod.to} className="font-mono text-micro uppercase tracking-caps">
                   <Link to={prod.to} className="text-graphite-900 underline underline-offset-4 hover:text-steel-600">
-                    {prod.label}
+                    {t.products[prod.key as keyof typeof t.products]}
                   </Link>
                   {i < project.products.length - 1 ? "," : ""}
                 </span>
@@ -242,24 +242,24 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </dd>
           </div>
           <div className="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-            <dt className="text-caption text-steel-400">Alloys</dt>
+            <dt className="text-caption text-steel-400">{t.projectsList.fields.alloys}</dt>
             <dd className="font-mono text-micro uppercase tracking-caps text-graphite-900" data-spec>
               {project.alloys}
             </dd>
           </div>
           <div className="flex flex-col gap-1 py-3">
-            <dt className="text-caption text-steel-400">Application</dt>
+            <dt className="text-caption text-steel-400">{t.projectsList.fields.application}</dt>
             <dd className="text-meta leading-relaxed text-graphite-800">{project.application}</dd>
           </div>
           <div className="flex flex-col gap-1 py-3">
-            <dt className="text-caption text-steel-400">Scope</dt>
+            <dt className="text-caption text-steel-400">{t.projectsList.fields.scope}</dt>
             <dd className="text-meta leading-relaxed text-graphite-800">{project.scope}</dd>
           </div>
         </dl>
 
         <div>
           <div className="font-mono text-micro uppercase tracking-caps text-steel-400">
-            Key points
+            {t.projectsList.fields.keyPoints}
           </div>
           <ul className="mt-4 space-y-3">
             {project.keyPoints.map((point) => (
