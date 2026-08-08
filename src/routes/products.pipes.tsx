@@ -12,6 +12,12 @@ export const Route = createFileRoute("/products/pipes")({
           { property: "og:url", content: "https://hegazy-group.lovable.app/products/pipes" },
     ],
     links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/pipes" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "Product", "name": "Aluminum Pipes", "description": "Round and shaped aluminum pipes and tubes in 1xxx, 3xxx, 6xxx and 7xxx series for construction and industry.", "url": "https://hegazy-group.lovable.app/products/pipes", "category": "Aluminum products", "brand": {"@type": "Brand", "name": "Hegazy Group"}, "material": "Aluminum", "additionalProperty": [{"@type": "PropertyValue", "name": "Alloys", "value": "1xxx, 3xxx, 6xxx, 7xxx"}]}),
+      },
+    ],
   }),
   component: PipesPage,
 });

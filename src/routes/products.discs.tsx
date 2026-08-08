@@ -12,6 +12,12 @@ export const Route = createFileRoute("/products/discs")({
           { property: "og:url", content: "https://hegazy-group.lovable.app/products/discs" },
     ],
     links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/discs" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "Product", "name": "Aluminum Discs (Circles)", "description": "Deep-draw aluminum circles in mill, polished and anodized finishes for cookware, utensils and lighting.", "url": "https://hegazy-group.lovable.app/products/discs", "category": "Aluminum products", "brand": {"@type": "Brand", "name": "Hegazy Group"}, "material": "Aluminum", "additionalProperty": [{"@type": "PropertyValue", "name": "Alloys", "value": "1050, 1100, 3003, 5052"}]}),
+      },
+    ],
   }),
   component: Page,
 });

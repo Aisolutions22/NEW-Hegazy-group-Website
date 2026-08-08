@@ -24,6 +24,7 @@ export const Route = createFileRoute("/")({
     links: [
       // Preload the LCP hero (AVIF, desktop variant). Matches the <picture>
       // source order in <HomeHero />.
+      { rel: "canonical", href: "https://hegazy-group.lovable.app/" },
       {
         rel: "preload",
         as: "image",
@@ -33,6 +34,7 @@ export const Route = createFileRoute("/")({
       },
     ],
     meta: [
+      { property: "og:url", content: "https://hegazy-group.lovable.app/" },
       {
         property: "og:image",
         content: "https://hegazy-group.lovable.app/og-hegazy-group.jpg",

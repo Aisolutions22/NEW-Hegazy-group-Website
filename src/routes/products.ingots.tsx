@@ -12,6 +12,12 @@ export const Route = createFileRoute("/products/ingots")({
           { property: "og:url", content: "https://hegazy-group.lovable.app/products/ingots" },
     ],
     links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/ingots" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "Product", "name": "Aluminum Ingots", "description": "Primary and alloyed aluminum ingots (SB, SR, EC grades) for foundries and metal manufacturing.", "url": "https://hegazy-group.lovable.app/products/ingots", "category": "Aluminum products", "brand": {"@type": "Brand", "name": "Hegazy Group"}, "material": "Aluminum", "additionalProperty": [{"@type": "PropertyValue", "name": "Alloys", "value": "EC, SB, SR"}]}),
+      },
+    ],
   }),
   component: Page,
 });
