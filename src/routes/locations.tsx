@@ -5,7 +5,7 @@ export const Route = createFileRoute("/locations")(
   stubRouteOptions({
     path: "/locations",
     metaTitle: "Locations — Hegazy Group",
-    metaDescription: "Head office and regional fulfillment hubs.",
+    metaDescription: "Head office in Alexandria, Egypt. Fulfillment regions: Cairo and Alexandria.",
     copy: (t) => ({
       eyebrow: t.footer.company.locations,
       title: t.contactPage.locations.title,

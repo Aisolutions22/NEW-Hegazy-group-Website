@@ -36,7 +36,7 @@ export function UtilityBar() {
             <span className="hidden sm:inline">{t.whatsapp}</span>
           </a>
           <a
-            href="#locations"
+            href="/locations"
             aria-label={t.locations}
             className="hidden items-center gap-2 text-white/85 hover:text-white md:inline-flex"
           >
