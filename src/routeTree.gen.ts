@@ -29,6 +29,7 @@ import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ResourcesTechnicalSpecsRouteImport } from './routes/resources.technical-specs'
+import { Route as ResourcesTechnicalSpecificationsRouteImport } from './routes/resources.technical-specifications'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
 import { Route as ResourcesCatalogRouteImport } from './routes/resources.catalog'
@@ -141,6 +142,12 @@ const ResourcesTechnicalSpecsRoute = ResourcesTechnicalSpecsRouteImport.update({
   path: '/technical-specs',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ResourcesTechnicalSpecificationsRoute =
+  ResourcesTechnicalSpecificationsRouteImport.update({
+    id: '/technical-specifications',
+    path: '/technical-specifications',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
 const ResourcesSpecsRoute = ResourcesSpecsRouteImport.update({
   id: '/specs',
   path: '/specs',
@@ -225,6 +232,7 @@ export interface FileRoutesByFullPath {
   '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/resources/technical-specifications': typeof ResourcesTechnicalSpecificationsRoute
   '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -255,6 +263,7 @@ export interface FileRoutesByTo {
   '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/resources/technical-specifications': typeof ResourcesTechnicalSpecificationsRoute
   '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
@@ -289,6 +298,7 @@ export interface FileRoutesById {
   '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
+  '/resources/technical-specifications': typeof ResourcesTechnicalSpecificationsRoute
   '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -324,6 +334,7 @@ export interface FileRouteTypes {
     | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
+    | '/resources/technical-specifications'
     | '/resources/technical-specs'
     | '/industries/'
     | '/products/'
@@ -354,6 +365,7 @@ export interface FileRouteTypes {
     | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
+    | '/resources/technical-specifications'
     | '/resources/technical-specs'
     | '/industries'
     | '/products'
@@ -387,6 +399,7 @@ export interface FileRouteTypes {
     | '/resources/catalog'
     | '/resources/guides'
     | '/resources/specs'
+    | '/resources/technical-specifications'
     | '/resources/technical-specs'
     | '/industries/'
     | '/products/'
@@ -554,6 +567,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesTechnicalSpecsRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/resources/technical-specifications': {
+      id: '/resources/technical-specifications'
+      path: '/technical-specifications'
+      fullPath: '/resources/technical-specifications'
+      preLoaderRoute: typeof ResourcesTechnicalSpecificationsRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/resources/specs': {
       id: '/resources/specs'
       path: '/specs'
@@ -678,6 +698,7 @@ interface ResourcesRouteChildren {
   ResourcesCatalogRoute: typeof ResourcesCatalogRoute
   ResourcesGuidesRoute: typeof ResourcesGuidesRoute
   ResourcesSpecsRoute: typeof ResourcesSpecsRoute
+  ResourcesTechnicalSpecificationsRoute: typeof ResourcesTechnicalSpecificationsRoute
   ResourcesTechnicalSpecsRoute: typeof ResourcesTechnicalSpecsRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
@@ -686,6 +707,7 @@ const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesCatalogRoute: ResourcesCatalogRoute,
   ResourcesGuidesRoute: ResourcesGuidesRoute,
   ResourcesSpecsRoute: ResourcesSpecsRoute,
+  ResourcesTechnicalSpecificationsRoute: ResourcesTechnicalSpecificationsRoute,
   ResourcesTechnicalSpecsRoute: ResourcesTechnicalSpecsRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
@@ -715,13 +737,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
