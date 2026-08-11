@@ -1,3 +1,12 @@
+import {
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_HREF,
+  EMAIL,
+  EMAIL_HREF,
+  LEGAL_NAME_DISPLAY,
+} from "@/lib/site/contact";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { Section } from "@/components/layout/section";
 import { PRODUCT_CATEGORIES } from "@/lib/catalog/categories";
