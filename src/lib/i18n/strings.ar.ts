@@ -27,7 +27,7 @@ export const ar: Strings = {
   nav: {
     products: "المنتجات",
     industries: "الصناعات",
-    projects: "المشاريع",
+    projects: "الإمكانيات",
     resources: "المصادر",
     about: "من نحن",
     contact: "تواصل معنا",
@@ -143,7 +143,7 @@ export const ar: Strings = {
     },
     company: {
       about: "من نحن",
-      projects: "المشاريع",
+      projects: "الإمكانيات",
       locations: "مواقعنا",
       careers: "وظائف",
     },
@@ -493,9 +493,13 @@ export const ar: Strings = {
     title: "تحدّث مع فريق مجموعة حجازي.",
     lead: "وجّه استفسارك للمكتب المناسب. للحصول على أسرع رد بشأن المشتريات، استخدم نموذج العرض.",
     rfq: { title: "طلب عرض سعر", body: "أرسل المواصفات والكميات. يُؤكّد التوفر والسعر كتابياً.", cta: "فتح نموذج العرض", href: "/quote" },
-    technical: { title: "استفسار فني", body: "اختيار السبيكة أو مراجعة التفاوتات أو إرشاد التصنيع من مكتبنا الفني.", cta: "بريد الفني", href: "mailto:technical@example.com" },
-    locations: { title: "المواقع", body: "المقر ومراكز التنفيذ الإقليمية عبر المنطقة.", cta: "عرض المواقع", href: "/locations" },
+    technical: { title: "استفسار فني", body: "اختيار السبيكة أو مراجعة التفاوتات أو إرشاد التصنيع من مكتبنا الفني.", cta: "بريد الفني", href: "mailto:company@grouphegazy.com" },
+    locations: { title: "المواقع", body: "المقر الرئيسي: الإسكندرية، مصر. مناطق التنفيذ: القاهرة والإسكندرية، مصر.", cta: "عرض المواقع", href: "/locations" },
     directHeading: "الخطوط المباشرة",
+    addressLabel: "العنوان",
+    directions: "الحصول على الاتجاهات",
+    hoursLabel: "مواعيد العمل",
+    hours: "السبت–الخميس، 9:00 صباحاً–4:00 مساءً · الجمعة مغلق",
   },
   quotePage: {
     eyebrow: "اطلب عرض سعر",
