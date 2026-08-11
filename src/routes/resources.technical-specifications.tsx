@@ -266,7 +266,7 @@ function TechnicalSpecificationsPage() {
 
                     {tab.showThicknessMatrix ? (
                       <ScrollTable
-                        caption="Thickness tolerance (± mm) by width band"
+                        caption="Thickness tolerance by width band (mm)"
                         columns={toleranceColumns}
                         rows={THICKNESS_TOLERANCES}
                         footnote={THICKNESS_TOLERANCE_FOOTNOTE}
