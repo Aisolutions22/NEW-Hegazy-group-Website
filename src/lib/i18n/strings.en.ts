@@ -293,7 +293,7 @@ export const en = {
     },
   },
   projectsPage: {
-    eyebrow: "Projects",
+    eyebrow: "Capabilities",
     title: "Selected projects supplied by Hegazy Group.",
     lead: "A reference of representative projects across construction, industrial manufacturing, marine, and transport. Client names and figures are shown once approved for release.",
     filterAll: "All sectors",

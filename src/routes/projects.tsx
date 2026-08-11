@@ -69,17 +69,17 @@ const PROJECT_TITLE_KEYS = {
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Hegazy Group | Aluminum Supply References" },
+      { title: "Capabilities — Hegazy Group | Aluminum Supply" },
       {
         name: "description",
         content:
-          "Representative aluminum supply references across construction, HVAC, cookware, electrical, and metal manufacturing applications.",
+          "Representative application areas and aluminum supply capabilities across construction, HVAC, cookware, electrical, and metal manufacturing.",
       },
-      { property: "og:title", content: "Projects — Hegazy Group" },
+      { property: "og:title", content: "Capabilities — Hegazy Group" },
       {
         property: "og:description",
         content:
-          "Selected supply references and applications across industries served by Hegazy Group.",
+          "Representative application areas and supply capabilities across industries served by Hegazy Group.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
