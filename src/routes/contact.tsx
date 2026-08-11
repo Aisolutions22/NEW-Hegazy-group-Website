@@ -148,23 +148,62 @@ function ContactPage() {
             <DirectLine
               icon={<Phone className="h-5 w-5" aria-hidden="true" />}
               label={t.footer.contact.phone}
-              value="[CLIENT-INPUT-REQUIRED]"
-              href="tel:+000000000"
+              value={PHONE_DISPLAY}
+              href={PHONE_HREF}
             />
             <DirectLine
               icon={<MessageCircle className="h-5 w-5" aria-hidden="true" />}
               label={t.footer.contact.whatsapp}
-              value="[CLIENT-INPUT-REQUIRED]"
-              href="https://wa.me/000000000"
+              value={WHATSAPP_DISPLAY}
+              href={WHATSAPP_HREF}
             />
             <DirectLine
               icon={<Mail className="h-5 w-5" aria-hidden="true" />}
               label={t.footer.contact.email}
-              value="[CLIENT-INPUT-REQUIRED]"
-              href="mailto:info@example.com"
+              value={EMAIL}
+              href={EMAIL_HREF}
             />
           </Grid>
+
+          <Grid className="mt-10">
+            <div className="col-span-4 sm:col-span-8 lg:col-span-8 flex items-start gap-4 border-t border-graphite-900 pt-6">
+              <span className="text-graphite-800">
+                <MapPin className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="flex-1">
+                <span className="block text-caption text-steel-400" data-spec>
+                  {t.contactPage.addressLabel}
+                </span>
+                <span className="mt-1 block text-meta leading-relaxed text-graphite-900">
+                  {ADDRESS_FULL}
+                </span>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-2 text-meta font-semibold text-accent-700 hover:text-accent-600"
+                >
+                  {t.contactPage.directions}
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+                </a>
+              </span>
+            </div>
+            <div className="col-span-4 sm:col-span-4 lg:col-span-4 flex items-start gap-4 border-t border-graphite-900 pt-6">
+              <span className="text-graphite-800">
+                <Clock className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="flex-1">
+                <span className="block text-caption text-steel-400" data-spec>
+                  {t.contactPage.hoursLabel}
+                </span>
+                <span className="mt-1 block text-meta leading-relaxed text-graphite-900">
+                  {t.contactPage.hours}
+                </span>
+              </span>
+            </div>
+          </Grid>
         </Section>
+
       </main>
       <MobileStickyQuoteBar variant="contact" />
       <SiteFooter />
