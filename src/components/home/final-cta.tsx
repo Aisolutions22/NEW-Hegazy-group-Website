@@ -1,3 +1,4 @@
+import { PHONE_HREF, WHATSAPP_HREF } from "@/lib/site/contact";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
@@ -29,7 +30,7 @@ export function FinalCta() {
             variant="outline"
             className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
           >
-            <a href="tel:+000000000" className="inline-flex items-center justify-center gap-2">
+            <a href={PHONE_HREF} className="inline-flex items-center justify-center gap-2">
               <Phone className="h-4 w-4" aria-hidden="true" />
               {t.phone}
             </a>
@@ -41,7 +42,7 @@ export function FinalCta() {
             className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
           >
             <a
-              href="https://wa.me/000000000"
+              href={WHATSAPP_HREF}
               className="inline-flex items-center justify-center gap-2"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
