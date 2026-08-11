@@ -1,3 +1,4 @@
+import { PHONE_HREF, WHATSAPP_HREF } from "@/lib/site/contact";
 import { useState } from "react";
 import { Menu, X, Phone, MessageCircle, ChevronDown } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -89,14 +90,14 @@ export function MobileNav() {
 
             <div className="mt-6 space-y-3 px-4">
               <a
-                href="tel:+000000000"
+                href={PHONE_HREF}
                 className="flex items-center gap-3 text-meta text-steel-600 hover:text-graphite-900"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 {t.phone}
               </a>
               <a
-                href="https://wa.me/000000000"
+                href={WHATSAPP_HREF}
                 className="flex items-center gap-3 text-meta text-steel-600 hover:text-graphite-900"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
@@ -174,7 +175,7 @@ export function MobileStickyQuoteBar({
               className="flex-1 border-steel-200"
             >
               <a
-                href="tel:+000000000"
+                href={PHONE_HREF}
                 className="inline-flex items-center justify-center gap-2"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
@@ -183,7 +184,7 @@ export function MobileStickyQuoteBar({
             </Button>
             <Button asChild size="lg" variant="outline" className="flex-1 border-steel-200">
               <a
-                href="https://wa.me/000000000"
+                href={WHATSAPP_HREF}
                 className="inline-flex items-center justify-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />

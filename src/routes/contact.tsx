@@ -5,7 +5,21 @@ import { Section, Grid } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
 import { useLanguage } from "@/lib/i18n/language-context";
-import { ArrowRight, Phone, MessageCircle, Mail } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import {
+  LEGAL_NAME,
+  EMAIL,
+  EMAIL_HREF,
+  MAPS_URL,
+  ADDRESS_PARTS,
+  ADDRESS_FULL,
+  HOURS_DISPLAY,
+  OPENING_HOURS_SCHEMA,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_HREF,
+} from "@/lib/site/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -28,9 +42,33 @@ export const Route = createFileRoute("/contact")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Hegazy Group", "url": "https://hegazy-group.lovable.app/contact", "description": "Aluminum supply and distribution for construction, manufacturing, transport, and industry.", "areaServed": [{"@type": "Country", "name": "Egypt"}, {"@type": "Place", "name": "Middle East"}], "knowsLanguage": ["en", "ar"]}),
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Hegazy Group",
+          legalName: LEGAL_NAME,
+          url: "https://hegazy-group.lovable.app/contact",
+          description:
+            "Aluminum supply and distribution for construction, manufacturing, transport, and industry.",
+          telephone: "+20 3 552 3190",
+          email: EMAIL,
+          hasMap: MAPS_URL,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: ADDRESS_PARTS.street,
+            addressLocality: ADDRESS_PARTS.locality,
+            addressCountry: ADDRESS_PARTS.country,
+          },
+          openingHoursSpecification: OPENING_HOURS_SCHEMA,
+          areaServed: [
+            { "@type": "Country", name: "Egypt" },
+            { "@type": "Place", name: "Middle East" },
+          ],
+          knowsLanguage: ["en", "ar"],
+        }),
       },
     ],
+
   }),
   component: ContactPage,
 });
@@ -110,23 +148,62 @@ function ContactPage() {
             <DirectLine
               icon={<Phone className="h-5 w-5" aria-hidden="true" />}
               label={t.footer.contact.phone}
-              value="[CLIENT-INPUT-REQUIRED]"
-              href="tel:+000000000"
+              value={PHONE_DISPLAY}
+              href={PHONE_HREF}
             />
             <DirectLine
               icon={<MessageCircle className="h-5 w-5" aria-hidden="true" />}
               label={t.footer.contact.whatsapp}
-              value="[CLIENT-INPUT-REQUIRED]"
-              href="https://wa.me/000000000"
+              value={WHATSAPP_DISPLAY}
+              href={WHATSAPP_HREF}
             />
             <DirectLine
               icon={<Mail className="h-5 w-5" aria-hidden="true" />}
               label={t.footer.contact.email}
-              value="[CLIENT-INPUT-REQUIRED]"
-              href="mailto:info@example.com"
+              value={EMAIL}
+              href={EMAIL_HREF}
             />
           </Grid>
+
+          <Grid className="mt-10">
+            <div className="col-span-4 sm:col-span-8 lg:col-span-8 flex items-start gap-4 border-t border-graphite-900 pt-6">
+              <span className="text-graphite-800">
+                <MapPin className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="flex-1">
+                <span className="block text-caption text-steel-400" data-spec>
+                  {t.contactPage.addressLabel}
+                </span>
+                <span className="mt-1 block text-meta leading-relaxed text-graphite-900">
+                  {ADDRESS_FULL}
+                </span>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-2 text-meta font-semibold text-accent-700 hover:text-accent-600"
+                >
+                  {t.contactPage.directions}
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+                </a>
+              </span>
+            </div>
+            <div className="col-span-4 sm:col-span-4 lg:col-span-4 flex items-start gap-4 border-t border-graphite-900 pt-6">
+              <span className="text-graphite-800">
+                <Clock className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="flex-1">
+                <span className="block text-caption text-steel-400" data-spec>
+                  {t.contactPage.hoursLabel}
+                </span>
+                <span className="mt-1 block text-meta leading-relaxed text-graphite-900">
+                  {t.contactPage.hours}
+                </span>
+              </span>
+            </div>
+          </Grid>
         </Section>
+
       </main>
       <MobileStickyQuoteBar variant="contact" />
       <SiteFooter />

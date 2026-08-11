@@ -23,7 +23,7 @@ export const en = {
   nav: {
     products: "Products",
     industries: "Industries",
-    projects: "Projects",
+    projects: "Capabilities",
     resources: "Resources",
     about: "About",
     contact: "Contact",
@@ -171,7 +171,7 @@ export const en = {
     },
     company: {
       about: "About Us",
-      projects: "Projects",
+      projects: "Capabilities",
       locations: "Locations",
       careers: "Careers",
     },
@@ -293,7 +293,7 @@ export const en = {
     },
   },
   projectsPage: {
-    eyebrow: "Projects",
+    eyebrow: "Capabilities",
     title: "Selected projects supplied by Hegazy Group.",
     lead: "A reference of representative projects across construction, industrial manufacturing, marine, and transport. Client names and figures are shown once approved for release.",
     filterAll: "All sectors",
@@ -445,11 +445,11 @@ export const en = {
     },
   },
   projectsList: {
-    title: "Projects",
-    subhead: "Selected supply references and applications across industries.",
+    title: "Capabilities",
+    subhead: "Representative application areas and supply capabilities across industries.",
     intro:
-      "This section highlights representative applications and supply references for Hegazy Group aluminum products. We support industrial, architectural, and manufacturing projects across Egypt and the region with reliable aluminum supply, technical guidance, and consistent quality.",
-    note: "Detailed case studies with project names and client references are available upon request. For specific project inquiries, please contact our sales team.",
+      "The following highlights the types of applications and supply capabilities Hegazy Group can support across industries. We are equipped to serve industrial, architectural, and manufacturing projects across Egypt and the region with reliable aluminum supply, technical guidance, and consistent quality.",
+    note: "These examples illustrate typical application areas we support. For specific project references or client examples, please contact our sales team.",
     ctaTitle: "Have a project in mind?",
     ctaBody:
       "Share your specifications and requirements — our team will confirm availability and provide a written quotation.",
@@ -521,9 +521,13 @@ export const en = {
     title: "Talk to the Hegazy Group team.",
     lead: "Route your inquiry to the right desk. For fastest response on procurement, use the quotation form.",
     rfq: { title: "Request a quotation", body: "Send specifications and quantities. Availability and pricing confirmed in writing.", cta: "Open RFQ form", href: "/quote" },
-    technical: { title: "Technical inquiry", body: "Alloy selection, tolerance review, or fabrication guidance from our technical desk.", cta: "Email technical", href: "mailto:technical@example.com" },
-    locations: { title: "Locations", body: "Head office and regional fulfillment hubs across the region.", cta: "View locations", href: "/locations" },
+    technical: { title: "Technical inquiry", body: "Alloy selection, tolerance review, or fabrication guidance from our technical desk.", cta: "Email technical", href: "mailto:company@grouphegazy.com" },
+    locations: { title: "Locations", body: "Head Office: Alexandria, Egypt. Fulfillment Regions: Cairo and Alexandria, Egypt.", cta: "View locations", href: "/locations" },
     directHeading: "Direct lines",
+    addressLabel: "Address",
+    directions: "Get Directions",
+    hoursLabel: "Business hours",
+    hours: "Saturday–Thursday, 9:00 AM–4:00 PM · Friday closed",
   },
   quotePage: {
     eyebrow: "Request a Quote",
