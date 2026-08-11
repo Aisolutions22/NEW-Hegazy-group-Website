@@ -5,7 +5,21 @@ import { Section, Grid } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { MobileStickyQuoteBar } from "@/components/layout/mobile-nav";
 import { useLanguage } from "@/lib/i18n/language-context";
-import { ArrowRight, Phone, MessageCircle, Mail } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import {
+  LEGAL_NAME,
+  EMAIL,
+  EMAIL_HREF,
+  MAPS_URL,
+  ADDRESS_PARTS,
+  ADDRESS_FULL,
+  HOURS_DISPLAY,
+  OPENING_HOURS_SCHEMA,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_HREF,
+} from "@/lib/site/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
