@@ -28,9 +28,33 @@ export const Route = createFileRoute("/contact")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Hegazy Group", "url": "https://hegazy-group.lovable.app/contact", "description": "Aluminum supply and distribution for construction, manufacturing, transport, and industry.", "areaServed": [{"@type": "Country", "name": "Egypt"}, {"@type": "Place", "name": "Middle East"}], "knowsLanguage": ["en", "ar"]}),
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Hegazy Group",
+          legalName: LEGAL_NAME,
+          url: "https://hegazy-group.lovable.app/contact",
+          description:
+            "Aluminum supply and distribution for construction, manufacturing, transport, and industry.",
+          telephone: "+20 3 552 3190",
+          email: EMAIL,
+          hasMap: MAPS_URL,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: ADDRESS_PARTS.street,
+            addressLocality: ADDRESS_PARTS.locality,
+            addressCountry: ADDRESS_PARTS.country,
+          },
+          openingHoursSpecification: OPENING_HOURS_SCHEMA,
+          areaServed: [
+            { "@type": "Country", name: "Egypt" },
+            { "@type": "Place", name: "Middle East" },
+          ],
+          knowsLanguage: ["en", "ar"],
+        }),
       },
     ],
+
   }),
   component: ContactPage,
 });
