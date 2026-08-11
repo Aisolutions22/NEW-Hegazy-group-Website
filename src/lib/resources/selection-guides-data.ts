@@ -21,52 +21,58 @@ export type AlloySelectionRow = {
 export const ALLOY_SELECTION: AlloySelectionRow[] = [
   {
     alloySeries: "1xxx",
-    keyCharacteristic: "Commercially pure aluminum (≥ 99% Al)",
+    keyCharacteristic: "Commercially pure aluminum (≥99% Al)",
     strength: "Low",
     corrosionResistance: "Excellent",
-    formabilityWeldability: "Excellent",
+    formabilityWeldability: "Excellent formability, excellent weldability",
     heatTreatable: "No",
-    typicalUseCase: "Foil, cladding, electrical and thermal conduction, deep-drawn parts",
+    typicalUseCase:
+      "Electrical conductors, heat exchangers, chemical/food equipment",
     href: "/products/sheets-coils",
   },
   {
     alloySeries: "3xxx",
-    keyCharacteristic: "Manganese alloyed — general purpose",
-    strength: "Low to moderate",
+    keyCharacteristic: "Aluminum-Manganese",
+    strength: "Low–Medium",
     corrosionResistance: "Very good",
-    formabilityWeldability: "Very good",
+    formabilityWeldability: "Excellent formability, good weldability",
     heatTreatable: "No",
-    typicalUseCase: "HVAC fin and tube stock, roofing, cookware, general sheet work",
+    typicalUseCase:
+      "Roofing and cladding, HVAC coils, food and beverage containers, general sheet metal work",
     href: "/products/sheets-coils",
   },
   {
     alloySeries: "5xxx",
-    keyCharacteristic: "Magnesium alloyed — marine and structural sheet",
-    strength: "Moderate to high",
-    corrosionResistance: "Excellent, including marine exposure",
-    formabilityWeldability: "Very good weldability",
+    keyCharacteristic: "Aluminum-Magnesium",
+    strength: "Medium–High",
+    corrosionResistance: "Excellent, especially in marine/saltwater environments",
+    formabilityWeldability: "Good formability, excellent weldability",
     heatTreatable: "No",
-    typicalUseCase: "Marine structures, tanks, architectural panels, transport bodies",
+    typicalUseCase:
+      "Marine and shipbuilding, tanks and pressure vessels, structural panels, automotive body sheet",
     href: "/products/sheets-coils",
   },
   {
     alloySeries: "6xxx",
-    keyCharacteristic: "Magnesium + silicon — the extrusion family",
-    strength: "Moderate to high",
+    keyCharacteristic: "Aluminum-Magnesium-Silicon",
+    strength: "Medium",
     corrosionResistance: "Good",
-    formabilityWeldability: "Good; readily extruded and anodised",
+    formabilityWeldability: "Excellent extrudability, good weldability",
     heatTreatable: "Yes",
-    typicalUseCase: "Facades, curtain walls, frames, structural profiles, bars and pipes",
+    typicalUseCase:
+      "Architectural and structural profiles, window/door frames, automotive and industrial structural parts",
     href: "/products/profiles-bars",
   },
   {
     alloySeries: "7xxx",
-    keyCharacteristic: "Zinc alloyed — highest strength",
-    strength: "Very high",
-    corrosionResistance: "Moderate",
-    formabilityWeldability: "Limited; generally not fusion welded",
+    keyCharacteristic: "Aluminum-Zinc",
+    strength: "Highest",
+    corrosionResistance: "Lower — often needs surface protection",
+    formabilityWeldability:
+      "Lower formability, generally not recommended for welding without special process control",
     heatTreatable: "Yes",
-    typicalUseCase: "High-load machined components, tooling plate, aerospace-grade parts",
+    typicalUseCase:
+      "High-stress structural and load-bearing applications, aerospace-grade components",
     href: "/products/profiles-bars",
   },
 ];
@@ -84,56 +90,62 @@ export type FormSelectionRow = {
 export const FORM_SELECTION: FormSelectionRow[] = [
   {
     productForm: "Coils / Sheets",
-    fabricationRoute: "Hot rolling then cold rolling to gauge",
-    bestSuitedFor: "Cladding, roofing, HVAC stock, panels, and any high-volume flat blanking or forming line",
+    fabricationRoute: "Rolling (hot then cold rolled, coiled)",
+    bestSuitedFor:
+      "High-volume flat products: cladding, roofing, HVAC fin stock, general fabrication, further slitting/cutting",
     href: "/products/sheets-coils",
   },
   {
     productForm: "Plates",
-    fabricationRoute: "Hot rolling to heavy gauge, stress relieved",
-    bestSuitedFor: "Structural bases, machined components, tanks, and load-bearing fabrications",
+    fabricationRoute: "Rolling (thicker gauge, supplied flat)",
+    bestSuitedFor:
+      "Structural and heavy-duty flat components, tooling, machined parts",
     href: "/products/sheets-coils",
   },
   {
     productForm: "Discs",
-    fabricationRoute: "Blanked from coil or sheet",
-    bestSuitedFor: "Deep-drawn and spun parts: cookware bodies, lighting reflectors, pressure vessel ends",
+    fabricationRoute: "Rolling + circle blanking",
+    bestSuitedFor:
+      "Deep-drawn products — cookware, lighting reflectors, pressure cookers",
     href: "/products/discs",
   },
   {
     productForm: "Pipes / Tubes",
-    fabricationRoute: "Extrusion (seamless or porthole die)",
-    bestSuitedFor: "Fluid and gas transfer, scaffolding, heat exchange circuits, structural tubing",
+    fabricationRoute: "Extrusion or welding + drawing",
+    bestSuitedFor: "Fluid and gas conveyance, structural tube, railings",
     href: "/products/pipes",
   },
   {
     productForm: "Profiles",
-    fabricationRoute: "Extrusion through a custom or standard die",
-    bestSuitedFor: "Facades, window and door systems, framing, solar mounting, machine enclosures",
+    fabricationRoute: "Extrusion",
+    bestSuitedFor:
+      "Architectural sections, window/door frames, structural framing, custom cross-sections",
     href: "/products/profiles-bars",
   },
   {
     productForm: "Bars / Rods",
-    fabricationRoute: "Extrusion, optionally drawn to finish tolerance",
-    bestSuitedFor: "Machined components, fasteners, shafts, and general workshop stock",
+    fabricationRoute: "Extrusion or drawing",
+    bestSuitedFor: "Machining stock, structural bar, fasteners",
     href: "/products/profiles-bars",
   },
   {
     productForm: "Billets",
-    fabricationRoute: "DC casting, homogenised and cut to length",
-    bestSuitedFor: "Feedstock for extrusion presses and forging operations",
+    fabricationRoute: "Cast (as extrusion feedstock)",
+    bestSuitedFor:
+      "Input material for profile/bar extrusion — not typically an end-use product",
     href: "/products/billets",
   },
   {
     productForm: "Ingots",
-    fabricationRoute: "Primary or remelt casting",
-    bestSuitedFor: "Foundry and remelt feedstock for casting and alloying operations",
+    fabricationRoute: "Cast (as rolling/casting feedstock)",
+    bestSuitedFor:
+      "Input material for sheet/plate rolling or foundry casting — not typically an end-use product",
     href: "/products/ingots",
   },
   {
     productForm: "Wire Rod",
-    fabricationRoute: "Continuous casting and rolling",
-    bestSuitedFor: "Drawn conductor wire, cable stranding, welding wire, and mechanical wire products",
+    fabricationRoute: "Extrusion or continuous casting + drawing",
+    bestSuitedFor: "Feedstock for wire drawing — cable, rivets, welding wire",
     href: "/products/wire-rods",
   },
 ];
@@ -151,43 +163,49 @@ export const APPLICATION_MATCHING: ApplicationMatchRow[] = [
     industry: "Construction",
     industryHref: "/industries/construction",
     alloySeries: "5xxx, 6xxx",
-    forms: "Sheets, coils, profiles, bars",
-    exampleSpecification: "6063-T66 architectural profile, mill or anodised finish, EN 755-2",
+    forms: "Sheets, coils, profiles, plates",
+    exampleSpecification:
+      "5083 sheet/coil for cladding and structural panels; 6082/6063 extruded profiles for framing",
   },
   {
     industry: "HVAC / Heat Transfer",
     industryHref: "/industries/hvac-heat-transfer",
     alloySeries: "1xxx, 3xxx",
-    forms: "Coils, sheets, tubes",
-    exampleSpecification: "3003-H14 coil, 0.20 – 0.50 mm, mill finish, EN 485-2",
+    forms: "Coils, fin stock, tube",
+    exampleSpecification:
+      "1050 or 3003 coil for fin stock and heat exchanger components",
   },
   {
     industry: "Automotive",
     industryHref: "/industries/automotive",
     alloySeries: "5xxx, 6xxx",
-    forms: "Sheets, profiles, bars",
-    exampleSpecification: "6082-T6 extruded section for crash and chassis components, EN 755-2",
+    forms: "Sheets, coils, profiles, bar",
+    exampleSpecification:
+      "5083 for body/structural panels; 6061/6082 for structural and chassis components",
   },
   {
     industry: "Electrical",
     industryHref: "/industries/electrical-components",
     alloySeries: "1xxx",
-    forms: "Wire rod, bars",
-    exampleSpecification: "1350 / EC-grade wire rod, 9.5 mm, ≥ 61% IACS conductivity",
+    forms: "Coil, wire rod, bar",
+    exampleSpecification:
+      "1050 for busbars and conductors, given high conductivity and corrosion resistance",
   },
   {
     industry: "Food Industry",
     industryHref: "/industries/food-industry",
     alloySeries: "1xxx, 3xxx",
     forms: "Sheets, coils, discs",
-    exampleSpecification: "1050-O disc, 2.0 – 5.0 mm, deep-drawing quality for cookware bodies",
+    exampleSpecification:
+      "1050 or 3003 sheet/coil for food-contact equipment and containers; discs for cookware",
   },
   {
     industry: "General Manufacturing",
     industryHref: "",
     alloySeries: "3xxx, 5xxx, 6xxx",
-    forms: "Sheets, plates, bars, profiles",
-    exampleSpecification: "6061-T6 bar and plate for machined fixtures and assemblies, ASTM B221",
+    forms: "Sheets, coils, plates, bar, profiles",
+    exampleSpecification:
+      "Alloy and form selected per application — contact our technical team for a specific recommendation",
   },
 ];
 
