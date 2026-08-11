@@ -25,8 +25,8 @@ export const RESOURCE_ORDER: ResourceKey[] = ["catalog", "specs", "guides", "faq
 
 export const RESOURCE_HREFS: Record<ResourceKey, string> = {
   catalog: "/resources/catalog",
-  specs: "/resources/technical-specs",
-  guides: "/resources/guides",
+  specs: "/resources/technical-specifications",
+  guides: "/resources/selection-guides",
   faq: "/faq",
 };
 

@@ -48,8 +48,8 @@ export function SiteFooter() {
       heading: t.footer.columns.resources,
       links: [
         { label: t.footer.resources.catalog, href: "/catalog" },
-        { label: t.footer.resources.specs, href: "/resources/specs" },
-        { label: t.footer.resources.guides, href: "/resources/guides" },
+        { label: t.footer.resources.specs, href: "/resources/technical-specifications" },
+        { label: t.footer.resources.guides, href: "/resources/selection-guides" },
         { label: t.footer.resources.faq, href: "/faq" },
       ],
     },
