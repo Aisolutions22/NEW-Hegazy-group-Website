@@ -115,16 +115,18 @@ export function DownloadPdfButton({
   label = "Download PDF",
   className,
   tone = "dark",
+  downloadable = true,
 }: {
   href: string;
   label?: string;
   className?: string;
   tone?: "dark" | "light";
+  downloadable?: boolean;
 }) {
   return (
     <a
       href={href}
-      download
+      {...(downloadable ? { download: true } : {})}
       className={cn(
         "inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-meta font-medium transition-colors",
         tone === "light"

@@ -33,7 +33,7 @@ import {
 } from "@/lib/resources/technical-specs-data";
 
 const URL = "https://hegazy-group.lovable.app/resources/technical-specifications";
-const PDF_HREF = technicalSpecsPdf.url;
+const PDF_HREF = "/contact";
 const TITLE = "Technical Specifications — Hegazy Group";
 const DESCRIPTION =
   "Aluminum chemical composition, mechanical properties, dimensional tolerances, temper designations, and ASTM/EN/ISO/AA cross-reference.";
@@ -182,7 +182,7 @@ function TechnicalSpecificationsPage() {
                 mechanical properties, and tolerances.
               </p>
               <div className="mt-8">
-                <DownloadPdfButton href={PDF_HREF} tone="light" />
+                <DownloadPdfButton href={PDF_HREF} label="Request PDF" downloadable={false} tone="light" />
               </div>
             </div>
           </Grid>
@@ -342,7 +342,7 @@ function TechnicalSpecificationsPage() {
                 confirm availability, tolerances, and applicable standards.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <DownloadPdfButton href={PDF_HREF} tone="light" />
+                <DownloadPdfButton href={PDF_HREF} label="Request PDF" downloadable={false} tone="light" />
               </div>
               <div className="mt-4">
                 <ResourceCtas />

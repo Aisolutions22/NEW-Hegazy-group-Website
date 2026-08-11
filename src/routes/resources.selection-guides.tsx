@@ -23,7 +23,7 @@ import {
 } from "@/lib/resources/selection-guides-data";
 
 const URL = "https://hegazy-group.lovable.app/resources/selection-guides";
-const PDF_HREF = selectionGuidesPdf.url;
+const PDF_HREF = "/contact";
 const TITLE = "Selection Guides — Hegazy Group";
 const DESCRIPTION =
   "Practical aluminum guides: alloy series selection, product form selection, and application matching by industry with example specifications.";
@@ -108,7 +108,7 @@ function SelectionGuidesPage() {
                 Practical guides for alloy selection, form choice, and application matching.
               </p>
               <div className="mt-8">
-                <DownloadPdfButton href={PDF_HREF} tone="light" />
+                <DownloadPdfButton href={PDF_HREF} label="Request PDF" downloadable={false} tone="light" />
               </div>
             </div>
           </Grid>
@@ -193,7 +193,7 @@ function SelectionGuidesPage() {
                 will recommend an alloy, temper, and form combination and confirm availability.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <DownloadPdfButton href={PDF_HREF} tone="light" />
+                <DownloadPdfButton href={PDF_HREF} label="Request PDF" downloadable={false} tone="light" />
               </div>
               <div className="mt-4">
                 <ResourceCtas />
