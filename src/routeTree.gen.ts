@@ -31,6 +31,7 @@ import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ResourcesTechnicalSpecsRouteImport } from './routes/resources.technical-specs'
 import { Route as ResourcesTechnicalSpecificationsRouteImport } from './routes/resources.technical-specifications'
 import { Route as ResourcesSpecsRouteImport } from './routes/resources.specs'
+import { Route as ResourcesSelectionGuidesRouteImport } from './routes/resources.selection-guides'
 import { Route as ResourcesGuidesRouteImport } from './routes/resources.guides'
 import { Route as ResourcesCatalogRouteImport } from './routes/resources.catalog'
 import { Route as ProductsWireRodsRouteImport } from './routes/products.wire-rods'
@@ -153,6 +154,12 @@ const ResourcesSpecsRoute = ResourcesSpecsRouteImport.update({
   path: '/specs',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ResourcesSelectionGuidesRoute =
+  ResourcesSelectionGuidesRouteImport.update({
+    id: '/selection-guides',
+    path: '/selection-guides',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
 const ResourcesGuidesRoute = ResourcesGuidesRouteImport.update({
   id: '/guides',
   path: '/guides',
@@ -231,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
+  '/resources/selection-guides': typeof ResourcesSelectionGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
   '/resources/technical-specifications': typeof ResourcesTechnicalSpecificationsRoute
   '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
@@ -262,6 +270,7 @@ export interface FileRoutesByTo {
   '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
+  '/resources/selection-guides': typeof ResourcesSelectionGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
   '/resources/technical-specifications': typeof ResourcesTechnicalSpecificationsRoute
   '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
@@ -297,6 +306,7 @@ export interface FileRoutesById {
   '/products/wire-rods': typeof ProductsWireRodsRoute
   '/resources/catalog': typeof ResourcesCatalogRoute
   '/resources/guides': typeof ResourcesGuidesRoute
+  '/resources/selection-guides': typeof ResourcesSelectionGuidesRoute
   '/resources/specs': typeof ResourcesSpecsRoute
   '/resources/technical-specifications': typeof ResourcesTechnicalSpecificationsRoute
   '/resources/technical-specs': typeof ResourcesTechnicalSpecsRoute
@@ -333,6 +343,7 @@ export interface FileRouteTypes {
     | '/products/wire-rods'
     | '/resources/catalog'
     | '/resources/guides'
+    | '/resources/selection-guides'
     | '/resources/specs'
     | '/resources/technical-specifications'
     | '/resources/technical-specs'
@@ -364,6 +375,7 @@ export interface FileRouteTypes {
     | '/products/wire-rods'
     | '/resources/catalog'
     | '/resources/guides'
+    | '/resources/selection-guides'
     | '/resources/specs'
     | '/resources/technical-specifications'
     | '/resources/technical-specs'
@@ -398,6 +410,7 @@ export interface FileRouteTypes {
     | '/products/wire-rods'
     | '/resources/catalog'
     | '/resources/guides'
+    | '/resources/selection-guides'
     | '/resources/specs'
     | '/resources/technical-specifications'
     | '/resources/technical-specs'
@@ -581,6 +594,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesSpecsRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/resources/selection-guides': {
+      id: '/resources/selection-guides'
+      path: '/selection-guides'
+      fullPath: '/resources/selection-guides'
+      preLoaderRoute: typeof ResourcesSelectionGuidesRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/resources/guides': {
       id: '/resources/guides'
       path: '/guides'
@@ -697,6 +717,7 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 interface ResourcesRouteChildren {
   ResourcesCatalogRoute: typeof ResourcesCatalogRoute
   ResourcesGuidesRoute: typeof ResourcesGuidesRoute
+  ResourcesSelectionGuidesRoute: typeof ResourcesSelectionGuidesRoute
   ResourcesSpecsRoute: typeof ResourcesSpecsRoute
   ResourcesTechnicalSpecificationsRoute: typeof ResourcesTechnicalSpecificationsRoute
   ResourcesTechnicalSpecsRoute: typeof ResourcesTechnicalSpecsRoute
@@ -706,6 +727,7 @@ interface ResourcesRouteChildren {
 const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesCatalogRoute: ResourcesCatalogRoute,
   ResourcesGuidesRoute: ResourcesGuidesRoute,
+  ResourcesSelectionGuidesRoute: ResourcesSelectionGuidesRoute,
   ResourcesSpecsRoute: ResourcesSpecsRoute,
   ResourcesTechnicalSpecificationsRoute: ResourcesTechnicalSpecificationsRoute,
   ResourcesTechnicalSpecsRoute: ResourcesTechnicalSpecsRoute,

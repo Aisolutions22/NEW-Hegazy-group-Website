@@ -322,8 +322,8 @@ export const en = {
     title: "Technical resources for specifiers and buyers.",
     lead: "Reference material for aluminum selection, downstream fabrication, and procurement — organized for engineers, contractors, and procurement teams.",
     catalog: { title: "Full catalog", body: "Consolidated product catalog with dimensions, alloys, and available finishes.", cta: "Open catalog", href: "/catalog" },
-    specs: { title: "Technical specifications", body: "Mechanical properties, tolerances, and standards references by alloy family.", cta: "Browse specs", href: "/resources/specs" },
-    guides: { title: "Selection guides", body: "Application-driven guidance on alloy, temper, and finish selection.", cta: "Read guides", href: "/resources/guides" },
+    specs: { title: "Technical specifications", body: "Mechanical properties, tolerances, and standards references by alloy family.", cta: "Browse specs", href: "/resources/technical-specifications" },
+    guides: { title: "Selection guides", body: "Application-driven guidance on alloy, temper, and finish selection.", cta: "Read guides", href: "/resources/selection-guides" },
     faq: { title: "FAQ", body: "Common questions on lead times, minimums, documentation, and export.", cta: "View FAQ", href: "/faq" },
   },
   resourcesLibrary: {
