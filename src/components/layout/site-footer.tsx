@@ -48,12 +48,13 @@ export function SiteFooter() {
       heading: t.footer.columns.contact,
       links: [
         { label: t.footer.contact.quote, href: "/quote" },
-        { label: t.footer.contact.phone, href: "tel:+000000000" },
-        { label: t.footer.contact.whatsapp, href: "https://wa.me/000000000" },
-        { label: t.footer.contact.email, href: "mailto:info@example.com" },
+        { label: PHONE_DISPLAY, href: PHONE_HREF },
+        { label: WHATSAPP_DISPLAY, href: WHATSAPP_HREF },
+        { label: EMAIL, href: EMAIL_HREF },
       ],
     },
   ];
+
 
   return (
     <footer className="bg-graphite-900 text-white">
