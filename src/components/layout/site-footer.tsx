@@ -112,7 +112,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-start justify-between gap-3 px-6 py-5 text-legal text-white/60 md:flex-row md:items-center md:px-8">
           <div>
-            © {year} Hegazy Group. {t.footer.legal.rights}
+            © {year} {LEGAL_NAME_DISPLAY}. {t.footer.legal.rights}
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <a href="/privacy" className="hover:text-white">{t.footer.legal.privacy}</a>
