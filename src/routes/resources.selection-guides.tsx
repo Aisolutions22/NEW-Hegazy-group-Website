@@ -1,3 +1,4 @@
+import selectionGuidesPdf from "@/assets/selection-guides.pdf.asset.json";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -23,7 +24,7 @@ import {
 } from "@/lib/resources/selection-guides-data";
 
 const URL = "https://hegazy-group.lovable.app/resources/selection-guides";
-const PDF_HREF = "/resources/files/selection-guides.pdf";
+const PDF_HREF = selectionGuidesPdf.url;
 const TITLE = "Selection Guides — Hegazy Group";
 const DESCRIPTION =
   "Practical aluminum guides: alloy series selection, product form selection, and application matching by industry with example specifications.";

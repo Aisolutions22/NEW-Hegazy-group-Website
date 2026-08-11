@@ -1,3 +1,4 @@
+import technicalSpecsPdf from "@/assets/technical-specifications.pdf.asset.json";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
