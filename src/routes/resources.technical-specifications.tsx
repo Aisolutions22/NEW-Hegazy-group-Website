@@ -33,7 +33,7 @@ import {
 } from "@/lib/resources/technical-specs-data";
 
 const URL = "https://hegazy-group.lovable.app/resources/technical-specifications";
-const PDF_HREF = "/resources/files/technical-specifications.pdf";
+const PDF_HREF = technicalSpecsPdf.url;
 const TITLE = "Technical Specifications — Hegazy Group";
 const DESCRIPTION =
   "Aluminum chemical composition, mechanical properties, dimensional tolerances, temper designations, and ASTM/EN/ISO/AA cross-reference.";
