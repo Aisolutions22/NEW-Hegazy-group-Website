@@ -6,7 +6,7 @@ export const LEGAL_NAME = "HEGAZY INTERNATIONAL GROUP";
 export const LEGAL_NAME_DISPLAY = "Hegazy International Group";
 
 export const PHONE_DISPLAY = "+20 3 552 3190";
-export const PHONE_HREF = "tel:+20355231 90".replace(/\s/g, "");
+export const PHONE_HREF = "tel:+2035523190";
 
 export const WHATSAPP_DISPLAY = "+20 122 924 5676";
 export const WHATSAPP_HREF = "https://wa.me/201229245676";
