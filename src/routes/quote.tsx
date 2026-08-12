@@ -17,6 +17,14 @@ import {
 } from "@/components/rfq/steps";
 import { SuccessPanel } from "@/components/rfq/success-panel";
 import { useRfqForm } from "@/lib/rfq/use-rfq-form";
+import {
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_HREF,
+  EMAIL,
+  EMAIL_HREF,
+} from "@/lib/site/contact";
 
 export const Route = createFileRoute("/quote")({
   head: () => ({
