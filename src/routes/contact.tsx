@@ -11,6 +11,7 @@ import {
   EMAIL,
   EMAIL_HREF,
   MAPS_URL,
+  MAPS_EMBED_URL,
   ADDRESS_PARTS,
   ADDRESS_FULL,
   HOURS_DISPLAY,
@@ -174,17 +175,13 @@ function ContactPage() {
                 <span className="block text-caption text-steel-400" data-spec>
                   {t.contactPage.addressLabel}
                 </span>
-                <span className="mt-1 block text-meta leading-relaxed text-graphite-900">
-                  {ADDRESS_FULL}
-                </span>
                 <a
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-2 text-meta font-semibold text-accent-700 hover:text-accent-600"
+                  className="mt-1 block text-meta leading-relaxed text-graphite-900 underline-offset-4 hover:text-accent-700 hover:underline"
                 >
-                  {t.contactPage.directions}
-                  <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+                  {ADDRESS_FULL}
                 </a>
               </span>
             </div>
@@ -200,6 +197,34 @@ function ContactPage() {
                   {t.contactPage.hours}
                 </span>
               </span>
+            </div>
+          </Grid>
+
+          {/* Embedded map — direct visual confirmation of the pin location */}
+          <Grid className="mt-10">
+            <div className="col-span-4 sm:col-span-8 lg:col-span-12">
+              <div className="overflow-hidden rounded-md border border-steel-200 bg-white">
+                <iframe
+                  src={MAPS_EMBED_URL}
+                  title={t.contactPage.addressLabel}
+                  width="100%"
+                  height="400"
+                  style={{ border: 0, display: "block" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-graphite-900 px-5 text-meta font-medium text-white hover:bg-graphite-800"
+                >
+                  {t.contactPage.directions}
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </Grid>
         </Section>
