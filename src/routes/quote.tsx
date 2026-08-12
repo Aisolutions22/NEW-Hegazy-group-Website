@@ -184,7 +184,9 @@ function QuotePage() {
                     >
                       {t.footer.contact.phone}
                     </span>
-                    [CLIENT-INPUT-REQUIRED]
+                    <a href={PHONE_HREF} className="hover:underline" dir="ltr">
+                      {PHONE_DISPLAY}
+                    </a>
                   </li>
                   <li>
                     <span
@@ -193,7 +195,15 @@ function QuotePage() {
                     >
                       {t.footer.contact.whatsapp}
                     </span>
-                    [CLIENT-INPUT-REQUIRED]
+                    <a
+                      href={WHATSAPP_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      dir="ltr"
+                    >
+                      {WHATSAPP_DISPLAY}
+                    </a>
                   </li>
                   <li>
                     <span
@@ -202,7 +212,9 @@ function QuotePage() {
                     >
                       {t.footer.contact.email}
                     </span>
-                    [CLIENT-INPUT-REQUIRED]
+                    <a href={EMAIL_HREF} className="hover:underline" dir="ltr">
+                      {EMAIL}
+                    </a>
                   </li>
                 </ul>
               </div>

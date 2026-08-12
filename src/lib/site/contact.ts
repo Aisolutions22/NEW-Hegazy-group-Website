@@ -24,7 +24,8 @@ export const ADDRESS_PARTS = {
   country: "EG",
 };
 
-export const MAPS_URL = "https://share.google/zEfURCXzQ9N9yqlKS";
+export const MAPS_URL =
+  "https://www.google.com/maps/place/Hegazy+International+Trade+Co./data=!4m2!3m1!1s0x0:0xcc6e7ca8bb827c58?sa=X&ved=1t:2428&hl=en-EG&ictx=111";
 
 export const HOURS_DISPLAY = "Saturday–Thursday, 9:00 AM–4:00 PM · Friday closed";
 

@@ -89,7 +89,7 @@ export const ar: Strings = {
   stats: {
     heading: "بالأرقام",
     items: [
-      { value: "\u202A+15\u202C", label: "سنة خبرة" },
+      { value: "\u202A+25\u202C", label: "سنة خبرة" },
       { value: "\u202A+200\u202C", label: "عميل" },
       { value: "8", label: "خطوط منتجات" },
       { value: "100%", label: "جودة معتمدة" },
