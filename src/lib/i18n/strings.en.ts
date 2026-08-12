@@ -85,7 +85,7 @@ export const en = {
   stats: {
     heading: "By the numbers",
     items: [
-      { value: "15+", label: "Years of Experience" },
+      { value: "25+", label: "Years of Experience" },
       { value: "200+", label: "Clients Served" },
       { value: "8", label: "Product Lines" },
       { value: "100%", label: "Quality Certified" },

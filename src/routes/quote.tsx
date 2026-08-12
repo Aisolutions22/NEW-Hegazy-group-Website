@@ -17,6 +17,14 @@ import {
 } from "@/components/rfq/steps";
 import { SuccessPanel } from "@/components/rfq/success-panel";
 import { useRfqForm } from "@/lib/rfq/use-rfq-form";
+import {
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_HREF,
+  EMAIL,
+  EMAIL_HREF,
+} from "@/lib/site/contact";
 
 export const Route = createFileRoute("/quote")({
   head: () => ({
@@ -184,7 +192,9 @@ function QuotePage() {
                     >
                       {t.footer.contact.phone}
                     </span>
-                    [CLIENT-INPUT-REQUIRED]
+                    <a href={PHONE_HREF} className="hover:underline" dir="ltr">
+                      {PHONE_DISPLAY}
+                    </a>
                   </li>
                   <li>
                     <span
@@ -193,7 +203,15 @@ function QuotePage() {
                     >
                       {t.footer.contact.whatsapp}
                     </span>
-                    [CLIENT-INPUT-REQUIRED]
+                    <a
+                      href={WHATSAPP_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      dir="ltr"
+                    >
+                      {WHATSAPP_DISPLAY}
+                    </a>
                   </li>
                   <li>
                     <span
@@ -202,7 +220,9 @@ function QuotePage() {
                     >
                       {t.footer.contact.email}
                     </span>
-                    [CLIENT-INPUT-REQUIRED]
+                    <a href={EMAIL_HREF} className="hover:underline" dir="ltr">
+                      {EMAIL}
+                    </a>
                   </li>
                 </ul>
               </div>
