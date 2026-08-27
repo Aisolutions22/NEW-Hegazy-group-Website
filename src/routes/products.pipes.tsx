@@ -3,13 +3,14 @@ import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/ca
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { getProductCategory } from "@/lib/catalog/categories";
 
 export const Route = createFileRoute("/products/pipes")({
   head: () => ({
     meta: [
       { title: "Aluminum Pipes — Hegazy Group" },
       { name: "description", content: "Aluminum pipes for HVAC, heat transfer, and industrial applications." },
-          { property: "og:url", content: "https://hegazy-group.lovable.app/products/pipes" },
+      { property: "og:url", content: "https://hegazy-group.lovable.app/products/pipes" },
     ],
     links: [{ rel: "canonical", href: "https://hegazy-group.lovable.app/products/pipes" }],
     scripts: [
@@ -24,9 +25,16 @@ export const Route = createFileRoute("/products/pipes")({
 
 function PipesPage() {
   const { t } = useLanguage();
+  const image = getProductCategory("pipes")?.image;
+
   return (
-    <CategoryPageLayout title={t.productDetail.pipes.title} intro={t.productDetail.pipes.intro}>
-      <div className="grid gap-12 lg:grid-cols-2">
+    <CategoryPageLayout
+      title={t.productDetail.pipes.title}
+      intro={t.productDetail.pipes.intro}
+      image={image}
+      imageAlt={t.productDetail.pipes.title}
+    >
+      <div className="grid gap-10 lg:grid-cols-2">
         <SpecTable
           caption={t.categoryPage.specifications}
           rows={[
