@@ -5,6 +5,7 @@ import aluminumDiscsImage from "@/assets/products/aluminum-discs.webp";
 import aluminumIngotsImage from "@/assets/products/aluminum-ingots.webp";
 import aluminumProfilesBarsImage from "@/assets/products/aluminum-profiles-bars.webp";
 import aluminumWireRodsImage from "@/assets/products/aluminum-wire-rods.webp";
+import aluminumBilletsImage from "@/assets/products/aluminum-billets.webp";
 
 import indMetalManufacturingImage from "@/assets/industries/metal-manufacturing.webp";
 import indHvacHeatTransferImage from "@/assets/industries/hvac-heat-transfer.webp";
@@ -37,7 +38,7 @@ export const PRODUCT_CATEGORIES: Array<{
   { key: "sheetsCoils", slug: "sheets-coils", titleKey: "sheetsCoils", descKey: "sheetsCoilsDesc", image: aluminumSheetsCoilsImage },
   { key: "discs", slug: "discs", titleKey: "discs", descKey: "discsDesc", image: aluminumDiscsImage },
   { key: "ingots", slug: "ingots", titleKey: "ingots", descKey: "ingotsDesc", image: aluminumIngotsImage },
-  { key: "billets", slug: "billets", titleKey: "billets", descKey: "billetsDesc" },
+  { key: "billets", slug: "billets", titleKey: "billets", descKey: "billetsDesc", image: aluminumBilletsImage },
   { key: "profilesBars", slug: "profiles-bars", titleKey: "profilesBars", descKey: "profilesBarsDesc", image: aluminumProfilesBarsImage },
   { key: "wireRods", slug: "wire-rods", titleKey: "wireRods", descKey: "wireRodsDesc", image: aluminumWireRodsImage },
 ];
