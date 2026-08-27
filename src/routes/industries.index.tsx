@@ -65,28 +65,41 @@ function IndustriesPage() {
               <Link
                 key={ind.slug}
                 to={`/industries/${ind.slug}` as string}
-                className="group col-span-4 flex flex-col justify-between rounded-md border border-steel-200 bg-white p-6 transition-colors hover:border-graphite-900 sm:col-span-4 lg:col-span-4"
+                className="group col-span-4 flex flex-col overflow-hidden rounded-md border border-steel-200 bg-white transition-colors hover:border-graphite-900 sm:col-span-4 lg:col-span-4"
               >
-                <div>
-                  <span
-                    className="font-mono text-micro text-steel-400"
-                    data-spec
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h2 className="mt-6 text-2xl leading-tight text-graphite-900">
-                    {t.industries[ind.titleKey]}
-                  </h2>
-                  <p className="mt-3 text-small leading-relaxed text-steel-600">
-                    {t.industries[ind.descKey]}
-                  </p>
-                </div>
-                <div className="mt-6 inline-flex items-center gap-2 text-legal font-semibold text-accent-700 group-hover:text-accent-600">
-                  {t.industriesPage.viewIndustry}
-                  <ArrowRight
-                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
-                    aria-hidden="true"
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-steel-100">
+                  <img
+                    src={ind.image}
+                    alt={`${t.industries[ind.titleKey]} — aluminum applications`}
+                    loading={i < 3 ? "eager" : "lazy"}
+                    decoding="async"
+                    width={1200}
+                    height={750}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                   />
+                </div>
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    <span
+                      className="font-mono text-micro text-steel-400"
+                      data-spec
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h2 className="mt-3 text-2xl leading-tight text-graphite-900">
+                      {t.industries[ind.titleKey]}
+                    </h2>
+                    <p className="mt-3 text-small leading-relaxed text-steel-600">
+                      {t.industries[ind.descKey]}
+                    </p>
+                  </div>
+                  <div className="mt-6 inline-flex items-center gap-2 text-legal font-semibold text-accent-700 group-hover:text-accent-600">
+                    {t.industriesPage.viewIndustry}
+                    <ArrowRight
+                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               </Link>
             ))}
