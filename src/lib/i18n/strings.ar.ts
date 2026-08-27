@@ -32,6 +32,7 @@ export const ar: Strings = {
     about: "من نحن",
     contact: "تواصل معنا",
     quote: "اطلب عرض سعر",
+    viewAll: "عرض الكل",
   },
   products: {
     pipes: "مواسير الألومنيوم",

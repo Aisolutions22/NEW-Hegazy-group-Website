@@ -54,6 +54,11 @@ export function MobileNav() {
                 </AccordionTrigger>
                 <AccordionContent className="px-4 pb-4">
                   <ul className="space-y-3 text-meta">
+                    <li>
+                      <a href="/products" className="font-semibold text-accent-700">
+                        {t.nav.viewAll}
+                      </a>
+                    </li>
                     {[
                       { slug: "pipes", labelKey: "pipes" as const },
                       { slug: "sheets-coils", labelKey: "sheetsCoils" as const },

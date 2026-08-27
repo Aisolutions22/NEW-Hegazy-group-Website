@@ -35,7 +35,8 @@ function cap(s: string) {
 }
 
 function SectorPage() {
-  const { key } = Route.useLoaderData() as { key: IndustryKey; slug: string };
+  const { key, slug } = Route.useLoaderData() as { key: IndustryKey; slug: string };
+  const industry = INDUSTRIES.find((i) => i.slug === slug);
   const { t } = useLanguage();
   const data = t.industriesPage[key];
   const title = t.industries[key];
@@ -57,7 +58,7 @@ function SectorPage() {
           aria-label={title}
         >
           <Grid>
-            <div className="col-span-4 sm:col-span-8 lg:col-span-9">
+            <div className="col-span-4 sm:col-span-8 lg:col-span-7">
               <Link
                 to="/industries"
                 className="inline-flex items-center gap-2 text-legal text-white/70 hover:text-white"
@@ -70,6 +71,21 @@ function SectorPage() {
                 {desc}
               </p>
             </div>
+            {industry?.image ? (
+              <div className="col-span-4 mt-8 sm:col-span-8 lg:col-span-5 lg:mt-0">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10 bg-graphite-800">
+                  <img
+                    src={industry.image}
+                    alt={`${title} — aluminum applications`}
+                    fetchPriority="high"
+                    decoding="async"
+                    width={1200}
+                    height={750}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            ) : null}
           </Grid>
         </Section>
 

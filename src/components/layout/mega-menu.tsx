@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -54,6 +54,7 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 
 export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const triggerBase =
     "bg-transparent text-meta font-medium data-[state=open]:bg-transparent";
@@ -81,13 +82,25 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
       <NavigationMenuList className="gap-1">
         {/* Products */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn(triggerBase, triggerColors)}>
+          <NavigationMenuTrigger
+            className={cn(triggerBase, triggerColors)}
+            onPointerDown={(e) => e.preventDefault()}
+            onClick={() => navigate({ to: "/products" })}
+          >
             {t.nav.products}
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[820px] grid-cols-4 gap-6 bg-white p-6">
               <div className="col-span-1">
                 <ColumnHeading>{t.nav.products}</ColumnHeading>
+                <NavigationMenuLink asChild>
+                  <a
+                    href="/products"
+                    className="mb-2 block rounded-md px-3 py-2 text-legal font-semibold text-accent-700 hover:bg-steel-100"
+                  >
+                    {t.nav.viewAll}
+                  </a>
+                </NavigationMenuLink>
                 <ul className="space-y-1">
                   {productsCol1.map((c) => (
                     <MenuLink
@@ -137,11 +150,24 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
 
         {/* Industries */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn(triggerBase, triggerColors)}>
+          <NavigationMenuTrigger
+            className={cn(triggerBase, triggerColors)}
+            onPointerDown={(e) => e.preventDefault()}
+            onClick={() => navigate({ to: "/industries" })}
+          >
             {t.nav.industries}
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[720px] grid-cols-3 gap-4 bg-white p-6">
+            <div className="w-[720px] bg-white p-6">
+              <NavigationMenuLink asChild>
+                <a
+                  href="/industries"
+                  className="mb-2 block rounded-md px-3 py-2 text-legal font-semibold text-accent-700 hover:bg-steel-100"
+                >
+                  {t.nav.viewAll}
+                </a>
+              </NavigationMenuLink>
+              <div className="grid grid-cols-3 gap-4">
               {[industryCol1, industryCol2, industryCol3].map((col, i) => (
                 <ul key={i} className="space-y-1">
                   {col.map((ind) => (
@@ -153,6 +179,7 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
                   ))}
                 </ul>
               ))}
+              </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
