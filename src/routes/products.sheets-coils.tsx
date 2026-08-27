@@ -52,7 +52,12 @@ function Page() {
   const subCategories = [s.subMill, s.subEmbossed, s.subCoils];
 
   return (
-    <CategoryPageLayout title={s.title} intro={s.intro}>
+    <CategoryPageLayout
+      title={s.title}
+      intro={s.intro}
+      image={getProductCategory("sheets-coils")?.image}
+      imageAlt={s.title}
+    >
       <div className="grid gap-12">
         <SpecMatrix caption={s.hotRolled} columns={columns} rows={hotRolled} />
         <SpecMatrix caption={s.coldRolled} columns={columns} rows={coldRolled} />
@@ -65,11 +70,16 @@ function Page() {
           <h3 className="mb-4 font-mono text-micro uppercase tracking-caps text-steel-400">
             {t.categoryPage.featuredHeading}
           </h3>
-          <div className="grid gap-4 sm:grid-cols-3">
+          <ul className="flex flex-wrap gap-2">
             {subCategories.map((label) => (
-              <GalleryPlaceholder key={label} label={label} />
+              <li
+                key={label}
+                className="rounded-sm border border-steel-200 bg-offwhite-50 px-3 py-1.5 text-legal text-steel-600"
+              >
+                {label}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
       <RelatedIndustries slug="sheets-coils" />
