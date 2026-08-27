@@ -64,9 +64,22 @@ function ProductsPage() {
               <Link
                 key={c.slug}
                 to={`/products/${c.slug}` as string}
-                className="group col-span-4 flex flex-col justify-between bg-white p-6 transition-colors hover:bg-offwhite-50 sm:col-span-4 lg:col-span-3"
+                className="group col-span-4 flex flex-col justify-between overflow-hidden bg-white transition-colors hover:bg-offwhite-50 sm:col-span-4 lg:col-span-3"
               >
-                <div>
+                {c.image && (
+                  <div className="overflow-hidden bg-steel-100">
+                    <img
+                      src={c.image}
+                      alt={t.products[c.titleKey]}
+                      width={1280}
+                      height={800}
+                      loading={i < 3 ? "eager" : "lazy"}
+                      decoding="async"
+                      className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
                   <div className="text-caption text-steel-400" data-spec>
                     {String(i + 1).padStart(2, "0")}
                   </div>
@@ -77,7 +90,7 @@ function ProductsPage() {
                     {t.products[c.descKey]}
                   </p>
                 </div>
-                <div className="mt-6 inline-flex items-center gap-2 text-legal font-semibold text-accent-700 group-hover:text-accent-600">
+                <div className="mt-auto inline-flex items-center gap-2 p-6 pt-0 text-legal font-semibold text-accent-700 group-hover:text-accent-600">
                   {t.productsPage.viewProduct}
                   <ArrowRight
                     className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
