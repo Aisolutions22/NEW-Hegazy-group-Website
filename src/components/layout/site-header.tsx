@@ -41,15 +41,18 @@ export function SiteHeader({ variant = "solid" }: Props) {
             adjustment. The image already contains the "Hegazy Group"
             wordmark, so no adjacent text span is rendered. */}
         <Link to="/" className="inline-flex items-center gap-3" aria-label="Hegazy Group — Home">
-          <img
-            src={hegazyLogo}
-            alt=""
-            aria-hidden="true"
-            className={cn(
-              "h-10 w-auto object-contain",
-              isTransparent && "brightness-0 invert"
-            )}
-          />
+          {/* Logo badge: a tight white circular chip provides contrast on the
+              dark hero without ever recoloring or inverting the logo itself.
+              The logo keeps its original gray/light-blue/white colors in both
+              header states — only the container changes. */}
+          <span className="inline-flex shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-[0_1px_4px_rgba(20,24,28,0.18)]">
+            <img
+              src={hegazyLogo}
+              alt=""
+              aria-hidden="true"
+              className="h-9 w-auto object-contain"
+            />
+          </span>
           <span className="font-semibold tracking-tight text-body">Hegazy Group</span>
         </Link>
 
