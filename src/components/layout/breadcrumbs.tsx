@@ -6,31 +6,17 @@ import { cn } from "@/lib/utils";
 
 export type Crumb = {
   label: string;
-  /** Omit `href` on the last (current) crumb — it renders as text. */
   href?: string;
 };
 
 type Props = {
   items: Crumb[];
-  /**
-   * Absolute canonical origin used to build BreadcrumbList JSON-LD `item`
-   * URLs. Falls back to a runtime `window.location.origin` on the client so
-   * schema still emits during SSR without a hard-coded origin everywhere.
-   */
   origin?: string;
   className?: string;
 };
 
 const DEFAULT_ORIGIN = "https://hegazy-group.lovable.app";
 
-/**
- * Site-wide breadcrumb trail. Renders a compact nav row directly beneath
- * the page hero and inlines a BreadcrumbList JSON-LD block so Google
- * shows the trail in SERP results.
- *
- * Note: the current crumb is the last item and must NOT carry an `href` —
- * it renders as `aria-current="page"` text instead of a link.
- */
 export function Breadcrumbs({ items, origin = DEFAULT_ORIGIN, className }: Props) {
   const { t, dir } = useLanguage();
   const home: Crumb = { label: t.breadcrumbs.home, href: "/" };
@@ -43,7 +29,6 @@ export function Breadcrumbs({ items, origin = DEFAULT_ORIGIN, className }: Props
       "@type": "ListItem",
       position: i + 1,
       name: c.label,
-      // Last item omits `item` so search engines treat it as the current page.
       ...(c.href && i < trail.length - 1
         ? { item: `${origin}${c.href}` }
         : {}),
@@ -54,7 +39,8 @@ export function Breadcrumbs({ items, origin = DEFAULT_ORIGIN, className }: Props
     <Section
       as="nav"
       aria-label={t.breadcrumbs.label}
-      className={cn("border-b border-steel-200 bg-offwhite-50 py-4", className)}
+      py="16px"
+      className={cn("border-b border-steel-200 bg-offwhite-50", className)}
     >
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-legal text-steel-600">
         {trail.map((c, i) => {
@@ -71,17 +57,11 @@ export function Breadcrumbs({ items, origin = DEFAULT_ORIGIN, className }: Props
                 />
               )}
               {isLast || !c.href ? (
-                <span
-                  aria-current="page"
-                  className="font-medium text-graphite-900"
-                >
+                <span aria-current="page" className="font-medium text-graphite-900">
                   {c.label}
                 </span>
               ) : (
-                <Link
-                  to={c.href}
-                  className="hover:text-graphite-900 hover:underline"
-                >
+                <Link to={c.href} className="hover:text-graphite-900 hover:underline">
                   {c.label}
                 </Link>
               )}
@@ -89,8 +69,6 @@ export function Breadcrumbs({ items, origin = DEFAULT_ORIGIN, className }: Props
           );
         })}
       </ol>
-      {/* Inline JSON-LD — Google reads application/ld+json anywhere on the
-          page. Kept next to the visible trail so the two never drift. */}
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
