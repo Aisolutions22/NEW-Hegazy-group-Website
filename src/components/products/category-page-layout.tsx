@@ -31,7 +31,7 @@ export function CategoryPageLayout({
           items={[{ label: t.nav.products, href: "/products" }, { label: title }]}
         />
 
-        <Section as="header" py="56px" className="bg-graphite-900 text-white" aria-label={title}>
+        <Section as="header" py="44px" className="bg-graphite-900 text-white" aria-label={title}>
           <Grid className="items-center">
             <div className={image ? "col-span-4 sm:col-span-8 lg:col-span-7" : "col-span-4 sm:col-span-8 lg:col-span-9"}>
               <Link
@@ -57,6 +57,7 @@ export function CategoryPageLayout({
                     width={800}
                     height={436}
                     loading="eager"
+                    fetchPriority="high"
                     decoding="async"
                     className="aspect-[4/3] w-full object-cover"
                   />
@@ -66,7 +67,7 @@ export function CategoryPageLayout({
           </Grid>
         </Section>
 
-        <Section py="56px" aria-label={t.categoryPage.specifications}>
+        <Section py="44px" aria-label={t.categoryPage.specifications}>
           <Grid>
             <div className="col-span-4 sm:col-span-8 lg:col-span-9">{children}</div>
           </Grid>

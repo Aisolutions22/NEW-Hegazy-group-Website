@@ -8,8 +8,8 @@ export function ProductCategoryGrid() {
   const { t } = useLanguage();
 
   return (
-    <Section aria-label={t.categories.heading} py="48px">
-      <div className="mb-8 max-w-2xl">
+    <Section aria-label={t.categories.heading} py="40px">
+      <div className="mb-6 max-w-2xl">
         <h2 className="mb-3 font-mono text-micro uppercase tracking-caps text-steel-400">
           {t.categories.heading}
         </h2>

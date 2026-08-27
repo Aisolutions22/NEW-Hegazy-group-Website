@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/category-page-layout";
+import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
 import { useLanguage } from "@/lib/i18n/language-context";
@@ -26,7 +26,7 @@ function Page() {
   const { t } = useLanguage();
   return (
     <CategoryPageLayout title={t.productDetail.billets.title} intro={t.productDetail.billets.intro}>
-      <div className="grid gap-12 lg:grid-cols-2">
+      <div className="grid gap-12">
         <SpecTable
           caption={t.categoryPage.specifications}
           rows={[
@@ -38,7 +38,6 @@ function Page() {
             { label: t.productDetail.billets.alloys, value: "6063, 6061, 6062" },
           ]}
         />
-        <GalleryPlaceholder />
       </div>
       <RelatedIndustries slug="billets" />
     </CategoryPageLayout>

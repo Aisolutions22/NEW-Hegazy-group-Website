@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/category-page-layout";
+import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
+import { getProductCategory } from "@/lib/catalog/categories";
 import { useLanguage } from "@/lib/i18n/language-context";
 
 export const Route = createFileRoute("/products/profiles-bars")({
@@ -25,8 +26,13 @@ export const Route = createFileRoute("/products/profiles-bars")({
 function Page() {
   const { t } = useLanguage();
   return (
-    <CategoryPageLayout title={t.productDetail.profilesBars.title} intro={t.productDetail.profilesBars.intro}>
-      <div className="grid gap-12 lg:grid-cols-2">
+    <CategoryPageLayout
+      title={t.productDetail.profilesBars.title}
+      intro={t.productDetail.profilesBars.intro}
+      image={getProductCategory("profiles-bars")?.image}
+      imageAlt={t.productDetail.profilesBars.title}
+    >
+      <div className="grid gap-12">
         <SpecTable
           caption={t.categoryPage.specifications}
           rows={[
@@ -37,7 +43,6 @@ function Page() {
             { label: t.productDetail.profilesBars.surface, value: "Mill, anodized, powder coated" },
           ]}
         />
-        <GalleryPlaceholder />
       </div>
       <RelatedIndustries slug="profiles-bars" />
     </CategoryPageLayout>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/category-page-layout";
+import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
 import { useLanguage } from "@/lib/i18n/language-context";
@@ -45,7 +45,6 @@ function PipesPage() {
             { label: t.productDetail.pipes.temper, value: "H111, H112, T4, T5, T6" },
           ]}
         />
-        <GalleryPlaceholder />
       </div>
       <RelatedIndustries slug="pipes" />
     </CategoryPageLayout>

@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CategoryPageLayout, GalleryPlaceholder } from "@/components/products/category-page-layout";
+import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
+import { getProductCategory } from "@/lib/catalog/categories";
 import { useLanguage } from "@/lib/i18n/language-context";
 
 export const Route = createFileRoute("/products/wire-rods")({
@@ -25,8 +26,13 @@ export const Route = createFileRoute("/products/wire-rods")({
 function Page() {
   const { t } = useLanguage();
   return (
-    <CategoryPageLayout title={t.productDetail.wireRods.title} intro={t.productDetail.wireRods.intro}>
-      <div className="grid gap-12 lg:grid-cols-2">
+    <CategoryPageLayout
+      title={t.productDetail.wireRods.title}
+      intro={t.productDetail.wireRods.intro}
+      image={getProductCategory("wire-rods")?.image}
+      imageAlt={t.productDetail.wireRods.title}
+    >
+      <div className="grid gap-12">
         <SpecTable
           caption={t.categoryPage.specifications}
           rows={[
@@ -39,7 +45,6 @@ function Page() {
             { label: t.productDetail.wireRods.temper, value: "H12, H14" },
           ]}
         />
-        <GalleryPlaceholder />
       </div>
       <RelatedIndustries slug="wire-rods" />
     </CategoryPageLayout>
