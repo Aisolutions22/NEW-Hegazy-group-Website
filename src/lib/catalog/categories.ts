@@ -1,5 +1,10 @@
 import type { Strings } from "@/lib/i18n/strings.en";
 import aluminumPipesImage from "@/assets/products/aluminum-pipes.webp";
+import aluminumSheetsCoilsImage from "@/assets/products/aluminum-sheets-coils.webp";
+import aluminumDiscsImage from "@/assets/products/aluminum-discs.webp";
+import aluminumIngotsImage from "@/assets/products/aluminum-ingots.webp";
+import aluminumProfilesBarsImage from "@/assets/products/aluminum-profiles-bars.webp";
+import aluminumWireRodsImage from "@/assets/products/aluminum-wire-rods.webp";
 
 export type ProductCategoryKey =
   | "pipes"
