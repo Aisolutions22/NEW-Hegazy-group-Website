@@ -56,7 +56,7 @@ export function MobileNav() {
                   <ul className="space-y-3 text-meta">
                     <li>
                       <a href="/products" className="font-semibold text-accent-700">
-                        {t.nav.products}
+                        {t.nav.viewAll}
                       </a>
                     </li>
                     {[

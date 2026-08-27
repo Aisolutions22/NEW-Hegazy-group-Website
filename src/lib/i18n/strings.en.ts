@@ -28,6 +28,7 @@ export const en = {
     about: "About",
     contact: "Contact",
     quote: "Request a Quote",
+    viewAll: "View all",
   },
   products: {
     pipes: "Aluminum Pipes",

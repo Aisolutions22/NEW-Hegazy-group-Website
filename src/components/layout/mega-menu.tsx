@@ -98,7 +98,7 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
                     href="/products"
                     className="mb-2 block rounded-md px-3 py-2 text-legal font-semibold text-accent-700 hover:bg-steel-100"
                   >
-                    {t.nav.products}
+                    {t.nav.viewAll}
                   </a>
                 </NavigationMenuLink>
                 <ul className="space-y-1">
@@ -164,7 +164,7 @@ export function MegaMenu({ variant = "solid" }: { variant?: Variant }) {
                   href="/industries"
                   className="mb-2 block rounded-md px-3 py-2 text-legal font-semibold text-accent-700 hover:bg-steel-100"
                 >
-                  {t.nav.industries}
+                  {t.nav.viewAll}
                 </a>
               </NavigationMenuLink>
               <div className="grid grid-cols-3 gap-4">
