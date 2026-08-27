@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
-import { getProductCategory } from "@/lib/catalog/categories";
 import { useLanguage } from "@/lib/i18n/language-context";
 
 export const Route = createFileRoute("/products/billets")({
