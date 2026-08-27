@@ -35,7 +35,8 @@ function cap(s: string) {
 }
 
 function SectorPage() {
-  const { key } = Route.useLoaderData() as { key: IndustryKey; slug: string };
+  const { key, slug } = Route.useLoaderData() as { key: IndustryKey; slug: string };
+  const industry = INDUSTRIES.find((i) => i.slug === slug);
   const { t } = useLanguage();
   const data = t.industriesPage[key];
   const title = t.industries[key];
