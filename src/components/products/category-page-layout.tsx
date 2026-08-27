@@ -31,12 +31,7 @@ export function CategoryPageLayout({
           items={[{ label: t.nav.products, href: "/products" }, { label: title }]}
         />
 
-        <Section
-          as="header"
-          py="56px"
-          className="bg-graphite-900 text-white"
-          aria-label={title}
-        >
+        <Section as="header" py="56px" className="bg-graphite-900 text-white" aria-label={title}>
           <Grid className="items-center">
             <div className={image ? "col-span-4 sm:col-span-8 lg:col-span-7" : "col-span-4 sm:col-span-8 lg:col-span-9"}>
               <Link
@@ -49,12 +44,8 @@ export function CategoryPageLayout({
               <div className="mt-6 font-mono text-micro uppercase tracking-caps text-white/60">
                 {t.productsPage.eyebrow}
               </div>
-              <h1 className="mt-3 text-5xl leading-tight text-white">
-                {title}
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
-                {intro}
-              </p>
+              <h1 className="mt-3 text-5xl leading-tight text-white">{title}</h1>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">{intro}</p>
             </div>
 
             {image && (
@@ -77,9 +68,7 @@ export function CategoryPageLayout({
 
         <Section py="56px" aria-label={t.categoryPage.specifications}>
           <Grid>
-            <div className="col-span-4 sm:col-span-8 lg:col-span-9">
-              {children}
-            </div>
+            <div className="col-span-4 sm:col-span-8 lg:col-span-9">{children}</div>
           </Grid>
         </Section>
 
@@ -91,15 +80,10 @@ export function CategoryPageLayout({
   );
 }
 
-export function GalleryPlaceholder({ label }: { label?: string }) {
-  const { t } = useLanguage();
-  return (
-    <div className="flex aspect-[4/3] items-center justify-center rounded-md border border-dashed border-steel-200 bg-offwhite-50 text-center">
-      <div className="px-4">
-        <div className="font-mono text-micro uppercase tracking-caps text-steel-400">
-          {label ?? t.categoryPage.galleryPending}
-        </div>
-      </div>
-    </div>
-  );
+/**
+ * Kept as a compatibility export for existing product routes.
+ * Empty gallery placeholders are intentionally hidden until real imagery is supplied.
+ */
+export function GalleryPlaceholder() {
+  return null;
 }
