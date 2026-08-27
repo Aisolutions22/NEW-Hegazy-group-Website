@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
         as: "image",
         href: heroLcpPreloadHref,
         type: "image/avif",
-        fetchpriority: "high",
+        fetchPriority: "high",
       },
     ],
     meta: [

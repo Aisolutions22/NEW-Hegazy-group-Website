@@ -10,7 +10,7 @@ import {
 import { useLanguage } from "@/lib/i18n/language-context";
 import { Section } from "@/components/layout/section";
 import { PRODUCT_CATEGORIES } from "@/lib/catalog/categories";
-import hegazyLogo from "@/assets/hegazy-logo.png";
+import hegazyLogo from "@/assets/hegazy-mark.png";
 
 
 export function SiteFooter() {
