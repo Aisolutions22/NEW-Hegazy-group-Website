@@ -1,4 +1,5 @@
 import type { Strings } from "@/lib/i18n/strings.en";
+import aluminumPipesImage from "@/assets/products/aluminum-pipes.webp";
 
 export type ProductCategoryKey =
   | "pipes"
@@ -13,11 +14,11 @@ export type ProductCategoryKey =
 export const PRODUCT_CATEGORIES: Array<{
   key: ProductCategoryKey;
   slug: string;
-  /** i18n keys in `t.products` */
   titleKey: keyof Strings["products"];
   descKey: keyof Strings["products"];
+  image?: string;
 }> = [
-  { key: "pipes", slug: "pipes", titleKey: "pipes", descKey: "pipesDesc" },
+  { key: "pipes", slug: "pipes", titleKey: "pipes", descKey: "pipesDesc", image: aluminumPipesImage },
   { key: "sheetsCoils", slug: "sheets-coils", titleKey: "sheetsCoils", descKey: "sheetsCoilsDesc" },
   { key: "discs", slug: "discs", titleKey: "discs", descKey: "discsDesc" },
   { key: "ingots", slug: "ingots", titleKey: "ingots", descKey: "ingotsDesc" },
@@ -60,4 +61,8 @@ export function slugToIndustryKey(slug: string): IndustryKey | null {
 
 export function slugToCategoryKey(slug: string): ProductCategoryKey | null {
   return PRODUCT_CATEGORIES.find((c) => c.slug === slug)?.key ?? null;
+}
+
+export function getProductCategory(slug: string) {
+  return PRODUCT_CATEGORIES.find((c) => c.slug === slug) ?? null;
 }
