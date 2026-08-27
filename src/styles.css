@@ -2,63 +2,39 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 /* ============================================================
  * Hegazy Group — Industrial Design Tokens
  * Distributor brand. Restrained accent. Logical properties only.
  * ============================================================ */
 
 :root {
-  /* Brand — Graphite */
   --graphite-900: #14181C;
   --graphite-800: #1F262C;
-
-  /* Brand — Steel */
   --steel-600: #4A5760;
   --steel-400: #7C8890;
   --steel-200: #C4CBD0;
   --steel-100: #E4E8EB;
-
-  /* Surface */
   --offwhite-50: #F6F7F8;
   --white: #FFFFFF;
-
-  /* Accent (restrained — ~15% max viewport area) */
   --accent-700: #0B4D8C;
   --accent-600: #0F5FA8;
   --accent-100: #E6F0F9;
-
-  /* Status */
   --success-600: #1E7A4C;
   --warning-600: #B9740B;
   --danger-600: #B4232C;
-
-  /* Overlay scrim — single canonical hero/media scrim.
-     Use as a solid overlay OR as one stop of a single gradient — never stack. */
   --color-overlay-scrim: rgba(20, 24, 28, 0.72);
 
-  /* Section padding (fluid) */
-  /* Section vertical rhythm — exact per spec: 48px mobile, 96px desktop. */
-  --section-py: 48px;
+  /* Compact industrial rhythm: avoid oversized empty vertical bands. */
+  --section-py: 32px;
 
-  /* Sticky mobile CTA bar height (excludes safe-area-inset). */
   --mobile-cta-height: 68px;
-
-  /* 12-col grid */
   --grid-columns: 12;
   --grid-gutter: clamp(16px, 2vw, 24px);
   --grid-max: 1280px;
-
-  /* Letter-spacing tokens — caps eyebrows use the wide industrial track. */
   --tracking-caps: 0.2em;
-
-  /* Card minimum heights — keep home category cards on a consistent baseline
-     without one-off arbitrary Tailwind values. */
   --card-min-industry: 220px;
   --card-min-product: 280px;
 
-  /* shadcn semantic aliases → brand values */
   --radius: 0.5rem;
   --background: var(--offwhite-50);
   --foreground: var(--graphite-900);
@@ -95,15 +71,13 @@
 }
 
 @theme inline {
-  /* Radius — capped at 12px */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: 0.75rem; /* hard cap at 12px */
+  --radius-xl: 0.75rem;
   --radius-2xl: 0.75rem;
   --radius-3xl: 0.75rem;
 
-  /* Brand color utilities */
   --color-graphite-900: var(--graphite-900);
   --color-graphite-800: var(--graphite-800);
   --color-steel-600: var(--steel-600);
@@ -117,8 +91,6 @@
   --color-success-600: var(--success-600);
   --color-warning-600: var(--warning-600);
   --color-danger-600: var(--danger-600);
-
-  /* shadcn semantic aliases */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -153,31 +125,26 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Font families */
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-arabic: "IBM Plex Sans Arabic", "Noto Kufi Arabic", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  /* Dedicated token for numeric/spec data (spec tables, dimensions, part codes).
-     Uses tabular figures so columns of numbers align. Font-family kept in sync
-     with --font-mono so a single family change flows through both. */
   --font-mono-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  /* Fluid type scale (clamp-based) — every text-* utility must map to one of these */
-  --text-micro: 0.6875rem; /* 11px — eyebrow / micro caps */
+  --text-micro: 0.6875rem;
   --text-micro--line-height: 1.4;
-  --text-caption: 0.75rem; /* 12px — small caps / captions */
+  --text-caption: 0.75rem;
   --text-caption--line-height: 1.4;
-  --text-legal: 0.8125rem; /* 13px — footer legal, spec metadata */
+  --text-legal: 0.8125rem;
   --text-legal--line-height: 1.4;
-  --text-small: 0.875rem; /* 14px */
+  --text-small: 0.875rem;
   --text-small--line-height: 1.45;
-  --text-meta: 0.9375rem; /* 15px — nav links, dense body */
+  --text-meta: 0.9375rem;
   --text-meta--line-height: 1.5;
-  --text-base: 1rem; /* 16px minimum body */
+  --text-base: 1rem;
   --text-base--line-height: 1.6;
-  --text-lg: clamp(1.0625rem, 0.9rem + 0.4vw, 1.125rem); /* 17→18 */
+  --text-lg: clamp(1.0625rem, 0.9rem + 0.4vw, 1.125rem);
   --text-lg--line-height: 1.55;
-  --text-xl: clamp(1.125rem, 0.95rem + 0.5vw, 1.25rem); /* 18→20 */
+  --text-xl: clamp(1.125rem, 0.95rem + 0.5vw, 1.25rem);
   --text-xl--line-height: 1.5;
   --text-2xl: clamp(1.375rem, 1.1rem + 0.8vw, 1.625rem);
   --text-2xl--line-height: 1.35;
@@ -192,60 +159,38 @@
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  html {
-    -webkit-text-size-adjust: 100%;
-  }
-
+  * { border-color: var(--color-border); }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-size: 1rem; /* enforce 16px minimum */
+    font-size: 1rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  /* Arabic swap */
   html[lang="ar"] body,
-  html[dir="rtl"] body {
-    font-family: var(--font-arabic);
-  }
-
-  /* Technical / spec numbers — data uses the dedicated mono-data token so
-     spec tables and part codes can be re-skinned independently from prose mono. */
+  html[dir="rtl"] body { font-family: var(--font-arabic); }
   [data-spec] {
     font-family: var(--font-mono-data);
     font-feature-settings: "tnum", "zero";
     font-variant-numeric: tabular-nums slashed-zero;
   }
-  .font-mono,
-  code,
-  kbd,
-  samp,
-  pre {
+  .font-mono, code, kbd, samp, pre {
     font-family: var(--font-mono);
     font-feature-settings: "tnum";
   }
-
-  /* Focus outline — never remove */
   :where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible {
     outline: 2px solid var(--accent-600);
     outline-offset: 2px;
     border-radius: 2px;
   }
-
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--graphite-900);
   }
-
-  /* Skip link */
   .skip-to-content {
     position: absolute;
     inset-inline-start: 1rem;
@@ -259,16 +204,9 @@
     transition: transform 0.15s ease;
     z-index: 100;
   }
-  .skip-to-content:focus {
-    transform: translateY(0);
-  }
+  .skip-to-content:focus { transform: translateY(0); }
 }
 
-/* ============================================================
- * 12-column grid track — used inside <Section> via <Grid />
- * Mobile: 4 cols. Tablet: 8. Desktop: 12. Gutter is fluid.
- * Children position with col-span-* (Tailwind) or inline style.
- * ============================================================ */
 @utility grid-12 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -276,44 +214,16 @@
   row-gap: var(--grid-gutter);
 }
 @media (min-width: 640px) {
-  .grid-12 {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
+  .grid-12 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
 }
 @media (min-width: 1024px) {
-  .grid-12 {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-  :root {
-    --section-py: 96px;
-  }
+  .grid-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  :root { --section-py: 64px; }
 }
 
-/* ============================================================
- * Utility tokens (Tailwind arbitrary-value replacements)
- * ============================================================ */
-@utility tracking-caps {
-  letter-spacing: var(--tracking-caps);
-}
-@utility card-industry {
-  min-height: var(--card-min-industry);
-}
-@utility card-product {
-  min-height: var(--card-min-product);
-}
+@utility tracking-caps { letter-spacing: var(--tracking-caps); }
+@utility card-industry { min-height: var(--card-min-industry); }
+@utility card-product { min-height: var(--card-min-product); }
 
-
-
-/* Hero directional scrim — mirror horizontally under RTL so the opaque
-   side stays under the (start-aligned) text column, and flip the image
-   crop bias so the coils sit next to the text on the correct side. */
-[dir="rtl"] [data-scrim="directional"] {
-  transform: scaleX(-1);
-}
-[dir="rtl"] img[data-hero-img] {
-  object-position: 30% 65%;
-}
-
-
-
-
+[dir="rtl"] [data-scrim="directional"] { transform: scaleX(-1); }
+[dir="rtl"] img[data-hero-img] { object-position: 30% 65%; }
