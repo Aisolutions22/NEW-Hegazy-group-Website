@@ -24,12 +24,12 @@ export const PRODUCT_CATEGORIES: Array<{
   image?: string;
 }> = [
   { key: "pipes", slug: "pipes", titleKey: "pipes", descKey: "pipesDesc", image: aluminumPipesImage },
-  { key: "sheetsCoils", slug: "sheets-coils", titleKey: "sheetsCoils", descKey: "sheetsCoilsDesc" },
-  { key: "discs", slug: "discs", titleKey: "discs", descKey: "discsDesc" },
-  { key: "ingots", slug: "ingots", titleKey: "ingots", descKey: "ingotsDesc" },
+  { key: "sheetsCoils", slug: "sheets-coils", titleKey: "sheetsCoils", descKey: "sheetsCoilsDesc", image: aluminumSheetsCoilsImage },
+  { key: "discs", slug: "discs", titleKey: "discs", descKey: "discsDesc", image: aluminumDiscsImage },
+  { key: "ingots", slug: "ingots", titleKey: "ingots", descKey: "ingotsDesc", image: aluminumIngotsImage },
   { key: "billets", slug: "billets", titleKey: "billets", descKey: "billetsDesc" },
-  { key: "profilesBars", slug: "profiles-bars", titleKey: "profilesBars", descKey: "profilesBarsDesc" },
-  { key: "wireRods", slug: "wire-rods", titleKey: "wireRods", descKey: "wireRodsDesc" },
+  { key: "profilesBars", slug: "profiles-bars", titleKey: "profilesBars", descKey: "profilesBarsDesc", image: aluminumProfilesBarsImage },
+  { key: "wireRods", slug: "wire-rods", titleKey: "wireRods", descKey: "wireRodsDesc", image: aluminumWireRodsImage },
 ];
 
 export type IndustryKey =
