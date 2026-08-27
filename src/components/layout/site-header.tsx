@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import hegazyLogo from "@/assets/hegazy-logo.png";
+import hegazyLogo from "@/assets/hegazy-mark.png";
 // Search icon removed — see comment on the end-actions block below.
 import { Button } from "@/components/ui/button";
 import { UtilityBar } from "./utility-bar";
