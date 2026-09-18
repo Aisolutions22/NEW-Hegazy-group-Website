@@ -108,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@type": "Organization",
               "@id": "https://hegazy-group.lovable.app/#organization",
               name: "Hegazy Group",
-              url: "https://hegazy-group.lovable.app/",
+              url: "https://grouphegazy.com",
               description:
                 "Specialist distributor of aluminum profiles, sheets, coils, and bars for construction, manufacturing, marine, and automotive buyers.",
             },
