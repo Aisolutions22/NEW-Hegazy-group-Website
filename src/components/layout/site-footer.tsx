@@ -11,6 +11,10 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { Section } from "@/components/layout/section";
 import { PRODUCT_CATEGORIES } from "@/lib/catalog/categories";
 import hegazyLogo from "@/assets/hegazy-mark.png";
+import { Facebook, Linkedin } from "lucide-react";
+
+const FACEBOOK_URL = "https://www.facebook.com/share/1DG3gbSUhK/?mibextid=wwXIfr";
+const LINKEDIN_URL = "https://www.linkedin.com/company/hegazy-international-group/";
 
 
 export function SiteFooter() {
