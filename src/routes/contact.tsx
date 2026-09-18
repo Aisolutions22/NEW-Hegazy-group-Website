@@ -48,7 +48,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "LocalBusiness",
           name: "Hegazy Group",
           legalName: LEGAL_NAME,
-          url: "https://hegazy-group.lovable.app/contact",
+          url: "https://grouphegazy.com",
           description:
             "Aluminum supply and distribution for construction, manufacturing, transport, and industry.",
           telephone: "+20 3 552 3190",

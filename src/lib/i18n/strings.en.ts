@@ -220,6 +220,12 @@ export const en = {
       contact: "Contact Us",
     },
   },
+  careers: {
+    eyebrow: "Careers",
+    title: "We're Always Looking for Talent",
+    body: "We're always looking for talented people to join our team. Get in touch to learn about current opportunities or to send us your CV.",
+    contact: "Contact Us",
+  },
   productsPage: {
     eyebrow: "Product Catalog",
     title: "Aluminum products stocked for release.",

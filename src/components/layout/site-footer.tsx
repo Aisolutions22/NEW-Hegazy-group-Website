@@ -11,6 +11,10 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { Section } from "@/components/layout/section";
 import { PRODUCT_CATEGORIES } from "@/lib/catalog/categories";
 import hegazyLogo from "@/assets/hegazy-mark.png";
+import { Facebook, Linkedin } from "lucide-react";
+
+const FACEBOOK_URL = "https://www.facebook.com/share/1DG3gbSUhK/?mibextid=wwXIfr";
+const LINKEDIN_URL = "https://www.linkedin.com/company/hegazy-international-group/";
 
 
 export function SiteFooter() {
@@ -120,6 +124,25 @@ export function SiteFooter() {
             <a href="/privacy" className="hover:text-white">{t.footer.legal.privacy}</a>
             <a href="/terms" className="hover:text-white">{t.footer.legal.terms}</a>
             <a href="/cookies" className="hover:text-white">{t.footer.legal.cookies}</a>
+            <span className="hidden h-4 w-px bg-white/20 sm:inline-block" aria-hidden="true" />
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="inline-flex items-center text-white/70 hover:text-white"
+            >
+              <Facebook className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="inline-flex items-center text-white/70 hover:text-white"
+            >
+              <Linkedin className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

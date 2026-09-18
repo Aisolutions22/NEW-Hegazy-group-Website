@@ -32,6 +32,29 @@ export const Route = createFileRoute("/")({
         content: "https://hegazy-group.lovable.app/og-hegazy-group.jpg",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Hegazy Group",
+          alternateName: "Hegazy International Group",
+          url: "https://grouphegazy.com",
+          logo: "https://hegazy-group.lovable.app/hegazy-mark.png",
+          sameAs: [
+            "https://www.linkedin.com/company/hegazy-international-group/",
+            "https://www.facebook.com/share/1D7mZi51E7/",
+          ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+20 3 552 3190",
+            email: "company@grouphegazy.com",
+            contactType: "customer service",
+          },
+        }),
+      },
+    ],
   }),
   component: Index,
 });
