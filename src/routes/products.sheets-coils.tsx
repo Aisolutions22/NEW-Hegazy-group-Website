@@ -99,7 +99,7 @@ function Page() {
           <h3 className="mb-4 font-mono text-micro uppercase tracking-caps text-steel-400">
             {t.categoryPage.featuredHeading}
           </h3>
-          <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <ul className="grid grid-cols-1 items-start gap-4 md:grid-cols-3">
             {subCategories.map((item) => (
               <li key={item.label} className="overflow-hidden rounded-md border border-steel-200 bg-offwhite-50">
                 <img
@@ -109,7 +109,7 @@ function Page() {
                   height={item.height}
                   loading="lazy"
                   decoding="async"
-                  className="h-auto w-full object-contain"
+                  className="block h-auto w-full"
                 />
                 <div className="border-t border-steel-200 px-4 py-3 text-small font-semibold text-graphite-900">
                   {item.label}
