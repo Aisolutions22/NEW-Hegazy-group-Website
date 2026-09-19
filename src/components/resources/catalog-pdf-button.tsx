@@ -100,63 +100,32 @@ const CONTACT: [string, string][] = [
   ["Facebook", "https://www.facebook.com/share/1DG3gbSUhK/?mibextid=wwXIfr"],
 ];
 
-const escape = (s: string) =>
-  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const PAGE_W = 210;
+const PAGE_H = 297;
+const MARGIN = 18;
+const CONTENT_W = PAGE_W - MARGIN * 2;
 
-function buildMarkup() {
-  const products = PRODUCTS.map(
-    (p) => `
-      <section class="product">
-        <h2>${escape(p.title)}</h2>
-        <p>${escape(p.body)}</p>
-        <ul>${p.specs.map((s) => `<li>${escape(s)}</li>`).join("")}</ul>
-      </section>`,
-  ).join("");
-
-  const contact = CONTACT.map(
-    ([k, v]) =>
-      `<tr><th>${escape(k)}</th><td>${escape(v)}</td></tr>`,
-  ).join("");
-
-  return `
-    <style>
-      .pdf-root { font-family: Helvetica, Arial, sans-serif; color: #1a1d21; font-size: 12pt; line-height: 1.55; }
-      .pdf-root .page-break { page-break-before: always; }
-      .pdf-root h1 { font-size: 22pt; margin: 0 0 8pt; }
-      .pdf-root h2 { font-size: 15pt; margin: 0 0 6pt; }
-      .pdf-root p { margin: 0 0 10pt; }
-      .pdf-root ul { margin: 0; padding-left: 16pt; }
-      .pdf-root li { margin-bottom: 4pt; }
-      .pdf-root .product { page-break-inside: avoid; break-inside: avoid; margin-bottom: 20pt;
-        border-bottom: 1px solid #d8dce0; padding-bottom: 14pt; }
-      .pdf-root .cover { text-align: center; padding-top: 140pt; }
-      .pdf-root .cover img { width: 130px; height: auto; margin: 0 auto 30pt; display: block; }
-      .pdf-root .cover .sub { font-size: 16pt; color: #4a5560; }
-      .pdf-root table { width: 100%; border-collapse: collapse; }
-      .pdf-root th { text-align: left; width: 90pt; vertical-align: top; padding: 5pt 8pt 5pt 0; }
-      .pdf-root td { padding: 5pt 0; word-break: break-word; }
-    </style>
-    <div class="pdf-root">
-      <div class="cover">
-        <img src="${LOGO_URL}" alt="Hegazy Group logo" />
-        <h1>Hegazy Group — Aluminum Supply &amp; Distribution</h1>
-        <div class="sub">Product Catalog</div>
-      </div>
-
-      <div class="page-break">
-        <h1>About Hegazy Group</h1>
-        ${ABOUT_PARAGRAPHS.map((p) => `<p>${escape(p)}</p>`).join("")}
-      </div>
-
-      <div class="page-break">
-        ${products}
-      </div>
-
-      <div class="page-break">
-        <h1>Get in Touch</h1>
-        <table><tbody>${contact}</tbody></table>
-      </div>
-    </div>`;
+async function loadLogo(): Promise<{ data: string; w: number; h: number } | null> {
+  try {
+    const res = await fetch(LOGO_URL);
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    const data = await new Promise<string>((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(String(r.result));
+      r.onerror = reject;
+      r.readAsDataURL(blob);
+    });
+    const size = await new Promise<{ w: number; h: number }>((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+      img.onerror = reject;
+      img.src = data;
+    });
+    return { data, ...size };
+  } catch {
+    return null;
+  }
 }
 
 export function CatalogPdfButton({ label }: { label: string }) {
@@ -165,30 +134,114 @@ export function CatalogPdfButton({ label }: { label: string }) {
   async function handleClick() {
     setBusy(true);
     try {
-      const mod = await import("html2pdf.js");
-      const html2pdf = (mod as { default: unknown }).default ?? mod;
-      const container = document.createElement("div");
-      container.style.cssText =
-        "width:794px;max-width:794px;box-sizing:border-box;overflow:hidden;background:#ffffff;";
-      container.innerHTML = buildMarkup();
-      document.body.appendChild(container);
-      try {
-        await (html2pdf as (...a: unknown[]) => {
-          set: (o: unknown) => { from: (e: unknown) => { save: () => Promise<void> } };
-        })()
-          .set({
-            margin: [14, 14, 16, 14],
-            filename: "Hegazy-Group-Product-Catalog.pdf",
-            image: { type: "jpeg", quality: 0.95 },
-            html2canvas: { scale: 2, useCORS: true, windowWidth: 794 },
-            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-            pagebreak: { mode: ["css", "legacy"], avoid: ".product" },
-          })
-          .from(container)
-          .save();
-      } finally {
-        container.remove();
+      const { jsPDF } = await import("jspdf");
+      const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
+      const logo = await loadLogo();
+
+      // --- Cover ---
+      let y = 70;
+      if (logo) {
+        const w = 38;
+        const h = (logo.h / logo.w) * w;
+        doc.addImage(logo.data, "PNG", (PAGE_W - w) / 2, y, w, h);
+        y += h + 22;
+      } else {
+        y += 30;
       }
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(17);
+      doc.setTextColor(26, 29, 33);
+      const titleLines = doc.splitTextToSize(
+        "Hegazy Group \u2014 Aluminum Supply & Distribution",
+        CONTENT_W,
+      ) as string[];
+      titleLines.forEach((line) => {
+        doc.text(line, PAGE_W / 2, y, { align: "center" });
+        y += 9;
+      });
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(13);
+      doc.setTextColor(74, 85, 96);
+      doc.text("Product Catalog", PAGE_W / 2, y + 4, { align: "center" });
+
+      // --- About ---
+      doc.addPage();
+      doc.setTextColor(26, 29, 33);
+      y = MARGIN + 6;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.text("About Hegazy Group", MARGIN, y);
+      y += 12;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      ABOUT_PARAGRAPHS.forEach((p) => {
+        const lines = doc.splitTextToSize(p, CONTENT_W) as string[];
+        lines.forEach((line) => {
+          doc.text(line, MARGIN, y);
+          y += 5.8;
+        });
+        y += 5;
+      });
+
+      // --- Products ---
+      doc.addPage();
+      y = MARGIN + 6;
+      PRODUCTS.forEach((product) => {
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(11);
+        const bodyLines = doc.splitTextToSize(product.body, CONTENT_W) as string[];
+        const specLines = product.specs.flatMap(
+          (s) => doc.splitTextToSize(s, CONTENT_W - 6) as string[],
+        );
+        const blockH = 10 + bodyLines.length * 5.8 + 3 + specLines.length * 5.6 + 10;
+        if (y + blockH > PAGE_H - MARGIN) {
+          doc.addPage();
+          y = MARGIN + 6;
+        }
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(13);
+        doc.setTextColor(26, 29, 33);
+        doc.text(product.title, MARGIN, y);
+        y += 8;
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(11);
+        bodyLines.forEach((line) => {
+          doc.text(line, MARGIN, y);
+          y += 5.8;
+        });
+        y += 3;
+        doc.setTextColor(60, 68, 77);
+        specLines.forEach((line) => {
+          doc.text(line, MARGIN + 6, y);
+          y += 5.6;
+        });
+        doc.setTextColor(26, 29, 33);
+        y += 4;
+        doc.setDrawColor(216, 220, 224);
+        doc.line(MARGIN, y, PAGE_W - MARGIN, y);
+        y += 8;
+      });
+
+      // --- Contact ---
+      doc.addPage();
+      y = MARGIN + 6;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.text("Get in Touch", MARGIN, y);
+      y += 12;
+      doc.setFontSize(11);
+      CONTACT.forEach(([key, value]) => {
+        doc.setFont("helvetica", "bold");
+        doc.text(key, MARGIN, y);
+        doc.setFont("helvetica", "normal");
+        const lines = doc.splitTextToSize(value, CONTENT_W - 30) as string[];
+        lines.forEach((line, i) => {
+          doc.text(line, MARGIN + 30, y + i * 5.6);
+        });
+        y += Math.max(1, lines.length) * 5.6 + 4;
+      });
+
+      doc.save("Hegazy-Group-Product-Catalog.pdf");
     } finally {
       setBusy(false);
     }
