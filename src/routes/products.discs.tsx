@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
-import { getProductCategory } from "@/lib/catalog/categories";
+import { PRODUCT_DETAIL_IMAGES } from "@/lib/catalog/product-detail-images";
 import { useLanguage } from "@/lib/i18n/language-context";
 
 export const Route = createFileRoute("/products/discs")({
@@ -25,12 +25,15 @@ export const Route = createFileRoute("/products/discs")({
 
 function Page() {
   const { t } = useLanguage();
+  const image = PRODUCT_DETAIL_IMAGES.discs;
   return (
     <CategoryPageLayout
       title={t.productDetail.discs.title}
       intro={t.productDetail.discs.intro}
-      image={getProductCategory("discs")?.image}
-      imageAlt={t.productDetail.discs.title}
+      image={image.src}
+      imageAlt={image.alt}
+      imageWidth={image.width}
+      imageHeight={image.height}
     >
       <div className="grid gap-12">
         <SpecTable

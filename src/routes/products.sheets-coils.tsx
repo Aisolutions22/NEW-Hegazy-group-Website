@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { SpecMatrix } from "@/components/products/spec-table";
-import { getProductCategory } from "@/lib/catalog/categories";
+import { PRODUCT_DETAIL_IMAGES } from "@/lib/catalog/product-detail-images";
 import { useLanguage } from "@/lib/i18n/language-context";
 
 export const Route = createFileRoute("/products/sheets-coils")({
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/products/sheets-coils")({
 function Page() {
   const { t } = useLanguage();
   const s = t.productDetail.sheetsCoils;
+  const image = PRODUCT_DETAIL_IMAGES["sheets-coils"];
 
   const columns = [
     { key: "type", label: s.colType },
@@ -56,8 +57,10 @@ function Page() {
     <CategoryPageLayout
       title={s.title}
       intro={s.intro}
-      image={getProductCategory("sheets-coils")?.image}
-      imageAlt={s.title}
+      image={image.src}
+      imageAlt={image.alt}
+      imageWidth={image.width}
+      imageHeight={image.height}
     >
       <div className="grid gap-12">
         <SpecMatrix caption={s.hotRolled} columns={columns} rows={hotRolled} />

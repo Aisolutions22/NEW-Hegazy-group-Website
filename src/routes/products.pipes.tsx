@@ -3,7 +3,7 @@ import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { RelatedIndustries } from "@/components/products/related-industries";
 import { SpecTable } from "@/components/products/spec-table";
 import { useLanguage } from "@/lib/i18n/language-context";
-import { getProductCategory } from "@/lib/catalog/categories";
+import { PRODUCT_DETAIL_IMAGES } from "@/lib/catalog/product-detail-images";
 
 export const Route = createFileRoute("/products/pipes")({
   head: () => ({
@@ -25,14 +25,16 @@ export const Route = createFileRoute("/products/pipes")({
 
 function PipesPage() {
   const { t } = useLanguage();
-  const image = getProductCategory("pipes")?.image;
+  const image = PRODUCT_DETAIL_IMAGES.pipes;
 
   return (
     <CategoryPageLayout
       title={t.productDetail.pipes.title}
       intro={t.productDetail.pipes.intro}
-      image={image}
-      imageAlt={t.productDetail.pipes.title}
+      image={image.src}
+      imageAlt={image.alt}
+      imageWidth={image.width}
+      imageHeight={image.height}
     >
       <div className="grid gap-10 lg:grid-cols-2">
         <SpecTable
