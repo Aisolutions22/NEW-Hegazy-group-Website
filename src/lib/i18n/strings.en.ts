@@ -338,6 +338,7 @@ export const en = {
       "Access technical data, product catalogs, selection guides, and FAQs to support your aluminum sourcing and fabrication needs. All documents are provided for reference; for project-specific requirements, please contact our technical team.",
     download: "Download",
     downloadPending: "PDF download coming soon.",
+    downloadCatalog: "Download Catalog (PDF)",
     quote: "Request a Quote",
     contact: "Contact Us",
     cards: {
