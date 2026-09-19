@@ -4,6 +4,9 @@ import { CategoryPageLayout } from "@/components/products/category-page-layout";
 import { SpecMatrix } from "@/components/products/spec-table";
 import { PRODUCT_DETAIL_IMAGES } from "@/lib/catalog/product-detail-images";
 import { useLanguage } from "@/lib/i18n/language-context";
+import embossedAsset from "@/assets/product-subcategories/embossed.jpeg.asset.json";
+import diamondAsset from "@/assets/product-subcategories/diamond.jpeg.asset.json";
+import fiveBarAsset from "@/assets/product-subcategories/5-bar.jpeg.asset.json";
 
 export const Route = createFileRoute("/products/sheets-coils")({
   head: () => ({
@@ -51,7 +54,29 @@ function Page() {
     { type: s.rowSquares, thickness: "1.0 – 2.5", width: "300 – 800", length: "300 – 1300", temper: "O, H1x, H2x" },
   ];
 
-  const subCategories = [s.subMill, s.subEmbossed, s.subCoils];
+  const subCategories = [
+    {
+      label: "Embossed",
+      image: embossedAsset.url,
+      width: 750,
+      height: 750,
+      alt: "Embossed aluminum sheet pattern",
+    },
+    {
+      label: "Diamond",
+      image: diamondAsset.url,
+      width: 750,
+      height: 500,
+      alt: "Diamond pattern aluminum sheet",
+    },
+    {
+      label: "5-bar",
+      image: fiveBarAsset.url,
+      width: 1108,
+      height: 960,
+      alt: "5-bar pattern aluminum sheet",
+    },
+  ];
 
   return (
     <CategoryPageLayout
@@ -74,13 +99,21 @@ function Page() {
           <h3 className="mb-4 font-mono text-micro uppercase tracking-caps text-steel-400">
             {t.categoryPage.featuredHeading}
           </h3>
-          <ul className="flex flex-wrap gap-2">
-            {subCategories.map((label) => (
-              <li
-                key={label}
-                className="rounded-sm border border-steel-200 bg-offwhite-50 px-3 py-1.5 text-legal text-steel-600"
-              >
-                {label}
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {subCategories.map((item) => (
+              <li key={item.label} className="overflow-hidden rounded-md border border-steel-200 bg-offwhite-50">
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full object-contain"
+                />
+                <div className="border-t border-steel-200 px-4 py-3 text-small font-semibold text-graphite-900">
+                  {item.label}
+                </div>
               </li>
             ))}
           </ul>
