@@ -133,6 +133,7 @@ export function CatalogPdfButton({ label }: { label: string }) {
 
   async function handleClick() {
     setBusy(true);
+    console.log("catalog-pdf: start");
     try {
       const { jsPDF } = await import("jspdf");
       const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
@@ -241,6 +242,7 @@ export function CatalogPdfButton({ label }: { label: string }) {
         y += Math.max(1, lines.length) * 5.6 + 4;
       });
 
+      console.log("catalog-pdf: saving");
       doc.save("Hegazy-Group-Product-Catalog.pdf");
     } finally {
       setBusy(false);
