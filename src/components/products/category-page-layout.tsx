@@ -13,12 +13,16 @@ export function CategoryPageLayout({
   intro,
   image,
   imageAlt,
+  imageWidth,
+  imageHeight,
   children,
 }: {
   title: string;
   intro: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   children: React.ReactNode;
 }) {
   const { t } = useLanguage();
@@ -54,12 +58,11 @@ export function CategoryPageLayout({
                   <img
                     src={image}
                     alt={imageAlt ?? title}
-                    width={800}
-                    height={436}
-                    loading="eager"
-                    fetchPriority="high"
+                    width={imageWidth ?? 800}
+                    height={imageHeight ?? 436}
+                    loading="lazy"
                     decoding="async"
-                    className="aspect-[4/3] w-full object-cover"
+                    className="h-auto w-full object-contain"
                   />
                 </div>
               </div>
